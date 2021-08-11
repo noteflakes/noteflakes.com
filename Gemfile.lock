@@ -27,6 +27,7 @@ PATH
       acme-client (~> 2.0.8)
       extralite (~> 1.2)
       http-2 (~> 0.11)
+      localhost (~> 1.1.4)
       msgpack (~> 1.4.2)
       polyphony (~> 0.67)
       qeweney (~> 0.14)
@@ -64,6 +65,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    localhost (1.1.8)
     msgpack (1.4.2)
     multipart-post (2.1.1)
     rack (2.2.3)
