@@ -2,12 +2,25 @@
 
 require 'bundler/setup'
 require 'tipi'
+require 'impression'
 
-::Exception.__disable_sanitized_backtrace__ = true
+PAGES_DIR = File.join(__dir__, 'site/pages')
+ASSETS_DIR = File.join(__dir__, 'site/_assets')
 
-certificate_db_path = File.expand_path('certificate_store.db', __dir__)
-certificate_store = Tipi::ACME::SQLiteCertificateStore.new(certificate_db_path)
+$development = ENV['dev'] == '1'
 
-Tipi.full_service(
-  certificate_store: certificate_store
-) { |req| req.respond("Quand est née la reine d'angleterre?\nJe ne sais pas.", 'Content-Type' => 'text/plain') }
+pages = Impression::Pages.new(PAGES_DIR, auto_reload: true)
+
+app = proc do |req|
+  p [req.host, req.path]
+  req.route do
+    if req.host != 'noteflakes.com'
+      p reject_host: req.host
+      req.reject(nil, Qeweney::Status::SERVICE_UNAVAILABLE)
+    end
+    req.on('assets') { req.serve_file(req.route_relative_path, base_path: ASSETS_DIR) }
+    req.default { pages.serve(req) }
+  end
+end
+
+Tipi.full_service(&app)
