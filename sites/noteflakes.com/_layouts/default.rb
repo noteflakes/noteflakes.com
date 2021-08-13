@@ -5,8 +5,9 @@ H {
       meta charset: 'utf-8'
       meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
       meta name: 'referrer', content: 'no-referrer'
+      link rel: 'icon', type: 'image/png', href: '/assets/nf-icon-black.png'
       style 'body { display: none }' # prevent FUOC
-      link rel: 'stylesheet', href: '/assets/style.css', type: 'text/css'
+      link rel: 'stylesheet', type: 'text/css', href: '/assets/style.css'
     }
     body {
       header {
@@ -16,6 +17,7 @@ H {
           li { a 'archive', href: '/archive' }
           li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
           li { a 'about', href: '/about' }
+          li { a 'RSS feed', href: '/feeds/rss' }
         }
       }
       emit context[:page].render

@@ -3,7 +3,7 @@
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
-  line-height: 1.35em;
+  line-height: 1.5em;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
@@ -150,6 +150,7 @@ strong {
 
 p, ul, ol {
   margin: 0 0 0.75em 0;
+  padding: 0;
 }
 
 pre {
@@ -198,6 +199,31 @@ thead tr {
 
 table td {
   padding: 6px 13px 2px;
+}
+
+div.portrait {
+  float: left;
+  width: 400px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+  div.portrait {
+    float: none;
+    width: 100%;
+    padding: 0 0 20px;
+  }
+}
+
+
+
+div.portrait img {
+  width: 100%;
+}
+
+.clear {
+  clear: both;
 }
 
 footer {
