@@ -21,8 +21,4 @@ H {
       emit page.render
     }
   }
-
-  footer {
-    hr
-  }
 }

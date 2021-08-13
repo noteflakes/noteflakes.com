@@ -19,6 +19,16 @@ H {
         }
       }
       emit context[:page].render
+      footer {
+        hr
+        p {
+          span 'Copyright © 2021 Sharon Rosner. This site runs on '
+          a 'Impression', href: 'https://github.com/digital-fabric/impression'
+          span ' and '
+          a 'Tipi', href: 'https://github.com/digital-fabric/tipi'
+          span '.'
+        }
+      }
     }
   }
 }

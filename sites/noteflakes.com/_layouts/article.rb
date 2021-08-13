@@ -8,7 +8,6 @@ H {
       style 'body { display: none }' # prevent FUOC
       link rel: 'stylesheet', href: '/assets/style.css', type: 'text/css'
     }
-    style 'body { display: none }'
     body {
       header {
         h1 { a 'noteflakes', href: '/' }
@@ -19,12 +18,23 @@ H {
           li { a 'about', href: '/about' }
         }
       }
+  
       article {
         h1 context[:page].title
         h3 context[:page].attributes['date'], class: 'date'
         emit context[:page].render
       }
+
+      footer {
+        hr
+        p {
+          span 'Copyright © 2021 Sharon Rosner. This site runs on '
+          a 'Impression', href: 'https://github.com/digital-fabric/impression'
+          span ' and '
+          a 'Tipi', href: 'https://github.com/digital-fabric/tipi'
+          span '.'
+        }
+      }
     }
-    style 'body { display: block }'
   }
 }
