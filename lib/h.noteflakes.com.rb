@@ -101,9 +101,9 @@ module HaaretzFeedSite
       }
     end
 
-    URLA = 'https://archive.is/?url=';
+    URLA = 'https://archive.today/?run=1&url='
     def archive_uri(uri)
-      URLA + uri
+      URLA + EscapeUtils.escape_uri(uri)
     end
   end
 end
