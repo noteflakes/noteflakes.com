@@ -11,11 +11,8 @@ require 'httparty'
 module HaaretzFeedSite
   class << self
     SITE_DIR = File.expand_path('../sites/h.noteflakes.com', __dir__)
-    # PAGES_DIR = File.join(SITE_DIR, 'pages')
     ASSETS_DIR = File.join(SITE_DIR, '_assets')
 
-    # PAGES = Impression::Pages.new(PAGES_DIR, auto_reload: true)
-    
     def route(req)
       req.on_root { req.respond(render_index, 'Content-Type' => 'text/html') }
       req.on('assets') { req.serve_file(req.route_relative_path, base_path: ASSETS_DIR) }
