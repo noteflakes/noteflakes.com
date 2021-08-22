@@ -11,7 +11,6 @@ H {
 
   articles.each { |page|
     date = page.attributes['date']
-    Object.p date: date
     if date != last_date
       last_date = date
       h3 date.strftime('%d·%m·%Y'), class: 'date'
