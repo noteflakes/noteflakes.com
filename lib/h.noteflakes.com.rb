@@ -26,12 +26,10 @@ module HaaretzFeedSite
 
     def should_update?
       now = Time.now
-      if !@last_stamp || now - @last_stamp >= 3600
-        @last_stamp = now
-        true
-      else
-        false
-      end
+      return false if @last_stamp && (now - @last_stamp) < 3600
+
+      @last_stamp = now
+      true
     end
 
     def update
