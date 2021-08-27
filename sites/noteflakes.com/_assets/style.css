@@ -48,11 +48,73 @@ h1 {
 }
 
 h2 {
+  margin-top: 1em;
   font-size: 1.25em;
 }
 
 h3 {
   font-size: 1.1em;
+}
+
+small {
+  font-size: 0.8em;
+}
+
+small.date {
+  padding-left: 2em;
+  color: #888;
+}
+
+a {
+  color: #248;
+  font-weight: 600;
+}
+
+a:visited {
+  color: #824;
+}
+
+li {
+  margin-left: 1em;
+  margin-bottom: 0.25em;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p, ul, ol {
+  margin: 0 0 0.75em 0;
+  padding: 0;
+}
+
+pre {
+  padding: 0;
+  overflow-x: scroll;
+}
+
+pre + p {
+  margin-top: 1em;
+}
+
+pre code {
+  /* margin: 10px; */
+  word-wrap: no;
+}
+
+hr {
+  display: block;
+  margin: 8em 0;
+  border-width: 0;
+  text-align: center;
+}
+
+hr::after {
+  content: "················";
 }
 
 header {
@@ -72,8 +134,10 @@ header h1 img {
   top: 8px;
 }
 
-header h1 a {
+header h1 a, header h1 a:visited {
+  color: #222;
   text-decoration: none;
+  font-weight: 1000;
 }
 
 header ul {
@@ -101,8 +165,18 @@ header li.byline {
   }
 }
 
-header li a {
+header li a, header li a:visited {
+  color: #222;
   margin: 0 7px;
+  font-weight: 600;
+}
+
+article.quote_of_the_day {
+  margin-left: 3em;
+}
+
+article.quote_of_the_day p {
+  margin-top: 2em;
 }
 
 article h1 {
@@ -128,58 +202,6 @@ h3.date {
 
 article + h3.date {
   margin-top: 80px;
-}
-
-small {
-  font-size: 0.8em;
-}
-
-small.date {
-  padding-left: 2em;
-  color: #888;
-}
-
-a {
-  color: -webkit-link;
-}
-
-li {
-  margin-left: 1em;
-  margin-bottom: 0.25em;
-}
-
-em {
-  font-style: italic;
-}
-
-strong {
-  font-weight: bold;
-}
-
-p, ul, ol {
-  margin: 0 0 0.75em 0;
-  padding: 0;
-}
-
-pre {
-  padding: 20px 5px;
-  overflow-x: scroll;
-}
-
-pre code {
-  /* margin: 10px; */
-  word-wrap: no;
-}
-
-hr {
-  display: block;
-  margin: 8em 0;
-  border-width: 0;
-  text-align: center;
-}
-
-hr::after {
-  content: "················";
 }
 
 iframe {
@@ -224,8 +246,6 @@ div.portrait {
   }
 }
 
-
-
 div.portrait img {
   width: 100%;
 }
@@ -239,6 +259,15 @@ footer {
   text-align: center;
 }
 
+blockquote {
+  font-style: italic;
+}
+
+div.highlight {
+  border-left: 3px solid #8a8;
+  padding-left: 12px;
+  margin-bottom: 1em;
+}
 
 .highlight, .highlight *  { background: #f8f8f8; }
 .highlight .hll { background-color: #ffffcc }
