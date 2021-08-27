@@ -22,7 +22,8 @@ H {
   
       article {
         h1 context[:page].title
-        h3 context[:page].attributes['date'], class: 'date'
+        date = context[:page].attributes['date']
+        h3 date.strftime('%d·%m·%Y'), class: 'date'
         emit context[:page].render
       }
 
