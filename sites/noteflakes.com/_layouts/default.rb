@@ -11,7 +11,10 @@ H {
     }
     body {
       header {
-        h1 { img src: '/assets/nf-icon-black.png'; a 'noteflakes', href: '/' }
+        h1 { a(href: '/') {
+          img src: '/assets/nf-icon-black.png'
+          span 'noteflakes'
+        } }
         ul {
           li 'by Sharon Rosner', class: 'byline'
           li { a 'archive', href: '/archive' }
