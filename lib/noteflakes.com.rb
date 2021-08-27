@@ -16,6 +16,7 @@ module NoteflakesSite
     PAGES = Impression::Pages.new(PAGES_DIR, auto_reload: true)
     
     def route(req)
+      req.on('ping') { req.respond('pong') }
       req.on('assets') { req.serve_file(req.route_relative_path, base_path: ASSETS_DIR) }
       req.on('feeds/rss') { req.respond(render_rss_feed, 'Content-Type' => 'text/xml; charset=utf-8') }
       req.on('feeds/json') { req.respond(render_json_feed, 'Content-Type' => 'application/json; charset=utf-8') }
