@@ -19,7 +19,7 @@ This website was made and is run using my own tools:
 - [Tipi](https://github.com/digital-fabric/tipi) - a modern web server for Ruby
 - [Polyphony](https://github.com/digital-fabric/polyphony) - a platform for creating highly-concurrent Ruby apps
 
-Here's a link to the [source code](https://github.com/ciconia/noteflakes.com).
+You can also consult the [source code for this website](https://github.com/ciconia/noteflakes.com).
 
 You can contact me by sending an email to:
 
