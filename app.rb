@@ -7,7 +7,7 @@ require_relative 'lib/noteflakes.com'
 require_relative 'lib/h.noteflakes.com'
 
 app = proc do |req|
-  p [req.host, req.path]
+  p req.headers
   req.route do
     req.on_host('noteflakes.com') { NoteflakesSite.route(req) }
     req.on_host('h.noteflakes.com') { HaaretzFeedSite.route(req) }
