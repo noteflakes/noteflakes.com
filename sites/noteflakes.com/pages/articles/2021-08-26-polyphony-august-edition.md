@@ -14,7 +14,7 @@ The summer is drawing to an end, and with it I bring another edition of Polyphon
 
 In the last month I've been doing a lot more work on [Tipi](https://github.com/digital-fabric/tipi) than on Polyphony, and most of my work on Polyphony has been just fixing bugs. For me this is a major milestone, as I'm transitioning from working on the low-level stuff, to an actual application that can do something useful. To me this feels a bit like transitioning from writing [counterpoint](https://en.wikipedia.org/wiki/Counterpoint) exercises to composing an actual piece of music.
 
-The Polyphony API is maturing nicely and I hope to be able to make a 1.0 release in the coming weeks. As for Tipi, there's still a lot of work to do in order for it to be useful, and I'll discuss that towards the end of this post.
+The Polyphony API is maturing nicely and I hope to be able to make a 1.0 release in the coming weeks. As for Tipi, there's still a lot of work to do in order for it to be ready for public release, and I'll discuss that towards the end of this post.
 
 ## Changes in Polyphony
 
