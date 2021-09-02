@@ -92,9 +92,23 @@ p, ul, ol {
   padding: 0;
 }
 
+article img {
+  width: 100%;
+  margin: 2em 0;
+}
+
+div.previously {
+  margin-top: 6em;
+  text-align: center; 
+}
+
 pre {
   padding: 0;
   overflow-x: scroll;
+
+  border-left: 3px solid #8a8;
+  padding-left: 12px;
+
 }
 
 pre + p {
@@ -264,8 +278,6 @@ blockquote {
 }
 
 div.highlight {
-  border-left: 3px solid #8a8;
-  padding-left: 12px;
   margin-bottom: 1em;
 }
 

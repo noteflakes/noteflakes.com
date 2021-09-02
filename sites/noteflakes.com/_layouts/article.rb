@@ -27,6 +27,12 @@ H {
         emit context[:page].render
       }
 
+      # prev_page = context[:page].prev_page
+      # div(class: 'previously') {
+      #   span 'Previously: '
+      #   a prev_page.title, href: prev_page.permalink
+      # } if prev_page
+
       footer {
         hr
         p {
