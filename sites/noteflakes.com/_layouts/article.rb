@@ -6,17 +6,24 @@ H {
       meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
       meta name: 'referrer', content: 'no-referrer'
       link rel: 'icon', type: 'image/png', href: '/assets/nf-icon-black.png'
-      style 'body { display: none }' # prevent FUOC
       link rel: 'stylesheet', type: 'text/css', href: '/assets/style.css'
+      link rel: 'alternate', type: 'application/rss+xml', href: '/feeds/rss'
+      style 'body { display: none }' # prevent FUOC
     }
     body {
       header {
-        h1 { img src: '/assets/nf-icon-black.png'; a 'noteflakes', href: '/' }
+        h1 {
+          a(href: '/') {
+            img src: '/assets/nf-icon-black.png'
+            span 'noteflakes'
+          } 
+        }
         ul {
           li 'by Sharon Rosner', class: 'byline'
           li { a 'archive', href: '/archive' }
-          li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
           li { a 'about', href: '/about' }
+          li { a 'RSS feed', href: '/feeds/rss' }
+          li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
         }
       }
   
