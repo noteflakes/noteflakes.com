@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'modulation'
+
 %w{polyphony qeweney tipi impression}.each do |dep|
   dir = "../#{dep}"
   gem(dep, path: dir) if File.directory?(dir)

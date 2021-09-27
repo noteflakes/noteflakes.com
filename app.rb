@@ -2,15 +2,31 @@
 
 require 'bundler/setup'
 require 'tipi'
+require 'modulation'
 
-require_relative 'lib/noteflakes.com'
-require_relative 'lib/h.noteflakes.com'
+# This should go into Impression
+def site_router(sites, &block)
+  domain_routers = sites.each_with_object({}) do |s, h|
+    domain, handler = block.(s)
+    h[domain] = handler
+  end
+  proc do |req|
+    host = req.host
+    handler = domain_routers[host]
+    req.route_found { handler.call(req) } if handler
+  end
+end
+
+route_by_host = site_router(Dir['sites/*']) do |path|
+  domain = File.basename(path)
+  m = import(File.join(path, 'site.rb'))
+  [domain, m]
+end
 
 app = proc do |req|
   p req.headers
   req.route do
-    req.on_host('noteflakes.com') { NoteflakesSite.route(req) }
-    req.on_host('h.noteflakes.com') { HaaretzFeedSite.route(req) }
+    route_by_host.(req)
 
     req.reject(nil, Qeweney::Status::SERVICE_UNAVAILABLE)
   end
