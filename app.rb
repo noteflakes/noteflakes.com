@@ -17,19 +17,19 @@ def site_router(sites, &block)
   end
 end
 
-route_by_host = site_router(Dir['sites/*']) do |path|
-  domain = File.basename(path)
-  m = import(File.join(path, 'site.rb'))
-  [domain, m]
-end
+def app
+  route_by_host = site_router(Dir['sites/*']) do |path|
+    domain = File.basename(path)
+    m = import(File.join(path, 'site.rb'))
+    [domain, m]
+  end
+    
+  proc do |req|
+    p req.headers
+    req.route do
+      route_by_host.(req)
 
-app = proc do |req|
-  p req.headers
-  req.route do
-    route_by_host.(req)
-
-    req.reject(nil, Qeweney::Status::SERVICE_UNAVAILABLE)
+      req.reject(nil, Qeweney::Status::SERVICE_UNAVAILABLE)
+    end
   end
 end
-
-Tipi.full_service(&app)
