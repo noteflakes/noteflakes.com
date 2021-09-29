@@ -89,4 +89,4 @@ p, ul, ol {
   margin: 0 0 0.75em 0;
 }
 
-body { display: block } // Prevent FUOC
+body { display: block } /* Prevent FUOC */
