@@ -1,0 +1,256 @@
+* {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #222;
+}
+
+body {
+  font-family: "Open Sans Hebrew","Helvetica Neue",tahoma,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2em auto 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  body {
+    width: 85%;
+    padding: 0;
+  }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  body {
+    width: 80%;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  margin-top: 1em;
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+small {
+  font-size: 0.8em;
+}
+
+small.date {
+  padding-left: 2em;
+  color: #888;
+}
+
+a {
+  color: #248;
+  font-weight: 600;
+}
+
+a:visited {
+  color: #824;
+}
+
+li {
+  margin-left: 1em;
+  margin-bottom: 0.25em;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p, ul, ol {
+  margin: 0 0 0.75em 0;
+  padding: 0;
+}
+
+article img {
+  width: 100%;
+  margin: 2em 0;
+}
+
+div.previously {
+  margin-top: 6em;
+  text-align: center; 
+}
+
+pre {
+  padding: 0;
+  overflow-x: scroll;
+
+  border-left: 3px solid #8a8;
+  padding-left: 12px;
+
+}
+
+pre + p {
+  margin-top: 1em;
+}
+
+pre code {
+  /* margin: 10px; */
+  word-wrap: no;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+#banner {
+  font: normal 16px monospace;
+  margin-bottom: 1em;
+}
+
+#banner p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.25em;
+}
+
+#banner hr {
+  display: block;
+  margin: 0;
+  border: 1px solid #888;
+}
+
+#banner b {
+  font-weight: bold;
+}
+
+header h1 {
+  font-size: 2em;
+  font-weight: 1000;
+}
+
+header h1 img {
+  width: 32px;
+  display: inline-block;
+  padding-right: 12px;
+  position: relative;
+  top: 8px;
+}
+
+header h1 a, header h1 a:visited {
+  color: #222;
+  text-decoration: none;
+  font-weight: 1000;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+header li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+header li.byline {
+  margin-right: 20px;
+  font-weight: 1000;
+}
+
+@media (max-width: 500px) {
+  header li.byline {
+    display: block;
+  }
+}
+
+header li a, header li a:visited {
+  color: #222;
+  margin: 0 7px;
+  font-weight: 600;
+}
+
+article.quote_of_the_day {
+  margin-left: 3em;
+}
+
+article.quote_of_the_day p {
+  margin-top: 2em;
+}
+
+article h1 {
+  font-size: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+article h2 {
+  font-size: 1.25em;
+  margin-bottom: 0.75em;
+}
+
+article h3 {
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+h3.date {
+  color: #888;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+article + h3.date {
+  margin-top: 80px;
+}
+
+iframe {
+  margin: 20px;
+  max-width: 530px;
+}
+
+#content img {
+  max-width: 100%;
+}
+
+table {
+  margin: 20px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead th {
+  border-bottom: 1px solid #666;
+  padding: 6px 13px 2px 13px;
+}
+
+thead tr {
+}
+
+table td {
+  padding: 6px 13px 2px;
+}
+
+body { display: block } /* Prevent FUOC */
