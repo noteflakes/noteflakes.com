@@ -93,7 +93,7 @@ GEM
     rexml (3.2.5)
     rouge (3.26.0)
     ruby2_keywords (0.0.5)
-    rubyoshka (0.6.1)
+    rubyoshka (0.7)
       escape_utils (= 1.2.1)
     websocket (1.2.9)
 
@@ -111,7 +111,7 @@ DEPENDENCIES
   qeweney!
   rb-inotify (= 0.10.1)
   rouge (= 3.26.0)
-  rubyoshka (= 0.6.1)
+  rubyoshka (= 0.7)
   tipi!
 
 BUNDLED WITH

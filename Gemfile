@@ -8,7 +8,7 @@ gem 'modulation'
 end
 
 gem 'rb-inotify',   '0.10.1'
-gem 'rubyoshka',    '0.6.1'
+gem 'rubyoshka',    '0.7'
 gem 'rouge',        '3.26.0'
 gem 'nokogiri',     '1.12.3'
 gem 'open-uri',     '0.1.0'
