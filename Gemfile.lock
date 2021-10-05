@@ -23,7 +23,7 @@ PATH
 PATH
   remote: ../tipi
   specs:
-    tipi (0.43)
+    tipi (0.44)
       acme-client (~> 2.0.8)
       ever (~> 0.1)
       extralite (~> 1.2)
