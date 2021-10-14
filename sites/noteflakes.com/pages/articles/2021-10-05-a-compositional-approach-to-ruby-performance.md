@@ -400,12 +400,16 @@ In this article I have presented an approach to optimizing the performance of
 Ruby apps by separating the program into two layers: a top layer that written in
 Ruby, expressing low-level operations using Ruby data structures; and an
 implementation layer written in C for executing those operations in an optimized
-manner.
+manner. This approach is particularly interesting when dealing with long running
+or complex operations: sending an HTTP response with chunked encoding, parsing
+incoming data, running I/O operations in loops etc.
 
-As I have mentioned above, this approach is similar to that employed by io_uring
+As I have mentioned above, this this is similar to that employed by io_uring
 on Linux. The idea is the same: we express (I/O) operations using data
 structures, then offload the execution to an lower-level optimized layer - in
 io_uring's case it's the kernel, in Ruby's case it's a C-extension.
+
+It seems to me that 
 
 This is definitely an avenue I intend on further exploring, and I invite other
 Ruby developers to join me in this exploration. While we wait for all those

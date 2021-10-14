@@ -78,4 +78,3 @@ def all_articles_in_order
     .sort_by { |page| page.attributes['date'] }
     .reverse
 end
-
