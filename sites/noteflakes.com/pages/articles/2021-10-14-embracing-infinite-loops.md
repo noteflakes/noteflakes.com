@@ -36,10 +36,10 @@ can create any number of fibers, all executing concurrently, with each of those
 fibers proceeding independently of the others.
 
 But loops come into play when you want to launch autonomous long-running tasks,
-like for example listening for incoming connections on a TCP socket, pulling
-items from a queue and processing them, or periodically running some background
-task. Infinite loops are what makes it possible to "fire-and-forget" those
-concurrent processes.
+like listening for incoming connections on a TCP socket, pulling items from a
+queue and processing them, or periodically running some background task.
+Infinite loops are what makes it possible to "fire-and-forget" those concurrent
+processes.
 
 ## Loops are everywhere!
 
@@ -254,13 +254,49 @@ TCP socket.
 (We'll take a closer look at exception handling and fiber termination in a
 future article.)
 
+## Polyphony 💛 Loops
+
+Polyphony not only makes it easy to start and stop concurrent infinite loops,
+but it also further embraces loops by providing a bunch of loop APIs, including:
+
+- `#spin_loop` - used for spinning up fibers that just run a loop. That way you
+  can be even more concise when expressing infinite loops:
+
+  ```ruby
+  item_processor = spin_loop { process(queue.shift) }
+  ```
+
+- `IO#read_loop`/`IO#recv_loop` - used for reading from an IO instance (and
+  provides even better performance, since it reads in a tighter loop):
+
+  ```ruby
+  connection.read_loop { |data| process(data) }
+  ```
+
+- `IO#feed_loop` - used for feeding data read from an IO instance into a parser.
+  Take for example a connection that uses [MessagePack](https://msgpack.org/) to
+  pass messages:
+
+  ```ruby
+  require 'msgpack'
+  
+  unpacker = MessagePack::Unpacker.new
+  # #feed_loop takes a receiver and the method to call on each chunk of data
+  connection.feed_loop(unpacker, :feed_each) { |msg| process(msg) }
+  end
+  ```
+
+In the future Polyphony will include even more `#xxx_loop` APIs that will
+provide more concise ways to express loops along with better performance.
+
 ## Polyphony is just plain Ruby
 
 Looking at all the above examples, you will have noticed how the Polyphony API
-looks baked into the Ruby language. One of my principal design goals was to
-minimize boilerplate code when expressing concurrent operations. There's no
-instantiating of special objects, no weird mechanisms for controlling fibers or
-rescuing exceptions. It just looks like plain Ruby!
+really looks baked into the Ruby language, as if it was part of the Ruby core.
+One of my principal design goals was to minimize boilerplate code when
+expressing concurrent operations. There's no instantiating of special objects,
+no weird mechanisms for controlling fibers or rescuing exceptions. It just looks
+like plain Ruby! This makes it easier to both write *and* read concurrent code.
 
 ## Conclusion
 
