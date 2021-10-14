@@ -92,6 +92,10 @@ p, ul, ol {
   padding: 0;
 }
 
+p code, li code {
+  color: #3838c7;
+}
+
 article img {
   width: 100%;
   margin: 2em 0;
