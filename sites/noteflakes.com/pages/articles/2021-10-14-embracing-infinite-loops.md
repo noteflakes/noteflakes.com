@@ -169,7 +169,7 @@ interrupting fibers at any time. We can do that by scheduling the specific fiber
 with an exception, which might be a normal exception, or one of the special
 exceptions that Polyphony provides for controlling fibers.
 
-In order to stop a fiber running an infinite loop, we can issue call
+In order to stop a fiber running an infinite loop, we can call
 `Fiber#stop`:
 
 ```ruby
@@ -210,7 +210,14 @@ item_processor = spin do
 ensure
   socket.close
 end
+
+item_processor.await
+# the socket is now guaranteed to be closed
 ```
+
+When the `item_processor` fiber is terminated, the ensure block guarantees that
+the socket used for sending items is closed before the call to
+`item_processor.await` returns. 
 
 ## More ways to stop a fiber
 

@@ -79,6 +79,10 @@ li {
   margin-bottom: 0.25em;
 }
 
+ol li {
+  margin-left: 2em;
+}
+
 em {
   font-style: italic;
 }
