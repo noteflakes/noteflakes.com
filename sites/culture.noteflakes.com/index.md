@@ -1,5 +1,34 @@
 # Samedi Culture
 
+## 2021·11·06
+
+### Damien Dékarz - Permaculture
+
+- [Site web](http://www.permacultureetc.com/)
+- [Chaîne Youtube](https://www.youtube.com/c/permacultureetc)
+
+---
+
+### Clare W. Graves
+
+- [Wikipedia](https://fr.wikipedia.org/wiki/Clare_Graves)
+- [Spirale Dynamique](https://fr.wikipedia.org/wiki/Spirale_dynamique)
+
+---
+
+### Chronos, Kairos et Aiön
+
+- [Discussion en anglais](https://innovtoday.wordpress.com/2018/11/01/aion-kairos-chronos-3-time-concepts-to-master-in-innovation-management/)
+
+---
+
+### L'éthique de la viande
+
+- [La philosophie à l'abattoir](https://www.ledevoir.com/societe/549276/peut-on-manger-de-la-viande-de-facon-ethique)
+- [Une viande éthique est-elle possible ? Rencontre avec une éleveuse](https://www.youtube.com/watch?v=cutdzrKNnNo)
+
+---
+
 ## 2021·10·02
 
 ### Monty Python - Le guide de conversation hongrois

@@ -105,6 +105,11 @@ article img {
   margin: 2em 0;
 }
 
+article img.med {
+  max-width: 400px;
+  text-align: center;
+}
+
 div.previously {
   margin-top: 6em;
   text-align: center; 
