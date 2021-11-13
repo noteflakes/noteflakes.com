@@ -53,7 +53,7 @@ independent fiber.
 In order for all those different fibers to communicate with each other, we can
 use fiber messaging, a feature that is unique to Polyphony, and is greatly
 inspired by [message-passing in
-Erlang](https://www.erlang.org/blog/message-passing/), which essentially permits
+Erlang](https://www.erlang.org/doc/getting_started/conc_prog.html#message-passing), which essentially permits
 Erlang processes to behave as concurrent
 [actors](https://en.wikipedia.org/wiki/Actor_model).
 
