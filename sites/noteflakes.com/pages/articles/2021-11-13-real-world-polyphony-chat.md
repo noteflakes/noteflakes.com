@@ -191,7 +191,7 @@ module Calculator
 end
 
 # start server with initial state
-calculator = GenServer.start(calculator)
+calculator = GenServer.start(Calculator)
 calculator.add(3) #=> 3
 calculator.mul(2) #=> 6
 ```
