@@ -49,7 +49,7 @@ multicore machine.
 
 Preliminary benchmarks show Extralite to be significantly faster than
 sqlite3-ruby. The
-[benchmark](https://github.com/digital-fabric/extralite/blob/main/test/perf.rb)
+[benchmark](https://github.com/digital-fabric/extralite/blob/main/test/perf_hash.rb)
 included in the Extralite repository creates a database with varying number of
 rows, then meausres the time it takes for sqlite3-ruby and Extralite to fetch
 those rows. The performance advantage becomes more pronounced as the number of
