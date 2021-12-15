@@ -8,7 +8,7 @@ In the last year I've been working a lot with [SQLite](https://sqlite.org/)
 databases. I started by using the popular sqlite3-ruby Ruby gem, but quickly
 noticed that for *my usage* there were a few things missing in the gem's
 [API](https://www.rubydoc.info/gems/sqlite3/). Being a tinkerer, and having had
-some experience writing [C-extensions](https://digital-fabric/polyphony), I had
+some experience writing [C-extensions](https://github.com/digital-fabric/polyphony), I had
 a look at the SQLite C API and decided to try to write my own Ruby bindings for
 SQLite. Thus Extralite was born.
 
