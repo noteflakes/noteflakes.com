@@ -5,7 +5,7 @@ layout: article
 ---
 
 In the last year I've been working a lot with [SQLite](https://sqlite.org/)
-databases. I started by using the popular `sqlite3` Ruby gem, but quickly
+databases. I started by using the popular sqlite3-ruby Ruby gem, but quickly
 noticed that for *my usage* there were a few things missing in the gem's
 [API](https://www.rubydoc.info/gems/sqlite3/). Being a tinkerer, and having had
 some experience writing [C-extensions](https://digital-fabric/polyphony), I had
@@ -15,11 +15,11 @@ SQLite. Thus Extralite was born.
 [Extralite](https://github.com/digital-fabric/extralite) is an extra-lightweight
 (less than 460 lines of C-code) SQLite3 wrapper for Ruby. It provides a single
 class with a [minimal set of methods] for interacting with an SQLite3 database.
-Extralite provides the following improvements over the `sqlite3` gem:
+Extralite provides the following improvements over the sqlite3-ruby gem:
 
 - Improved concurrency for multithreaded apps: the Ruby GVL is released while
   preparing SQL statements and while iterating over results.
-- Super fast - up to 13x faster than `sqlite3`.
+- Super fast - up to 13x faster than sqlite3-ruby.
 - Automatically execute SQL strings containing multiple semicolon-separated
   queries (handy for creating/modifying schemas).
 - Access data in a variety of ways: rows as hashes, rows as arrays, single row,
