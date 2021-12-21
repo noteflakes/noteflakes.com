@@ -98,7 +98,7 @@ then change your database URLs to use the `extralite` schema instead of
 `sqlite`:
 
 ```ruby
-DB = Sequel.connect('extralite:my.db')
+DB = Sequel.connect('extralite://my.db')
 ```
 
 What about ActiveRecord? Well, I tried, but after spending a few hours looking
