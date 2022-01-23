@@ -1,7 +1,6 @@
----
-title: Noteflakes
----
-H {
+layout = import './_layouts/default'
+
+export_default layout.apply(title: '') { |resource:, **props|
   quote = <<~EOF
     And I dreamed I saw the bombers
     Riding shotgun in the sky
@@ -26,22 +25,19 @@ H {
     }
   }
 
-  articles = context[:pages]
-    .select(/^\/articles/)
-    .sort_by { |page| page.attributes['date'] }
-    .reverse.first(10)
+  article_entries = resource.page_list('/articles').reverse.first(10)
 
   last_date = nil
 
-  articles.each { |page|
-    date = page.attributes['date']
+  article_entries.each { |e|
+    date = e[:date]
     if date != last_date
       last_date = date
       h3 date.strftime('%d·%m·%Y'), class: 'date'
     end
     article {
-      h1 { a page.title, href: page.permalink }
-      emit page.render
+      h1 { a e[:title], href: e[:url] }
+      emit e[:html_content]
     }
   }
 }

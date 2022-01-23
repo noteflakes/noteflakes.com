@@ -1,7 +1,9 @@
-H {
+require 'papercraft'
+
+export_default Papercraft.html { |**props|
   html5 {
     head {
-      title context[:page].title
+      title(props[:title] ? "Noteflakes - #{props[:title]}" : "Noteflakes")
       meta charset: 'utf-8'
       meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
       style 'body { display: none }' # prevent FUOC
@@ -25,7 +27,7 @@ H {
           li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
         }
       }
-      emit context[:page].render
+      emit_yield **props
       footer {
         hr
         p {

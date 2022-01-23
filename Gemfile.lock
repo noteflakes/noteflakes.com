@@ -1,31 +1,26 @@
 PATH
   remote: ../impression
   specs:
-    impression (0.1)
-      kramdown (~> 2.3.0)
-      kramdown-parser-gfm (~> 1.1.0)
-      polyphony (~> 0.67)
-      qeweney (~> 0.14)
-      rb-inotify (~> 0.10.1)
-      rouge (~> 3.26.0)
-      rubyoshka (~> 0.7.0)
-      tipi (~> 0.41)
+    impression (0.7)
+      modulation (~> 1.1)
+      papercraft (~> 0.17)
+      polyphony (~> 0.73.1)
+      qeweney (~> 0.16)
+      tipi (~> 0.45)
 
 PATH
-  remote: ../polyphony
+  remote: ../papercraft
   specs:
-    polyphony (0.71)
-
-PATH
-  remote: ../qeweney
-  specs:
-    qeweney (0.14)
+    papercraft (0.17)
       escape_utils (~> 1.2.1)
+      kramdown (~> 2.3.1)
+      kramdown-parser-gfm (~> 1.1.0)
+      rouge (~> 3.27.0)
 
 PATH
   remote: ../tipi
   specs:
-    tipi (0.44)
+    tipi (0.45)
       acme-client (~> 2.0.8)
       ever (~> 0.1)
       extralite (~> 1.2)
@@ -45,30 +40,33 @@ GEM
       faraday (>= 0.17, < 2.0.0)
     escape_utils (1.2.1)
     ever (0.1)
-    extralite (1.4)
-    faraday (1.8.0)
+    extralite (1.11)
+    faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
       faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
+      faraday-net_http_persistent (~> 1.0)
       faraday-patron (~> 1.0)
       faraday-rack (~> 1.0)
-      multipart-post (>= 1.2, < 3)
+      faraday-retry (~> 1.0)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.3)
+      multipart-post (>= 1.2, < 3)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    ffi (1.15.3)
+    faraday-retry (1.0.3)
     h1p (0.2)
     http-2 (0.11.0)
-    httparty (0.18.1)
+    httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     kramdown (2.3.1)
@@ -76,45 +74,35 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     localhost (1.1.9)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0704)
-    mini_portile2 (2.6.1)
+    mime-types-data (3.2022.0105)
     modulation (1.1)
-    msgpack (1.4.2)
+    msgpack (1.4.4)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
-    open-uri (0.1.0)
-    racc (1.4.16)
+    polyphony (0.73.1)
+    qeweney (0.16)
+      escape_utils (~> 1.2.1)
+    racc (1.6.0)
     rack (2.2.3)
-    rb-inotify (0.10.1)
-      ffi (~> 1.0)
     rexml (3.2.5)
-    rouge (3.26.0)
+    rouge (3.27.0)
     ruby2_keywords (0.0.5)
-    rubyoshka (0.7)
-      escape_utils (= 1.2.1)
     websocket (1.2.9)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
-  escape_utils (= 1.2.1)
-  httparty (= 0.18.1)
-  impression!
+  httparty (~> 0.20.0)
+  impression (~> 0.7)!
   modulation
-  nokogiri (= 1.12.3)
-  open-uri (= 0.1.0)
-  polyphony!
-  qeweney!
-  rb-inotify (= 0.10.1)
-  rouge (= 3.26.0)
-  rubyoshka (= 0.7)
-  tipi!
+  nokogiri (~> 1.13.1)
+  papercraft (~> 0.17)!
+  tipi (~> 0.45)!
 
 BUNDLED WITH
-   2.1.4
+   2.3.3
