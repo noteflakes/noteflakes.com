@@ -4,21 +4,25 @@ require 'bundler/setup'
 require 'tipi'
 require 'modulation'
 
-sites = {
-  'noteflakes.com' => (import './sites/noteflakes.com/site.rb').to_proc
-}
+Tipi.run_sites(
+  'noteflakes.com' => (import './sites/noteflakes.com/site.rb')
+)
 
-sites[nil] = sites['noteflakes.com']
+# sites = {
+  
+# }
 
-Tipi.run do |req|
-  host = req.host
-  app = sites[host] || sites[nil]
-  if app
-    app.call(req)
-  else
-    req.respond(nil, ':status' => Qeweney::Status::NOT_FOUND)
-  end
-end
+# sites[nil] = sites['noteflakes.com']
+
+# Tipi.run do |req|
+#   host = req.host
+#   app = sites[host] || sites[nil]
+#   if app
+#     app.call(req)
+#   else
+#     req.respond(nil, ':status' => Qeweney::Status::NOT_FOUND)
+#   end
+# end
 
 # Tipi.run_sites(
 #   'noteflakes.com' => (import './sites/noteflakes.com/site.rb'),
