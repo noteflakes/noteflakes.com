@@ -288,7 +288,7 @@ for dealing with layouts.
 
 So let's explore how this website is constructed. The file for the present
 article is just a markdown file with some YAML front matter
-([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/articles/2021-12-15-extralite.md)):
+([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/articles/2022-02-04-papercraft.md)):
 
 ```md
 ---
