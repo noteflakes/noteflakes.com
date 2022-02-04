@@ -245,7 +245,7 @@ such as Bootstrap or Tailwind, where some components demand quite complex
 markup. Here's an example of how a Bootstrap extension might look like:
 
 ```ruby
-odule BootstrapComponents
+module BootstrapComponents
   ...
 
   def card(**props)
@@ -302,21 +302,27 @@ render HTML, XML and JSON using plain Ruby. Here's what it looks like:
 ...
 ```
 
-Here's the layout referenced in the front matter ([permalink]()):
+Here's the layout used for rendering articles
+([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/article.rb)):
 
 ```ruby
-default = import('./default')
+default = import './default'
 
-export_default default.apply { |**props|
+export_default default.apply { |title:, date:, **props|
   article {
+    h1 title
+    h3 date.strftime('%d·%m·%Y'), class: 'date'
     emit_yield
   }
 }
 ```
 
-Basically, the `article` layout imports the default layout (using
-[Modulation](https://github.com/digital-fabric/modulation)), and then creates a
-derivative layout that adds an article element and expects a nested block to be injected into it. Here's how the default layout looks ([permalink]()):
+The `article` layout above imports the default layout (using
+[Modulation](https://github.com/digital-fabric/modulation)), and uses `#apply`
+to create a derivative layout that adds an article element and expects a nested
+block to be injected into it.
+
+And here is the default layout ([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/default.rb)):
 
 ```ruby
 require 'papercraft'
@@ -324,16 +330,48 @@ require 'papercraft'
 export_default Papercraft.html { |**props|
   html5 {
     head {
-      title props[:title]
+      title(props[:title] ? "Noteflakes - #{props[:title]}" : "Noteflakes")
+      meta charset: 'utf-8'
+      meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
+      style 'body { display: none }' # prevent FUOC
+      link rel: 'icon', type: 'image/png', href: '/assets/nf-icon-black.png'
+      link rel: 'stylesheet', type: 'text/css', href: '/assets/style.css'
+      link rel: 'alternate', type: 'application/rss+xml', href: '/feeds/rss'
     }
     body {
+      header {
+        h1 {
+          a(href: '/') {
+            img src: '/assets/nf-icon-black.png'
+            span 'noteflakes'
+          } 
+        }
+        ul {
+          li 'by Sharon Rosner', class: 'byline'
+          li { a 'archive', href: '/archive' }
+          li { a 'about', href: '/about' }
+          li { a 'RSS feed', href: '/feeds/rss' }
+          li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
+        }
+      }
       emit_yield **props
+      footer {
+        hr
+        p {
+          span 'Copyright © 2021 Sharon Rosner. This site runs on '
+          a 'Impression', href: 'https://github.com/digital-fabric/impression'
+          span ' and '
+          a 'Tipi', href: 'https://github.com/digital-fabric/tipi'
+          span '.'
+        }
+      }
     }
   }
 }
 ```
 
-Finally, Impression takes the layout referenced in the article's front matter, and renders it by passing a block that renders the markdown:
+Finally, Impression takes the layout referenced in the article's front matter,
+and renders it by passing a block that renders the markdown:
 
 ```ruby
 def render_markdown_file(req, path_info)
@@ -342,54 +380,65 @@ def render_markdown_file(req, path_info)
   html = layout.render(request: req, resource: self, **path_info) {
     emit path_info[:html_content]
   }
-  req.respond(html, 'Content-Type' => template.mime_type)
+  req.respond(html, 'Content-Type' => layout.mime_type)
 end
 ```
 
 Other templates on this website produce RSS and a [JSON
-feed](https://www.jsonfeed.org/). Here's the JSON feed template ([permalink]()):
+feed](https://www.jsonfeed.org/). Here's the RSS template
+([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/feeds/rss.rb)):
 
 ```ruby
 require 'papercraft'
 
-export_default Papercraft.json(mime_type: 'application/json; charset=utf-8') { |resource:, **props|
-  version         'https://jsonfeed.org/version/1.1'
-  title           'Noteflakes'
-  home_page_url   'https://noteflakes.com/'
-  feed_url        'https://noteflakes.com/feeds/json'
-  authors         [{ url: 'https://noteflakes.com/', name: 'Sharon Rosner' }]
-  icon            'https://noteflakes.com/assets/nf-icon-black.png'
-  favicon         'https://noteflakes.com/assets/nf-icon-black.png'
+export_default Papercraft.xml(mime_type: 'text/xml; charset=utf-8') { |resource:, **props|
+  rss(version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom') {
+    channel {
+      title 'Noteflakes'
+      link 'https://noteflakes.com/'
+      description 'A website by Sharon Rosner'
+      language 'en-us'
+      pubDate Time.now.httpdate
+      emit '<atom:link href="https://noteflakes.com/feeds/rss" rel="self" type="application/rss+xml" />'
+      
+      article_entries = resource.page_list('/articles').reverse
 
-  article_entries = resource.page_list('/articles').reverse
-  
-  items {
-    article_entries.each do |e|
-      item(
-        title:          e[:title],
-        date_published: e[:date].to_time.xmlschema,
-        date_modified:  e[:date].to_time.xmlschema,
-        id:             e[:url],
-        url:            "https://noteflakes.com#{e[:url]}",
-        # external_url:   'https://www.nytimes.com/...',
-        authors:        [{ url: 'https://noteflakes.com/', name: 'Sharon Rosner' }],
-        content_html:   e[:html_content]
-      )
-    end
+      article_entries.each { |e|
+        item {
+          title e[:title]
+          link "https://noteflakes.com#{e[:url]}"
+          guid "https://noteflakes.com#{e[:url]}"
+          pubDate e[:date].to_time.httpdate
+          description e[:html_content]
+        }  
+      }
+    }
   }
 }
 ```
 
 ## A note on Papercraft's design
 
-You will have noticed that Papercraft's DSL looks minimalistic, and that is because all of its API consists basically of unqualified method calls that look like `html { body { h1 'foo' } }`. This might look confusing to the young Ruby padawan, as they might ask "where do all these calls go, and how are they intercepted?"
+You will have noticed that Papercraft's DSL looks quite terse, and that is
+because all of its API consists basically of unqualified method calls that look
+like `html { body { h1 'foo' } }`. This might look confusing to the young Ruby
+padawan, as they might ask "where do all these calls go, and how are they
+intercepted?"
 
 The answer is that all template procs are evaulated in the context of a
-Papercraft renderer instance, which intercepts all calls and turns them into
-chunks of HTML/XML that are added to an internal buffer (the JSON renderer works
-in a slightly different manner).
+Papercraft
+[renderer](https://github.com/digital-fabric/papercraft/blob/master/lib/papercraft/renderer.rb)
+instance, which intercepts all calls and turns them into chunks of HTML/XML that
+are added to an internal buffer (the [JSON
+renderer](https://github.com/digital-fabric/papercraft/blob/master/lib/papercraft/json.rb)
+works in a slightly different manner).
 
-On one hand, this allows us to write templates with a minimum of boilerplate, and have templates that look very clean. On the other hand, it does prevents us notably from using instance variables, e.g. `@foo` in our templates, and doesn't let us use any methods in the scope of the receiver where we create our template. For example, the following code will fail to produce the desired result:
+On one hand, this allows us to write templates with a minimum of boilerplate,
+and have templates that look very clean. On the other hand, it does prevents us
+notably from using instance variables, e.g. `@foo` in our templates, and doesn't
+let us use any methods in the scope of the receiver where we create our
+template. For example, the following code will fail to produce the desired
+result:
 
 ```ruby
 class Foo
@@ -407,9 +456,20 @@ Foo.new.to_html #=> not what you might expect...
 
 So, when writing Papercraft templates we need to follow a few rules:
 
-- Any variables or data referenced inside a template must be provided to the template as an explicit argument.
+- Any variables or data referenced inside a template must be provided to the
+  template as an explicit argument.
 - Any method calls that are not expected to emit HTML should be qualified, i.e.
   the receiver should be referenced explicitly, e.g.: `receiver.foo`.
-- No instance variables (or class variables, for that matter) should be used in Papercraft templates.
+- No instance variables (or class variables, for that matter) should be used in
+  Papercraft templates.
 
 ## Conclusion
+
+Papercraft is a new Ruby gem that lets you dynamically generate HTML, XML and
+JSON documents using plain Ruby. Papercraft templates use explicit parameter
+passing in order to "bind" template variables, and use application and
+composition to combine templates in a variety of ways. This website is the first
+to use Papercraft "in production", and I hope other people will find it useful.
+
+To learn more about Papercraft, checkout the [API
+documentation](https://www.rubydoc.info/gems/papercraft).
