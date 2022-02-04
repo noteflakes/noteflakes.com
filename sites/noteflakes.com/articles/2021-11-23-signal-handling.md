@@ -1,6 +1,5 @@
 ---
 title: Signal handling in concurrent apps with Ruby and Polyphony
-date: 2021-11-23
 layout: article
 ---
 

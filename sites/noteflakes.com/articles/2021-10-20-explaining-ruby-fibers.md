@@ -1,6 +1,5 @@
 ---
 title: "Explaining Ruby Fibers"
-date: 2021-10-20
 layout: article
 ---
 

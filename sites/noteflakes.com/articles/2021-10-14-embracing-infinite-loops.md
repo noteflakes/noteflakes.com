@@ -1,6 +1,5 @@
 ---
 title: "Embracing Infinite Loops with Ruby and Polyphony"
-date: 2021-10-14
 layout: article
 ---
 

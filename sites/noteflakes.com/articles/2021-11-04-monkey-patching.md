@@ -1,6 +1,5 @@
 ---
 title: "About that monkey-patching business..."
-date: 2021-11-04
 layout: article
 ---
 

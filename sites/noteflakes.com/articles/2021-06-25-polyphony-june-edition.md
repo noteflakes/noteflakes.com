@@ -1,6 +1,5 @@
 ---
 title: What's new in Polyphony - June 2021 edition
-date: 2021-06-25
 layout: article
 ---
 Polyphony 0.58 has just been released. Here's a summary and discussion of the latest changes and improvements:

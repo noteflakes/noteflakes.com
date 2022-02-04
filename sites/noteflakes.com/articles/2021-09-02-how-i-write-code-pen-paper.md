@@ -1,6 +1,5 @@
 ---
 title: "How I Write Code: Pen & Paper"
-date: 2021-09-02
 layout: article
 ---
 

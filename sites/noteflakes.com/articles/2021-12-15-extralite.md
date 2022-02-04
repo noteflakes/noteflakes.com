@@ -1,6 +1,5 @@
 ---
 title: Extralite - a new Ruby gem for working with SQLite databases
-date: 2021-12-15
 layout: article
 ---
 

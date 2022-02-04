@@ -1,6 +1,5 @@
 ---
 title: "A Compositional Approach to Optimizing the Performance of Ruby Apps"
-date: 2021-10-05
 layout: article
 ---
 

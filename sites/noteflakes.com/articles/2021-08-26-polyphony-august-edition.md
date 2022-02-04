@@ -1,6 +1,5 @@
 ---
 title: What's new in Polyphony and Tipi - August 2021 edition
-date: 2021-08-26
 layout: article
 ---
 

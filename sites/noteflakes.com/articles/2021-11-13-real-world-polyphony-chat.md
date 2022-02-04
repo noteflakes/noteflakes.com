@@ -1,6 +1,5 @@
 ---
 title: "Real-world Concurrency with Ruby and Polyphony: a Telnet Chat App"
-date: 2021-11-13
 layout: article
 ---
 

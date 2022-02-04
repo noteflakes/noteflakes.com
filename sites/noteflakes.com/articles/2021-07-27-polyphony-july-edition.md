@@ -1,6 +1,5 @@
 ---
 title: What's new in Polyphony - July 2021 edition
-date: 2021-07-27
 layout: article
 ---
 Following [last month's update](/articles/2021-06-25-polyphony-june-edition), here's an update on the latest changes to Polyphony:
