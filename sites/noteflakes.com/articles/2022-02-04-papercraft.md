@@ -472,4 +472,6 @@ composition to combine templates in a variety of ways. This website is the first
 to use Papercraft "in production", and I hope other people will find it useful.
 
 To learn more about Papercraft, checkout the [API
-documentation](https://www.rubydoc.info/gems/papercraft).
+documentation](https://www.rubydoc.info/gems/papercraft). Contributions in the
+form of issues or pull requests will be gladly accepted on the [Papercraft
+repository](https://github.com/digital-fabric/papercraft).
