@@ -1,29 +1,8 @@
 layout = import './_layouts/default'
+big_quote = import './_layouts/big_quote'
 
 export_default layout.apply(title: '') { |resource:, **props|
-  quote = <<~EOF
-    And I dreamed I saw the bombers
-    Riding shotgun in the sky
-    And they were turning into butterflies
-    Above our nation
-
-    We are stardust
-    Billion year old carbon
-    We are golden
-    Caught in the devil's bargain
-    And we've got to get ourselves
-    back to the garden
-  EOF
-
-  article(class: 'quote_of_the_day') {
-    blockquote {
-      quote.lines.each { |l| span l; br }
-    }
-    p {
-      span '— '
-      a 'Joni Mitchell', href: 'https://www.youtube.com/watch?v=cRjQCvfcXn0', target: '\blank'
-    }
-  }
+  emit big_quote
 
   article_entries = resource.page_list('/articles').reverse.first(10)
 
