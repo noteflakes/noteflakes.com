@@ -4,6 +4,8 @@ require 'bundler/setup'
 require 'tipi'
 require 'modulation'
 
+# Thread.backend.trace_proc = proc { |*e| STDOUT.orig_write("> #{e.inspect}\n") }
+
 Tipi.run_sites(
   'noteflakes.com' => (import './sites/noteflakes.com/site.rb')
 )
