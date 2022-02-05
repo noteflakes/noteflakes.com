@@ -119,9 +119,10 @@ pre {
   padding: 0;
   overflow-x: scroll;
 
-  border-left: 3px solid #a8b8c8;
-  padding-left: 12px;
+  /* border-left: 3px solid #a8b8c8;
+  padding-left: 12px; */
 
+  scrollbar-width: none;
 }
 
 pre + p {
