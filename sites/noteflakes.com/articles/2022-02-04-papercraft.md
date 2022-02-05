@@ -77,6 +77,102 @@ different parts of an HTML page (or XML and JSON documents) using procs on one
 hand, and to compose those different parts in a variety of ways on the other
 hand.
 
+## Ruby procs as templates
+
+The idea behind Papercraft is simple: a template is a
+[Proc](https://rubyapi.org/3.1/o/proc) that can be rendered by executing it in
+the context of a special-purpose rendering object, using
+[`#instance_exec`](https://rubyapi.org/3.1/o/basicobject#method-i-instance_exec).
+
+Ruby procs can take positional and/or named parameters, which lets us explicitly
+pass dynamic values to templates:
+
+```ruby
+foobar = ->(foo, bar) {
+  h1 foo
+  p bar ? 'hi' : 'bye'
+}
+```
+
+The above proc (strictly speaking it's a
+[lambda](https://rubyapi.org/3.1/o/proc#class-Proc-label-Lambda+and+non-lambda+semantics),
+which is a special kind of proc) takes two parameters, `foo` and `bar`, which
+affect its rendered output.
+
+Ruby procs, being first-class objects, can also be composed and derived. For
+example, we can take the above `foobar` proc and use it in the context of a list
+template:
+
+```ruby
+foobar_list = ->(list) {
+  list.each { |i|
+    emit foobar, i.foo, i.bar
+  }
+}
+```
+
+We could also create a derivative of `foobar` where `foo` is applied:
+
+```ruby
+applied_foobar = ->(bar) { emit foobar, 'hi', bar }
+```
+
+(Note the use of `#emit` in the last two example, more on that below.)
+
+So, once templates are expressed as procs, they can be composed, combined and
+transformed in a variety of ways, including all the ways proc objects can be
+manipulated. In fact, the primary template class in Papercraft,
+`Papercraft::Component`, is a subclass of `Proc`, which means it can be
+exchanged for a proc at any place.
+
+## Emitting HTML
+
+Let's start with the basics: Papercraft templates produce HTML by emitting tags.
+This is done primarily by making method calls with the tagname, followed by the
+tag content and any tag attributes. Here are some examples:
+
+```ruby
+p 'foo' #=> <p>foo</p>
+a 'bar', href: 'https://example.com/' #=> <a href="https://example.com">foo</a>
+h1 'Title', id: 'title' #=> <h1 id="title">Title</h1>
+```
+
+Tags are nested by using blocks:
+
+```ruby
+div(id: 'foo') {
+  div(id: 'bar') {
+    p 'hi'
+  }
+} #=> <div id="foo"><div id="bar"><p>hi</p></div></div>
+```
+
+In order to render text and have it escaped correctly, you can use the `#text`
+method:
+
+```ruby
+p {
+  span 'pre'
+  text ' foo & bar '
+  span 'post'
+} #=> <p><span>pre</span> foo &amp; bar <span>post</span></p>
+```
+
+Other content (such as raw text, nested templates, markdown etc.) can be
+rendered by using the `#emit` method:
+
+```ruby
+emit '<h1>hi</h1>' #=> <h1>hi</h1>
+
+foo = -> { p 'foo' }
+emit foo #=> <p>foo</p>
+
+emit markdown('## Hi') #=> <h2 id="hi">Hi</h2>
+```
+
+(Papercraft includes built-in support for rendering Markdown. More on that
+below.)
+
 ## Explicit template parameters
 
 The most important difference between Papercraft and all of its predecessors is
@@ -98,7 +194,7 @@ flow is much clearer - since you're not implicitly reyling on variables that
 just happen to be in your template's binding, and debugging is easier - if you
 forget to provide the `name` parameter, Ruby will tell you!
 
-## Template application
+## Parameter application
 
 Papercraft takes this idea even further by letting you create a derivative
 template by applying parameters to the source template, using the `#apply`
@@ -204,6 +300,32 @@ layout.render(-> { h1 'hi' })
 In the above example, we create a higher order template called `div_wrap`. It
 takes as an input a given template, and returns as its output a template
 wrapping the original template with a `div` element.
+
+## Rendering Markdown
+
+Papercraft has built-in support for rendering Markdown. Markdown can be
+converted to HTML by calling the `#markdown` method:
+
+```ruby
+markdown '## Hi' #=> "<h2 id=\"id\">Hi</h2>"
+```
+
+In HTML templates you can also use the `#emit_markdown` convenience method:
+
+```ruby
+emit_markdown '## Hi' #=> <h2 id="hi">Hi</h2>
+```
+
+Papercraft uses [`Kramdown`](https://github.com/gettalong/kramdown/) and
+`rouge`(https://github.com/rouge-ruby/rouge) to convert Markdown to HTML with
+support for syntax-highlighted code blocks. The [default Markdown
+options](https://github.com/digital-fabric/papercraft/blob/42fcf74a8c7dbfd28052ee872be8d6d255cac947/lib/papercraft.rb#L93-L100)
+can be overriden by passing them to `#markdown` or `#emit_markdown`:
+
+```ruby
+# render markdown without heading ids
+emit_markdown '## Hi', auto_ids: false #=> <h2>Hi</h2>
+```
 
 ## XML and JSON templates
 
