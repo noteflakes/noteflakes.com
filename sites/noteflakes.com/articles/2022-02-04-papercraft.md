@@ -122,7 +122,7 @@ applied_foobar = ->(bar) { emit foobar, 'hi', bar }
 So, once templates are expressed as procs, they can be composed, combined and
 transformed in a variety of ways, including all the ways proc objects can be
 manipulated. In fact, the primary template class in Papercraft,
-`Papercraft::Component`, is a subclass of `Proc`, which means it can be
+`Papercraft::Template`, is a subclass of `Proc`, which means it can be
 exchanged for a proc at any place.
 
 ## Emitting HTML
@@ -362,9 +362,9 @@ Papercraft.json { |movies|
 Since the main goal of Papercraft is to allow developers to produce dynamic
 HTML, XML or JSON with the least amount of code, it also includes the
 possibility of creating extensions that provide a convenient API for creating
-HTML components. This might be particularly useful when using design frameworks
-such as Bootstrap or Tailwind, where some components demand quite complex
-markup. Here's an example of how a Bootstrap extension might look like:
+complex HTML components. This might be particularly useful when using design
+frameworks such as Bootstrap or Tailwind, where some components demand quite
+complex markup. Here's an example of how a Bootstrap extension might look like:
 
 ```ruby
 module BootstrapComponents
