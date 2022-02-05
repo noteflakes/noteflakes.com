@@ -21,7 +21,6 @@ template = Papercraft.html {
 }
 
 template.render('Page title') { h1 'Hello, world!' }
-
 #=> "<html><head><title>Some title</title></head><body><h1>Hello, world!</h1></body></html>"
 ```
 
