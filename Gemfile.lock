@@ -1,12 +1,12 @@
 PATH
   remote: ../polyphony
   specs:
-    polyphony (0.75)
+    polyphony (0.77)
 
 PATH
   remote: ../tipi
   specs:
-    tipi (0.48)
+    tipi (0.49)
       acme-client (~> 2.0.9)
       ever (~> 0.1)
       extralite (~> 1.2)
@@ -14,7 +14,7 @@ PATH
       http-2 (~> 0.11)
       localhost (~> 1.1.4)
       msgpack (~> 1.4.2)
-      polyphony (~> 0.75)
+      polyphony (~> 0.77)
       qeweney (~> 0.14)
       rack (>= 2.0.8, < 2.3.0)
       websocket (~> 1.2.8)
@@ -98,8 +98,8 @@ DEPENDENCIES
   modulation
   nokogiri (~> 1.13.1)
   papercraft (~> 0.19)
-  polyphony (~> 0.75)!
-  tipi (~> 0.46)!
+  polyphony (~> 0.77)!
+  tipi (~> 0.49)!
 
 BUNDLED WITH
    2.3.3
