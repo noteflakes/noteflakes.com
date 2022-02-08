@@ -3,8 +3,9 @@ title: Papercraft - Composable Templating for Ruby
 layout: article
 ---
 
-Papercraft is a new Ruby gem I've been working on, that provides a new way to
-render HTML, XML and JSON using plain Ruby. Here's what it looks like:
+[Papercraft](https://github.com/digital-fabric/papercraft) is a new Ruby gem
+I've been working on, that provides a new way to render HTML, XML and JSON using
+plain Ruby. Here's what it looks like:
 
 ```ruby
 require 'papercraft'
