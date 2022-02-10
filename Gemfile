@@ -7,7 +7,7 @@ gem 'modulation'
 #   gem(dep, path: dir) if File.directory?(dir)
 # end
 
-gem 'impression',   '~>0.9'#, path: '../impression'
+gem 'impression',   '~>0.10'#, path: '../impression'
 gem 'tipi',         '~>0.49', path: '../tipi'
 gem 'papercraft',   '~>0.19'#, path: '../papercraft'
 gem 'polyphony',    '~>0.77', path: '../polyphony'
