@@ -21,12 +21,12 @@ Thread.backend.trace_proc = proc { |*event| p event }
 Events are fed to the tracing proc as plain Ruby arrays, where the first member signifies the type of event. Currently the following events are emitted:
 
 ```ruby
-[:fiber_create, fiber]
-[:fiber_schedule, fiber, resume_value, is_priority]
-[:fiber_switchpoint, current_fiber]
-[:fiber_run, fiber, resume_value]
-[:fiber_event_poll_enter, current_fiber]
-[:fiber_event_poll_leave, current_fiber]
+[:spin, fiber]
+[:schedule, fiber, resume_value, is_priority]
+[:block, current_fiber]
+[:unblock, fiber, resume_value]
+[:enter_poll, current_fiber]
+[:leave_poll, current_fiber]
 ```
 
 ## New methods for changing fiber ownership

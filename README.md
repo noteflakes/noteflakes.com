@@ -5,6 +5,7 @@ This repository contains the source code for [noteflakes.com](https://noteflakes
 ### Tools used
 
 - [Impression](https://github.com/digital-fabric/impression)
+- [Papercraft](https://github.com/digital-fabric/papercraft)
 - [Tipi](https://github.com/digital-fabric/tipi)
 - [Polyphony](https://github.com/digital-fabric/polyphony)
 
@@ -15,5 +16,5 @@ This repository contains the source code for [noteflakes.com](https://noteflakes
 $ bundle install
 
 # run server
-$ bundle exec tipi noteflakes.rb
+$ bundle exec tipi app.rb
 ```

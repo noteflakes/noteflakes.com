@@ -2,5 +2,5 @@
 
 require 'impression'
 
-site = Impression::Jamstack.new(path: '/', directory: __dir__)
+site = Impression::App.new(path: '/', directory: __dir__)
 export_default site
