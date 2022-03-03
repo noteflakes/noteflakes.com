@@ -8,7 +8,7 @@ gem 'modulation'
 # end
 
 gem 'impression',   '~>0.12'#, path: '../impression'
-gem 'tipi',         '~>0.51'#, path: '../tipi'
+gem 'tipi',         '~>0.52'#, path: '../tipi'
 gem 'papercraft',   '~>0.23'#, path: '../papercraft'
 gem 'polyphony',    '~>0.81'#, path: '../polyphony'
 

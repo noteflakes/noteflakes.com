@@ -71,7 +71,7 @@ GEM
     rexml (3.2.5)
     rouge (3.27.0)
     ruby2_keywords (0.0.5)
-    tipi (0.51)
+    tipi (0.52)
       acme-client (~> 2.0.9)
       ever (~> 0.1)
       extralite (~> 1.14)
@@ -96,7 +96,7 @@ DEPENDENCIES
   nokogiri (~> 1.13.3)
   papercraft (~> 0.23)
   polyphony (~> 0.81)
-  tipi (~> 0.51)
+  tipi (~> 0.52)
 
 BUNDLED WITH
    2.3.3
