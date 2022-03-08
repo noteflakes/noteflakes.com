@@ -295,6 +295,11 @@ div.highlight {
   margin-bottom: 1em;
 }
 
+#previous-link {
+  text-align: center;
+  margin: 5em 0 0 0;
+}
+
 .highlight, .highlight *  { background: #f8f8f8; }
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #408080; font-style: italic } /* Comment */

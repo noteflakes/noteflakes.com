@@ -4,19 +4,13 @@ big_quote = import './_layouts/big_quote'
 export_default layout.apply(title: '') { |resource:, **props|
   emit big_quote
 
-  article_entries = resource.page_list('/articles').reverse.first(10)
-
-  last_date = nil
-
-  article_entries.each { |e|
-    date = e[:date]
-    if date != last_date
-      last_date = date
-      h3 date.strftime('%d·%m·%Y'), class: 'date'
-    end
-    article {
-      h1 { a e[:title], href: e[:url] }
-      emit e[:html_content]
-    }
+  article_entry = resource.page_list('/articles').reverse.first
+  h3 article_entry[:date].strftime('%d·%m·%Y'), class: 'date'
+  article {
+    h1 { a article_entry[:title], href: article_entry[:url] }
+    emit article_entry[:html_content]
+  }
+  p(id: 'previous-link') {
+    a 'Previous articles on Noteflakes', href: '/archive'
   }
 }
