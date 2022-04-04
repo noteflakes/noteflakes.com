@@ -43,7 +43,7 @@ As Linus Torvalds himself
 > impossible to do with sendfile. Notably, splice allows very naturally the
 > "readv/writev" scatter-gather behaviour of _mixing_ streams. If you're a
 > web-server, with splice you can do
-
+>
 >	    write(pipefd, header, header_len);
 >	    splice(file, pipefd, file_len);
 >	    splice(pipefd, socket, total_len);
@@ -75,10 +75,11 @@ need to:
 2. Use `splice()` to move data from the source fd to the pipe.
 3. Use `splice()` to move data from the pipe to the target fd.
 
-Ideally, operations 2 and 3 would run concurrently and repeat until the source
-fd reaches end-of-file (EOF). Let's examine how we can do that using Polyphony.
+Operations 2 and 3 would repeat until the source fd reaches end-of-file (EOF),
+and ideally would run concurrently. Let's examine how we can do that using
+Polyphony.
 
-Polyphony provides the `IO.splice` method, which has the following signature:
+Polyphony introduces the `IO.splice` method, which has the following signature:
 
 ```ruby
 IO.splice(src, dest, len)

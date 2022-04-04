@@ -11,8 +11,7 @@
 }
 
 body {
-  font: normal 14px sans-serif;
-  font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+  font: normal 14px monospace;
 }
 
 body {
@@ -301,6 +300,17 @@ footer {
 
 blockquote {
   font-style: italic;
+}
+
+article blockquote {
+  border-left: 2px solid #666;
+  padding-left: 1em;
+  margin-bottom: 1.5em;
+}
+
+blockquote code {
+  font-style: normal;
+  font-weight: bold;
 }
 
 div.highlight {
