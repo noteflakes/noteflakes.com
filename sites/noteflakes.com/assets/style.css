@@ -11,7 +11,8 @@
 }
 
 body {
-  font: normal 14px monospace;
+  font: normal 14px sans-serif;
+  font-family: Verdana, "Bitstream Vera Sans", sans-serif;
 }
 
 body {
@@ -100,6 +101,10 @@ p code, li code {
   color: rgb(66, 146, 41);
 }
 
+article * {
+  line-height: 1.8em;
+}
+
 article img {
   width: 100%;
   margin: 2em 0;
@@ -115,14 +120,21 @@ div.previously {
   text-align: center; 
 }
 
+pre, code {
+  font-family: monospace;
+}
+
 pre {
   padding: 0;
   overflow-x: scroll;
+  scrollbar-width: none;
 
   /* border-left: 3px solid #a8b8c8;
   padding-left: 12px; */
+}
 
-  scrollbar-width: none;
+pre * {
+  line-height: 1.0em;
 }
 
 pre + p {

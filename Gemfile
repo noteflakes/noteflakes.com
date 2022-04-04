@@ -9,8 +9,8 @@ gem 'modulation'
 
 gem 'impression',   '~>0.12'#, path: '../impression'
 gem 'tipi',         '~>0.52'#, path: '../tipi'
-gem 'papercraft',   '~>0.23'#, path: '../papercraft'
-gem 'polyphony',    '~>0.81.1'#, path: '../polyphony'
+gem 'papercraft',   '~>0.24'#, path: '../papercraft'
+gem 'polyphony',    '~>0.92'#, path: '../polyphony'
 
 gem 'nokogiri',     '~>1.13.3'
 gem 'httparty',     '~>0.20.0'
