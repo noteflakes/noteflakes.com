@@ -30,7 +30,7 @@ require 'rubyoshka'
           li { a 'archive', href: '/archive' }
           li { a 'about', href: '/about' }
           li { a 'RSS feed', href: '/feeds/rss' }
-          li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
+          li { a 'code', href: 'https://github.com/noteflakes', target: '_blank' }
         }
       }
       footer {

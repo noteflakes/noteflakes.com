@@ -21,7 +21,7 @@ features, allows us to design a concurrent app as a collection of simple,
 autonomous entities, each having a single responsibility.
 
 The source code for the chat app is available as a
-[gist](https://gist.github.com/ciconia/9e2ffbc39d75a8b7433ea6df7c5ddea8).
+[gist](https://gist.github.com/noteflakes/9e2ffbc39d75a8b7433ea6df7c5ddea8).
 
 ## Designing our chat app
 
@@ -462,6 +462,6 @@ we get them to interact. I'll continue exploring this subject in more detail in
 future articles.
 
 You can find the complete code to the chat app
-[here](https://gist.github.com/ciconia/9e2ffbc39d75a8b7433ea6df7c5ddea8). Please
+[here](https://gist.github.com/noteflakes/9e2ffbc39d75a8b7433ea6df7c5ddea8). Please
 feel free to [contact me](https://noteflakes.com/about#contact) if you have any
 questions about this article or Polyphony in general.

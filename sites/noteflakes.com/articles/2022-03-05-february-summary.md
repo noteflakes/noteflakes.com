@@ -82,13 +82,13 @@ attention in the last month:
 - Refactored, cleaned up and documented the entire code base.
 
 Papercraft is used to generate the web page you're currently reading: the [page
-content](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/articles/2022-03-05-february-summary.md)
+content](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/articles/2022-03-05-february-summary.md)
 is in [Markdown], the [article
-layout](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/article.rb)
+layout](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/article.rb)
 is a Papercraft template, derived from the [default
-layout](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/default.rb).
+layout](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/default.rb).
 The RSS feed for this website is also
-[implemented](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/feeds/rss.rb)
+[implemented](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/feeds/rss.rb)
 as a Papercraft template.
 
 I'm looking for contributors willing to integrate Papercraft into Rails. Let me
@@ -98,7 +98,7 @@ know if you're interested!
 
 [Impression](https://github.com/digital-fabric/impression) is a relatively
 recent project I put together for building the present website ([code
-here](https://github.com/ciconia/noteflakes.com)). It's still more of a rough
+here](https://github.com/noteflakes/noteflakes.com)). It's still more of a rough
 sketch than anything serious, but it presents a novel way (I believe) to look at
 web apps.
 
@@ -259,4 +259,4 @@ In the month of March, I'll be concentrating on the following areas:
   - Support for sessions and cookies.
 
 Please [let me know](/about#contact) if my work interests you. You can delve
-into my code [here](https://github.com/ciconia).
+into my code [here](https://github.com/noteflakes).

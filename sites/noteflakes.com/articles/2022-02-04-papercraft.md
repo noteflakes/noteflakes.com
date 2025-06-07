@@ -410,7 +410,7 @@ for dealing with layouts.
 
 So let's explore how this website is constructed. The file for the present
 article is just a markdown file with some YAML front matter
-([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/articles/2022-02-04-papercraft.md)):
+([permalink](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/articles/2022-02-04-papercraft.md)):
 
 ```md
 ---
@@ -425,7 +425,7 @@ render HTML, XML and JSON using plain Ruby. Here's what it looks like:
 ```
 
 Here's the layout used for rendering articles
-([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/article.rb)):
+([permalink](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/article.rb)):
 
 ```ruby
 default = import './default'
@@ -444,7 +444,7 @@ The `article` layout above imports the default layout (using
 to create a derivative layout that adds an article element and expects a nested
 block to be injected into it.
 
-And here is the default layout ([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/default.rb)):
+And here is the default layout ([permalink](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/_layouts/default.rb)):
 
 ```ruby
 require 'papercraft'
@@ -473,7 +473,7 @@ export_default Papercraft.html { |**props|
           li { a 'archive', href: '/archive' }
           li { a 'about', href: '/about' }
           li { a 'RSS feed', href: '/feeds/rss' }
-          li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
+          li { a 'code', href: 'https://github.com/noteflakes', target: '_blank' }
         }
       }
       emit_yield **props
@@ -508,7 +508,7 @@ end
 
 Other templates on this website produce RSS and a [JSON
 feed](https://www.jsonfeed.org/). Here's the RSS template
-([permalink](https://github.com/ciconia/noteflakes.com/blob/main/sites/noteflakes.com/feeds/rss.rb)):
+([permalink](https://github.com/noteflakes/noteflakes.com/blob/main/sites/noteflakes.com/feeds/rss.rb)):
 
 ```ruby
 require 'papercraft'

@@ -24,17 +24,17 @@ export_default Papercraft.html { |**props|
           li { a 'archive', href: '/archive' }
           li { a 'about', href: '/about' }
           li { a 'RSS feed', href: '/feeds/rss' }
-          li { a 'code', href: 'https://github.com/ciconia', target: '_blank' }
+          li { a 'code', href: 'https://github.com/noteflakes', target: '_blank' }
         }
       }
       emit_yield **props
       footer {
         hr
         p {
-          span 'Copyright © 2021 Sharon Rosner. This site runs on '
+          span 'Copyright © 2025 Sharon Rosner. This site runs on '
           a 'Impression', href: 'https://github.com/digital-fabric/impression'
           span ' and '
-          a 'Tipi', href: 'https://github.com/digital-fabric/tipi'
+          a 'TP2', href: 'https://github.com/noteflakes/tp2'
           span '.'
         }
       }
