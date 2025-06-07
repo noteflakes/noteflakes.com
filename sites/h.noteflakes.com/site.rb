@@ -20,14 +20,14 @@ end
 
 def render_index
   update if should_update?
-  
+
   @rendered_index
 end
 
 def should_update?
   now = Time.now
   return false if @last_stamp && (now - @last_stamp) < 3600
-  
+
   @last_stamp = now
   true
 end
@@ -71,7 +71,7 @@ MAX_ARTICLE_AGE = 86400
 
 def article_list
   body = HTTParty.get(FEED_URL, timeout: 5).body
-  
+
   doc = Nokogiri::XML(body)
   now = Time.now
   doc.css('item').map { |i|

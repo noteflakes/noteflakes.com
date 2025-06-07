@@ -10,7 +10,7 @@ export_default Papercraft.json(mime_type: 'application/json; charset=utf-8') { |
   favicon         'https://noteflakes.com/assets/nf-icon-black.png'
 
   article_entries = resource.page_list('/articles').reverse
-  
+
   items {
     article_entries.each do |e|
       item(
