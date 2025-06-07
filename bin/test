@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -uex
+
+docker build . -t m2
+docker run -v .:/home/app --privileged m2 ruby test/run.rb "$@"

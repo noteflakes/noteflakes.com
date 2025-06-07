@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'tipi'
+require 'tp2'
 require 'modulation'
 
-# Tipi.run(&(import './sites/noteflakes.com/site.rb'))
+TP2.config(&(import './sites/noteflakes.com/site.rb'))
+TP2.run()
 
-Tipi.run_sites(
-  'noteflakes.com' => (import './sites/noteflakes.com/site.rb')
-)
+# Tipi.run_sites(
+#   'noteflakes.com' => (import './sites/noteflakes.com/site.rb')
+# )
