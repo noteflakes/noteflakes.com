@@ -23,5 +23,4 @@ COPY --from=dependencies --chown=app:app /usr/local/bundle/ /usr/local/bundle/
 
 EXPOSE 1234
 
-CMD ["bundle", "exec", "ruby", "commands/server.rb"]
-
+CMD ["bundle", "exec", "tp2", "."]

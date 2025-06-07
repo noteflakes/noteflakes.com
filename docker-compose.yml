@@ -28,6 +28,8 @@ services:
     #   retries: 3
 
   proxy:
+    depends_on:
+      - backend
     build:
       context: ./proxy
       dockerfile: Dockerfile
@@ -38,8 +40,8 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp"
-    env_file:
-      - ./conf/caddy.env
+    # env_file:
+      # - ./conf/caddy.env
       # - ./conf/caddy_sensitive.env
     logging:
       driver: "json-file"
