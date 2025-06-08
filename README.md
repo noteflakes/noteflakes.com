@@ -6,8 +6,8 @@ This repository contains the source code for [noteflakes.com](https://noteflakes
 
 - [Impression](https://github.com/digital-fabric/impression)
 - [Papercraft](https://github.com/digital-fabric/papercraft)
-- [Tipi](https://github.com/digital-fabric/tipi)
-- [Polyphony](https://github.com/digital-fabric/polyphony)
+- [TP2](https://github.com/noteflakes/tp2)
+- [UringMachine](https://github.com/digital-fabric/uringmachine)
 
 ### How to run
 
@@ -16,5 +16,8 @@ This repository contains the source code for [noteflakes.com](https://noteflakes
 $ bundle install
 
 # run server
-$ bundle exec tipi app.rb
+$ bundle exec tp2 app.rb
+
+# run dockerized server with caddy as reverse proxy
+docker compose up
 ```
