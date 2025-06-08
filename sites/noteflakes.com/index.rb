@@ -7,7 +7,8 @@ export_default layout.apply(title: '') { |resource:, **props|
   article_entry = resource.page_list('/articles').reverse.first
 
   h3 article_entry[:date].strftime('%d·%m·%Y'), class: 'date'
-  article {
+  rtl = article_entry[:layout] == 'article-rtl' || nil
+  article(class: rtl && 'rtl') {
     h1 { a article_entry[:title], href: article_entry[:url] }
     emit article_entry[:html_content]
   }
