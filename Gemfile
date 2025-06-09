@@ -9,7 +9,7 @@ gem 'modulation'
 
 gem 'impression',   '0.17'
 gem 'papercraft',   '1.4'
-gem 'tp2',          '0.8.2'
+gem 'tp2',          '0.8.3'
 gem 'uringmachine', '0.13'
 
 gem 'nokogiri',     '~>1.18.8'
