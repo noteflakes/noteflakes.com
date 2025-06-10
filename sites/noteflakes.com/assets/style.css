@@ -104,7 +104,7 @@ article * {
   line-height: 1.8em;
 }
 
-article.rtl {
+.rtl {
   direction: rtl;
 }
 
@@ -330,6 +330,38 @@ div.highlight {
   text-align: center;
   margin: 5em 0 0 0;
 }
+
+banner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 2em;
+  margin-bottom: 5em;
+  width: 40em;
+
+  &.palestine {
+    a.flag {
+      text-decoration: none;
+      font-size: 80px;
+      -webkit-text-stroke: 4px black;
+    }
+  }
+
+  .messages {
+    margin-top: 0.6em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.6em;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  span.message {
+    font-size: 20px;
+  }
+
+  align
+}
+
 
 .highlight, .highlight *  { background: #f8f8f8; }
 .highlight .hll { background-color: #ffffcc }

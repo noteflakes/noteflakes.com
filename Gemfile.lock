@@ -50,11 +50,11 @@ GEM
     rouge (4.5.2)
     sirop (0.5)
       prism (~> 0.27.0)
-    tp2 (0.8.2)
+    tp2 (0.10)
       qeweney (= 0.21)
       rack (= 3.1.15)
-      uringmachine (>= 0.13)
-    uringmachine (0.13)
+      uringmachine (>= 0.14)
+    uringmachine (0.14)
 
 PLATFORMS
   aarch64-linux-gnu
@@ -72,8 +72,8 @@ DEPENDENCIES
   modulation
   nokogiri (~> 1.18.8)
   papercraft (= 1.4)
-  tp2 (= 0.8.2)
-  uringmachine (= 0.13)
+  tp2 (= 0.10)
+  uringmachine (= 0.14)
 
 BUNDLED WITH
    2.6.9

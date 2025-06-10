@@ -9,8 +9,8 @@ gem 'modulation'
 
 gem 'impression',   '0.17'
 gem 'papercraft',   '1.4'
-gem 'tp2',          '0.8.3'
-gem 'uringmachine', '0.13'
+gem 'tp2',          '0.10'
+gem 'uringmachine', '0.14'
 
 gem 'nokogiri',     '~>1.18.8'
 gem 'httparty',     '~>0.23.1'

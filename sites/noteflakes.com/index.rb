@@ -1,8 +1,8 @@
 layout = import './_layouts/default'
-big_quote = import './_layouts/big_quote'
+banner = import './_components/banner'
 
 export_default layout.apply(title: '') { |resource:, **props|
-  emit big_quote
+  emit banner
 
   article_entry = resource.page_list('/articles').reverse.first
 
