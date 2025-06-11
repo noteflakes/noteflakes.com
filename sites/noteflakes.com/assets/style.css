@@ -358,10 +358,15 @@ banner {
   span.message {
     font-size: 20px;
   }
-
-  align
 }
 
+@media (max-width: 550px) {
+  banner {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
 
 .highlight, .highlight *  { background: #f8f8f8; }
 .highlight .hll { background-color: #ffffcc }
