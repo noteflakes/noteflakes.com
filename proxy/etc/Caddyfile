@@ -9,3 +9,11 @@ noteflakes.com {
 tolkora.net {
   reverse_proxy noteflakescom-backend-1:1234
 }
+
+tolkora.org {
+  redir https://tolkora.net
+}
+
+tolkora.com {
+  redir https://tolkora.net
+}
