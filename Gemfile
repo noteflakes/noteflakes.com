@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'modulation'
 
-gem 'impression',   '0.17'
+gem 'impression',   '0.18'
 gem 'papercraft',   '1.4'
 gem 'tp2',          '0.11.2'
 gem 'uringmachine', '0.14'
