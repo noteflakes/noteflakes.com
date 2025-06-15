@@ -1,7 +1,7 @@
 * {
   border: 0;
   font: inherit;
-  font-size: 100%;
+  font-size: 1em;
   vertical-align: baseline;
   line-height: 1.5em;
   margin: 0;
@@ -11,7 +11,9 @@
 }
 
 body {
-  font: normal 14px monospace;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: normal;
   position: relative;
   width: 100%;
   max-width: 800px;

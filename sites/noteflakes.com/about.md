@@ -39,7 +39,7 @@ This website was made and is run using my own tools:
 
 - [Impression](https://github.com/digital-fabric/impression) - a (WIP) framework
   for creating web apps
-- [TP2](https://github.com/noteflakes/tipi) - a modern web server for Ruby
+- [TP2](https://github.com/noteflakes/tp2) - a modern web server for Ruby
 - [UringMachine](https://github.com/digital-fabric/uringmachine) - a lean mean
   io_uring machine (for Ruby)
 
@@ -52,3 +52,5 @@ Privacy notice: this website does not collect any information on its visitors.
 
 - email: [sharon@noteflakes.com](mailto:sharon@noteflakes.com)
 - phone: [+33-7-81-89-53-46](tel:+33781895346)
+- address: [2767 route de Ciry-le-Noble, 71220 Martigny-le-Comte,
+  FRANCE](https://maps.app.goo.gl/54cvzHxgSn7NXGgh8)
