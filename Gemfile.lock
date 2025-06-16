@@ -50,7 +50,7 @@ GEM
     rouge (4.5.2)
     sirop (0.5)
       prism (~> 0.27.0)
-    tp2 (0.11.2)
+    tp2 (0.11.3)
       qeweney (~> 0.21)
       rack (~> 3.1.15)
       uringmachine (~> 0.14)
@@ -72,7 +72,7 @@ DEPENDENCIES
   modulation
   nokogiri (~> 1.18.8)
   papercraft (= 1.4)
-  tp2 (= 0.11.2)
+  tp2 (= 0.11.3)
   uringmachine (= 0.14)
 
 BUNDLED WITH
