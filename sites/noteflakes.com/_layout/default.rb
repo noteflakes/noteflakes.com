@@ -18,7 +18,7 @@ export(template do |**props|
           end
         end
         ul do
-          li 'by Sharon Rosner', class: 'byline'
+          # li 'by Sharon Rosner', class: 'byline'
           li { a 'archive', href: '/archive' }
           li { a 'about', href: '/about' }
           li { a 'RSS feed', href: '/feeds/rss' }
