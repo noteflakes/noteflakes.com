@@ -1,5 +1,5 @@
-message_eng = 'Stop the war, stop the occupation, free Palestine!'
-message_heb = 'די למלחמה, די לכיבוש, חירות לפלסטין!'
+message_eng = 'Stop the war, stop the occupation!'
+message_heb = 'די למלחמה, די לכיבוש!'
 
 export template {
   div(class: 'center') {

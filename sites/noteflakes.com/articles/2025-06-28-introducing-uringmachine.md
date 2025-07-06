@@ -22,7 +22,7 @@ in some cases it's really an excercise in futility. So, UringMachine doesn't
 really touch the standard IO classes, it just doesn't use them. UringMachine
 works with plain file descriptors:
 
-```Ruby
+```ruby
 require 'uringmachine'
 
 machine = UM.new
@@ -37,7 +37,7 @@ Now, at first sight this might look like a really clumsy way to do I/O in Ruby,
 but there's more than meets the eye in the above example. A second example will
 make things a bit clearer:
 
-```Ruby
+```ruby
 filenames = ['foo.bar', 'bar.baz', 'baz.foo']
 content_map = {}
 
@@ -146,7 +146,7 @@ exports an request handler, which can be in the form of a custom class, a
 Proc:
 
 ```ruby
-# here's the simplest possible route module:
+# The world's simplest possible Syntropy module:
 export ->(req) { req.respond('Hello, world!') }
 ```
 

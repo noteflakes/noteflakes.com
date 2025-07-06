@@ -18,7 +18,6 @@ export(template do |**props|
           end
         end
         ul do
-          # li 'by Sharon Rosner', class: 'byline'
           li { a 'archive', href: '/archive' }
           li { a 'about', href: '/about' }
           li { a 'RSS feed', href: '/feeds/rss' }
@@ -29,10 +28,8 @@ export(template do |**props|
       footer do
         hr
         p do
-          span 'Copyright © 2025 Sharon Rosner. This site runs on '
+          span 'Copyright © 2025 Noteflakes. This site runs on '
           a 'Syntropy', href: 'https://github.com/noteflakes/syntropy'
-          span ' and '
-          a 'TP2', href: 'https://github.com/noteflakes/tp2'
           span '.'
         end
       end
