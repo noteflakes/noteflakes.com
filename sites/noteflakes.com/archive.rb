@@ -4,10 +4,6 @@ layout = import './_layout/default'
 
 export layout.apply(title: 'archive') {
   articles = MODULE.page_list('/articles').reverse
-  Kernel.puts
-  Kernel.p articles: articles
-  Kernel.puts
-
   last_month = nil
 
   h1 'Previously, on noteflakes'
