@@ -1,5 +1,6 @@
 ---
 title: "Noteflakes: about"
+layout: default
 ---
 
 <div class="portrait">

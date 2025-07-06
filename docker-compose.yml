@@ -9,6 +9,7 @@ services:
     #   - 1234
     volumes:
       - .:/home/app
+      # - ./vendor/bundle:/usr/local/bundle
     deploy:
       # replicas: 1
       resources:
@@ -42,8 +43,8 @@ services:
       - "443:443"
       - "443:443/udp"
     # env_file:
-      # - ./conf/caddy.env
-      # - ./conf/caddy_sensitive.env
+    # - ./conf/caddy.env
+    # - ./conf/caddy_sensitive.env
     logging:
       driver: "json-file"
       options:

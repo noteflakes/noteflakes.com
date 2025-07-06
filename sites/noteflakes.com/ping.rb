@@ -1,3 +1,3 @@
-export_default Impression.resource { |req|
+export ->(req) {
   req.respond('pong')
 }

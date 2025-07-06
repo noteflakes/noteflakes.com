@@ -1,6 +1,4 @@
-require 'papercraft'
-
-export_default Papercraft.html { |**props|
+export template { |**props|
   html5 {
     head {
       title(props[:title] ? "Noteflakes - #{props[:title]}" : "Noteflakes")

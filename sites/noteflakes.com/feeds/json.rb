@@ -1,6 +1,4 @@
-require 'papercraft'
-
-export_default Papercraft.json(mime_type: 'application/json; charset=utf-8') { |resource:, **props|
+export Papercraft.json(mime_type: 'application/json; charset=utf-8') { |resource:, **props|
   version         'https://jsonfeed.org/version/1.1'
   title           'Noteflakes'
   home_page_url   'https://noteflakes.com/'

@@ -1,6 +1,4 @@
-require 'papercraft'
-
-export_default Papercraft.json(mime_type: 'application/json; charset=utf-8') { |resource:, **props|
+export Papercraft.json(mime_type: 'application/json; charset=utf-8') { |**props|
   version         'https://jsonfeed.org/version/1.1'
   title           'טולקורה'
   home_page_url   'https://tolkora.net/'
@@ -9,7 +7,7 @@ export_default Papercraft.json(mime_type: 'application/json; charset=utf-8') { |
   icon            'https://tolkora.net/assets/nf-icon-black.png'
   favicon         'https://tolkora.net/assets/nf-icon-black.png'
 
-  article_entries = resource.page_list('/articles').reverse
+  article_entries = MODULE.page_list('/articles').reverse
 
   items {
     article_entries.each do |e|

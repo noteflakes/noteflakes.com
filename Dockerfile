@@ -1,20 +1,20 @@
-ARG RUBY_BASE_IMAGE=ruby:3.4.1-alpine
-ARG GEM_CACHE_IMAGE=${RUBY_BASE_IMAGE}
+ARG RUBY_VERSION=3.4.1
+ARG BASE_IMAGE=ruby:${RUBY_VERSION}-alpine
+ARG CACHE_IMAGE=${BASE_IMAGE}
+
+FROM ${CACHE_IMAGE} AS gem-cache
+RUN mkdir -p /usr/local/bundle
 
 # base image
-FROM ${RUBY_BASE_IMAGE} AS base
+FROM ${BASE_IMAGE} AS base
 RUN apk add --update sqlite-dev openssl-dev tzdata bash curl zip git
 RUN apk add --update build-base
 RUN gem install bundler:2.6.9
 
-# gem cache
-FROM ${GEM_CACHE_IMAGE} AS gem-cache
-RUN mkdir -p /usr/local/bundle
-
 FROM base AS gems
 COPY --from=gem-cache /usr/local/bundle /usr/local/bundle
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --jobs=4 --retry=5
+RUN bundle install
 
 # Final backend image
 FROM base AS deploy
@@ -29,4 +29,4 @@ COPY --from=gems --chown=app:app /usr/local/bundle /usr/local/bundle
 
 EXPOSE 1234
 
-CMD ["bundle", "exec", "tp2", "."]
+CMD ["bundle", "exec", "syntropy", "sites"]

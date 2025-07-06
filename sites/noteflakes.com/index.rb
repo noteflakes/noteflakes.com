@@ -1,16 +1,18 @@
-layout = import './_layouts/default'
+layout = import './_layout/default'
 banner = import './_components/banner'
 
-export_default layout.apply(title: '') { |resource:, **props|
+
+export layout.apply(title: '') { |**props|
   emit banner
 
-  article_entry = resource.page_list('/articles').reverse.first
+  entry = MODULE.page_list('/articles').last
+  atts = entry[:atts]
 
-  h3 article_entry[:date].strftime('%d·%m·%Y'), class: 'date'
-  rtl = article_entry[:layout] == 'article-rtl' || nil
+  h3 atts[:date].strftime('%d·%m·%Y'), class: 'date'
+  rtl = atts[:layout] == 'article-rtl' || nil
   article(class: rtl && 'rtl') {
-    h1 { a article_entry[:title], href: article_entry[:url] }
-    emit article_entry[:html_content]
+    h1 { a atts[:title], href: atts[:url] }
+    emit_markdown entry[:markdown]
   }
   p(id: 'previous-link') {
     a 'Previous articles on Noteflakes', href: '/archive'
