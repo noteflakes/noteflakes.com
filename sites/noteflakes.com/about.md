@@ -38,7 +38,7 @@ out with family and friends.
 
 This website was made and is run using my own tools:
 
-- [Impression](https://github.com/digital-fabric/impression) - a (WIP) framework
+- [Syntropy](https://github.com/noteflakes/syntropy) - a (WIP) framework
   for creating web apps
 - [TP2](https://github.com/noteflakes/tp2) - a modern web server for Ruby
 - [UringMachine](https://github.com/digital-fabric/uringmachine) - a lean mean
