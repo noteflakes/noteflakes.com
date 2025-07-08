@@ -16,7 +16,9 @@ services:
       resources:
         limits:
           memory: 500M
-    # restart: unless-stopped
+
+    stop_signal: SIGINT
+    stop_grace_period: 10s
     logging:
       driver: "json-file"
       options:
