@@ -31,13 +31,13 @@ services:
     #   retries: 3
 
   proxy:
-    image: caddy
-    container_name: proxy
+    # image: caddy
+    # container_name: proxy
     depends_on:
       - backend
-    # build:
-    #   context: ./proxy
-    #   dockerfile: Dockerfile
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - ./proxy/etc/Caddyfile:/etc/caddy/Caddyfile
