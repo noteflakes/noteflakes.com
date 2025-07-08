@@ -1,6 +1,10 @@
-export route_by_host(
+require_relative '_lib/analytics'
+
+@env[:analytics] = analytics = Analytics.new(@machine, File.join(__dir__, '_data/analytics.db'), @env)
+
+app = route_by_host(
   'localhost:1234' => 'noteflakes.com',
   'localhost' => 'noteflakes.com',
-  'tolkora.org' => 'tolkora.net',
-  'tolkora.com' => 'tolkora.net'
 )
+
+export analytics.wrap(app)
