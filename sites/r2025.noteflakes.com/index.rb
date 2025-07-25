@@ -27,13 +27,13 @@ export template {
       content {
         emit_markdown <<~EOF
           Bienvenu(e)s au site de la Réunion 2025! Nous sommes très heureux de
-          vous acceuillir chez nous pour cette réunion festive entres ami(e)s.
+          vous acceuillir chez nous pour cette réunion festive entre ami(e)s.
           Au cours de la semaine, chacun de vous est libre de proposer des
           activités, et on profitera aussi des soirées pour celebrer avec la
-          musique, la danse, les contes autour du feu etc.
+          musique, la danse, les contes autour du feu, des films etc.
 
           Voici un programme provisoire pour la semaine de la réunion.
-          Plusieures choses pourront se passer à tout moment, et on laisse la
+          Plusieures choses pourront se passer en même temps, et on laisse la
           place à l'inspiration du moment pour ceux qui sont présents.
           
           En plus des activités indiquées ci-dessous, il y aura sans doute la
@@ -79,13 +79,19 @@ export template {
                 jardin. Venez avec vos sécateurs!
               EOF
 
+              emit activity, '16h-17h', 'Atelier dance en crecle', <<~EOF
+                Dance folk en cercle avec Zohar.
+              EOF
+
               emit activity, '17h-19h', 'Répétitions musicales', <<~EOF
                 Rencontres musicales pour ceux qui veulent jouer/chanter dans le
                 concert de vendredi soir.
               EOF
 
-              emit activity, '20h00-22h', 'Cinema dans le jardin', <<~EOF
-                Projection de film pour toute la famille.
+              emit activity, '20h00-22h', 'Cinema dans le jardin - Monty Python: La Vie de Brian', <<~EOF
+                L'histoire incroyable de Brian Cohen, né dans une étable proche
+                de celle de Jésus de Nazareth. Une comedie de Monty Python, en
+                anglais avec sous-titres en français.
               EOF
             }
           }
@@ -102,13 +108,18 @@ export template {
                 jardin. Venez avec vos sécateurs!
               EOF
 
+              emit activity, '16h-17h', 'Atelier dance en crecle', <<~EOF
+                Dance folk en cercle avec Zohar.
+              EOF
+
               emit activity, '17h-19h', 'Répétitions musicales', <<~EOF
                 Rencontres musicales pour ceux qui veulent jouer/chanter dans le
                 concert de vendredi soir.
               EOF
 
-              emit activity, '20h00-22h', 'Cinema dans le jardin', <<~EOF
-                Projection de film pour toute la famille.
+              emit activity, '20h00-22h', 'Cinema dans le jardin: La Princesse Bouton d\'or (The Princess Bride)', <<~EOF
+                Une histoire d'amour et d'aventure et de fantaisie pour petits
+                et grands. Anglais avec sous-titres en français.
               EOF
             }
           }
@@ -125,13 +136,19 @@ export template {
                 jardin. Venez avec vos sécateurs!
               EOF
 
+              emit activity, '16h-17h', 'Atelier dance en crecle', <<~EOF
+                Dance folk en cercle avec Zohar.
+              EOF
+
               emit activity, '17h-19h', 'Atelier cuisine', <<~EOF
                 Préparation des délices pour la fête de vendredi: falafel +
                 mititei (petites boulettes de viande grillées à la Roumaine!)
               EOF
 
-              emit activity, '20h00-22h', 'Cinema dans le jardin', <<~EOF
-                Projection de film pour toute la famille.
+              emit activity, '20h00-22h', 'Cinema dans le jardin - Monty Python: Sacré Graal', <<~EOF
+                La légende classique du Roi Arthur, sa bande de chevaliers
+                gallants, et la quête du graal. Une comedie de Monty Python, en
+                anglais avec sous-titres en français.
               EOF
             }
           }
