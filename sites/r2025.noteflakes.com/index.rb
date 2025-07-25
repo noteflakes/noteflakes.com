@@ -79,7 +79,7 @@ export template {
                 jardin. Venez avec vos sécateurs!
               EOF
 
-              emit activity, '16h-17h', 'Atelier dance en crecle', <<~EOF
+              emit activity, '16h-17h', 'Atelier dance en cercle', <<~EOF
                 Dance folk en cercle avec Zohar.
               EOF
 
@@ -108,7 +108,7 @@ export template {
                 jardin. Venez avec vos sécateurs!
               EOF
 
-              emit activity, '16h-17h', 'Atelier dance en crecle', <<~EOF
+              emit activity, '16h-17h', 'Atelier dance en cercle', <<~EOF
                 Dance folk en cercle avec Zohar.
               EOF
 
@@ -136,7 +136,7 @@ export template {
                 jardin. Venez avec vos sécateurs!
               EOF
 
-              emit activity, '16h-17h', 'Atelier dance en crecle', <<~EOF
+              emit activity, '16h-17h', 'Atelier dance en cercle', <<~EOF
                 Dance folk en cercle avec Zohar.
               EOF
 
