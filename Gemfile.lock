@@ -63,7 +63,7 @@ GEM
     rouge (4.5.2)
     sirop (0.5)
       prism (~> 0.27.0)
-    syntropy (0.9.1)
+    syntropy (0.9.2)
       extralite (= 2.12)
       json (= 2.12.2)
       listen (= 3.9.0)
@@ -92,7 +92,7 @@ DEPENDENCIES
   httparty (~> 0.23.1)
   nokogiri (~> 1.18.8)
   papercraft (= 1.4)
-  syntropy (= 0.9.1)
+  syntropy (= 0.9.2)
 
 BUNDLED WITH
    2.6.9
