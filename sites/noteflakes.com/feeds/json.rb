@@ -7,7 +7,7 @@ export Papercraft.json(mime_type: 'application/json; charset=utf-8') { |resource
   icon            'https://noteflakes.com/assets/nf-icon-black.png'
   favicon         'https://noteflakes.com/assets/nf-icon-black.png'
 
-  article_entries = resource.page_list('/articles').reverse
+  article_entries = resource.page_list('/articles').select { !it[:atts][:draft] }.reverse
 
   items {
     article_entries.each do |e|

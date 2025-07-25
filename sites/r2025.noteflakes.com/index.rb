@@ -22,7 +22,7 @@ export template {
     body {
       header {
         h1 'La Réunion 2025'
-        h2 '28/07/2025 - 02/08/2025'
+        h2 'Lundi 28/07/2025 - Samedi 02/08/2025'
       }
       content {
         emit_markdown <<~EOF
@@ -173,6 +173,7 @@ export template {
               EOF
             }
           }
+
         }
       }
       footer {

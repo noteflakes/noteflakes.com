@@ -5,7 +5,7 @@ banner = import './_components/banner'
 export layout.apply(title: '') { |**props|
   emit banner
 
-  entry = MODULE.page_list('/articles').last
+  entry = MODULE.page_list('/articles').select { !it[:atts][:draft] }.last
   atts = entry[:atts]
 
   h3 atts[:date].strftime('%d·%m·%Y'), class: 'date'
