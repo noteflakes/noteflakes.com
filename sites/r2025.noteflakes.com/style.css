@@ -70,11 +70,64 @@ content {
       > ul > li {
         list-style: none;
         margin: 0;
+        margin-bottom: 2em;
 
         h3 {
           span {
             color: cadetblue;
             margin-right: 0.5em;
+          }
+        }
+
+        participants {
+          display: flex;
+          width: 100%;
+          flex-wrap: wrap;
+          margin-block: 0.5em;
+          line-height: 2em;
+
+          span {
+            padding-right: 1em;
+          }
+
+          span.add-form {
+            input {
+              border: 1px solid cadetblue;
+              padding: 0.3em;
+              font: inherit;
+              margin-top: 0.5em;
+              margin-right: 0.5em;
+              width: 8em;
+            }
+
+            button {
+              display: inline;
+              padding: 0;
+              font: inherit;
+              padding-inline: 0.6em;
+              background-color: rgb(69, 126, 128);
+              color: white;
+              cursor: pointer;
+              border-radius: 4px;
+            }
+          }
+
+          entry {
+            padding: 0.3em;
+            background-color: cadetblue;
+            color: white;
+            border-radius: 4px;
+            margin-right: 0.5em;
+
+            &.add {
+              padding-inline: 0.6em;
+              background-color: rgb(69, 126, 128);
+              cursor: pointer;
+
+              &.hidden {
+                display: none;
+              }
+            }
           }
         }
       }

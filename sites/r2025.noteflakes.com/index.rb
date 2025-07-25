@@ -1,4 +1,4 @@
-activity = ->(time, title, content) {
+activity = ->(id, time, title, content) {
   li {
     h3 {
       span time, class: 'time'
@@ -7,6 +7,7 @@ activity = ->(time, title, content) {
     description {
       emit_markdown(content)
     }
+    participants(id: id)
   }
 }
 
@@ -29,8 +30,9 @@ export template {
           Bienvenu(e)s au site de la Réunion 2025! Nous sommes très heureux de
           vous acceuillir chez nous pour cette réunion festive entre ami(e)s.
           Au cours de la semaine, chacun de vous est libre de proposer des
-          activités, et on profitera aussi des soirées pour celebrer avec la
-          musique, la danse, les contes autour du feu, des films etc.
+          activités dans le jardin ou dans la maison. on profitera aussi des
+          soirées pour celebrer avec la musique, la danse, les contes autour du
+          feu, des films etc.
 
           Voici un programme provisoire pour la semaine de la réunion.
           Plusieures choses pourront se passer en même temps, et on laisse la
@@ -52,13 +54,13 @@ export template {
           day(id: '28-07') {
             h2 'Lundi 28/07/2025'
             ul {
-              emit activity, '10h-12h', 'Atelier construction bois', <<~EOF
+              emit activity, '28-07-construction', '10h-12h', 'Atelier construction bois', <<~EOF
                 Conception et fabrication des structures pour la fête de
                 vendredi avec Sharon, à partir des matériaux qu'on trouve sur
                 place.
               EOF
 
-              emit activity, '17h-19h', 'Aménagement jardin', <<~EOF
+              emit activity, '28-07-jardin', '17h-19h', 'Aménagement jardin', <<~EOF
                 Préparation du jardin pour la fete: installation d'éclairage et
                 de lignes éléctriques.
               EOF
@@ -68,27 +70,27 @@ export template {
           day(id: '29-07') {
             h2 'Mardi 29/07/2025'
             ul {
-              emit activity, '10h-12h', 'Atelier construction bois', <<~EOF
+              emit activity, '29-07-construction', '10h-12h', 'Atelier construction bois', <<~EOF
                 Conception et fabrication des structures pour la fête de
                 vendredi avec Sharon, à partir des matériaux qu'on trouve sur
                 place.
               EOF
 
-              emit activity, '14h30-16h', 'Atelier jardinage syntropique', <<~EOF
+              emit activity, '29-07-jardinage', '14h30-16h', 'Atelier jardinage syntropique', <<~EOF
                 Introduction à l'agroforesterie syntropique avec Sharon dans le
                 jardin. Venez avec vos sécateurs!
               EOF
 
-              emit activity, '16h-17h', 'Atelier dance en cercle', <<~EOF
+              emit activity, '29-07-danse', '16h-17h', 'Atelier danse en cercle', <<~EOF
                 Dance folk en cercle avec Zohar.
               EOF
 
-              emit activity, '17h-19h', 'Répétitions musicales', <<~EOF
+              emit activity, '29-07-musique', '17h-19h', 'Répétitions musicales', <<~EOF
                 Rencontres musicales pour ceux qui veulent jouer/chanter dans le
                 concert de vendredi soir.
               EOF
 
-              emit activity, '20h00-22h', 'Cinema dans le jardin - Monty Python: La Vie de Brian', <<~EOF
+              emit activity, '29-07-cinema', '20h00-22h', 'Cinema dans le jardin - Monty Python: La Vie de Brian', <<~EOF
                 L'histoire incroyable de Brian Cohen, né dans une étable proche
                 de celle de Jésus de Nazareth. Une comedie de Monty Python, en
                 anglais avec sous-titres en français.
@@ -99,27 +101,27 @@ export template {
           day(id: '30-07') {
             h2 'Mercredi 30/07/2025'
             ul {
-              emit activity, '10h-12h', 'Atelier construction bois', <<~EOF
+              emit activity, '30-07-construction', '10h-12h', 'Atelier construction bois', <<~EOF
                 Montage des constructions.
               EOF
 
-              emit activity, '14h30-16h', 'Atelier jardinage syntropique', <<~EOF
+              emit activity, '30-07-jardinage', '14h30-16h', 'Atelier jardinage syntropique', <<~EOF
                 Introduction à l'agroforesterie syntropique avec Sharon dans le
                 jardin. Venez avec vos sécateurs!
               EOF
 
-              emit activity, '16h-17h', 'Atelier dance en cercle', <<~EOF
+              emit activity, '30-07-danse', '16h-17h', 'Atelier danse en cercle', <<~EOF
                 Dance folk en cercle avec Zohar.
               EOF
 
-              emit activity, '17h-19h', 'Répétitions musicales', <<~EOF
+              emit activity, '30-07-musique', '17h-19h', 'Répétitions musicales', <<~EOF
                 Rencontres musicales pour ceux qui veulent jouer/chanter dans le
                 concert de vendredi soir.
               EOF
 
-              emit activity, '20h00-22h', 'Cinema dans le jardin: La Princesse Bouton d\'or (The Princess Bride)', <<~EOF
-                Une histoire d'amour et d'aventure et de fantaisie pour petits
-                et grands. Anglais avec sous-titres en français.
+              emit activity, '30-07-cinema', '20h-22h', 'Cinema dans le jardin: La Princesse Bouton d\'Or (The Princess Bride)', <<~EOF
+                Une histoire d'amour, aventure et fantaisie pour petits et
+                grands. Anglais avec sous-titres en français.
               EOF
             }
           }
@@ -127,25 +129,25 @@ export template {
           day(id: '31-07') {
             h2 'Jeudi 31/07/2025'
             ul {
-              emit activity, '10h-12h', 'Atelier cuisine', <<~EOF
+              emit activity, '31-07-construction', '10h-12h', 'Atelier cuisine', <<~EOF
                 Préparation des délices pour la fête de vendredi: quiches.
               EOF
 
-              emit activity, '14h30-16h', 'Atelier jardinage syntropique', <<~EOF
+              emit activity, '31-07-jardinage', '14h30-16h', 'Atelier jardinage syntropique', <<~EOF
                 Introduction à l'agroforesterie syntropique avec Sharon dans le
                 jardin. Venez avec vos sécateurs!
               EOF
 
-              emit activity, '16h-17h', 'Atelier dance en cercle', <<~EOF
+              emit activity, '31-07-danse', '16h-17h', 'Atelier danse en cercle', <<~EOF
                 Dance folk en cercle avec Zohar.
               EOF
 
-              emit activity, '17h-19h', 'Atelier cuisine', <<~EOF
+              emit activity, '31-07-cuisine', '17h-19h', 'Atelier cuisine', <<~EOF
                 Préparation des délices pour la fête de vendredi: falafel +
                 mititei (petites boulettes de viande grillées à la Roumaine!)
               EOF
 
-              emit activity, '20h00-22h', 'Cinema dans le jardin - Monty Python: Sacré Graal', <<~EOF
+              emit activity, '31-07-cinema', '20h-22h', 'Cinema dans le jardin - Monty Python: Sacré Graal', <<~EOF
                 La légende classique du Roi Arthur, sa bande de chevaliers
                 gallants, et la quête du graal. Une comedie de Monty Python, en
                 anglais avec sous-titres en français.
@@ -167,25 +169,25 @@ export template {
               Pour servir le diner on prevoit la construction de deux stands
               séparés pour la bouffe, plus un stand pour les boissons. On aura
               besoin des quelques bénévoles pour aider aux stands pendant la
-              fête.
+              fête, ainsi que pour opérer le barbecue.
 
-              Le diner sera suivi par un méga giga dance party!
+              Le diner sera suivi par un méga giga danse party!
             EOF
             ul {
-              emit activity, '10h-12h', 'Atelier cuisine', <<~EOF
+              emit activity, '01-08-cuisine', '10h-12h', 'Atelier cuisine', <<~EOF
                 Préparation des délices pour la fête de vendredi: falafel +
                 hoummous + salades.
               EOF
 
-              emit activity, '17h', 'Rassemblement apéritif', <<~EOF
+              emit activity, '01-08-apero', '17h', 'Rassemblement apéritif', <<~EOF
                 On arrive!
               EOF
 
-              emit activity, '19h', 'Concert spécial', <<~EOF
+              emit activity, '01-08-concert', '19h', 'Concert spécial', <<~EOF
                 Programme ouvert.
               EOF
 
-              emit activity, '20h', 'Diner + party!', <<~EOF
+              emit activity, '01-08-party', '20h', 'Diner + party!', <<~EOF
                 Hyper Méga Giga.
               EOF
             }
@@ -196,6 +198,7 @@ export template {
       footer {
         hr
       }
+      script(src: '/gathering.js')
     }
   }
 }
