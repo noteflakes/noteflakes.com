@@ -57,7 +57,7 @@ template = ->(title) {
   }
 }
 
-template.render #=> "<div><h1>#{CGI.escape_html(title)}</h1></div>"
+template.render('Hello') #=> "<div><h1>Hello</h1></div>"
 ```
 
 This approach to writing HTML templates is very appealing (to me at least). I
