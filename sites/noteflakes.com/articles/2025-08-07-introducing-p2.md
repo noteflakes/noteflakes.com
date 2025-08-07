@@ -1,5 +1,5 @@
 ---
-title: Introducing P2
+title: P2 - a Functional HTML Templating Engine for Ruby
 layout: article
 ---
 
