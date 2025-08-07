@@ -1,3 +1,7 @@
 export ->(req) {
-  req.respond(req.headers.to_json, 'Content-Type' => Qeweney::MimeTypes[:json])
+  response = {
+    request_headers: req.headers,
+    query: req.query
+  }
+  req.respond(response.to_json, 'Content-Type' => Qeweney::MimeTypes[:json])
 }
