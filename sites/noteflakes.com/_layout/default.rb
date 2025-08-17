@@ -24,7 +24,7 @@ export(template do |**props|
           li { a 'code', href: 'https://github.com/noteflakes', target: '_blank' }
         end
       end
-      emit_yield(**props)
+      render_yield(**props)
       footer do
         hr
         p do

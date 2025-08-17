@@ -1,9 +1,9 @@
 default = import '_layout/default'
 
 export default.apply { |title:, date:, **props|
-  article(class: rtl) {
+  article(class: 'rtl') { |**props|
     h1 title
     h3 date.strftime('%d·%m·%Y'), class: 'date'
-    emit_yield
+    render_yield(**props)
   }
 }

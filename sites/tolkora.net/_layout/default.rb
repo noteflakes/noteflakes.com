@@ -22,7 +22,7 @@ export template { |**props|
           li { a 'רסס', href: '/feeds/rss' }
         }
       }
-      emit_yield **props
+      render_yield(**props)
       footer {
         hr
         p {

@@ -2,7 +2,7 @@
 
 layout = import './_layout/default'
 
-export layout.apply(title: 'archive') {
+export layout.apply(title: 'archive') { |**|
   articles = MODULE.page_list('/articles').select { !it[:atts][:draft] }.reverse
   last_month = nil
 

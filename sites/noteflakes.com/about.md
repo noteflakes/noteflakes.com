@@ -39,7 +39,8 @@ out with family and friends.
 This website was made and is run using my own tools:
 
 - [Syntropy](https://github.com/noteflakes/syntropy) - a (WIP) framework
-  for creating web apps
+  for creating Ruby web apps
+- [P2](https://github.com/digital-fabric/p2) - a fast functional HTML templating engine for Ruby
 - [TP2](https://github.com/noteflakes/tp2) - a modern web server for Ruby
 - [UringMachine](https://github.com/digital-fabric/uringmachine) - a lean mean
   io_uring machine (for Ruby)

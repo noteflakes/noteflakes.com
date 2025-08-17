@@ -3,7 +3,7 @@ banner = import './_components/banner'
 
 
 export layout.apply(title: '') { |**props|
-  emit banner
+  render banner
 
   entry = MODULE.page_list('/articles').select { !it[:atts][:draft] }.last
   atts = entry[:atts]
@@ -12,7 +12,7 @@ export layout.apply(title: '') { |**props|
   rtl = atts[:layout] == 'article-rtl' || nil
   article(class: rtl && 'rtl') {
     h1 { a atts[:title], href: atts[:url] }
-    emit_markdown entry[:markdown]
+    markdown entry[:markdown]
   }
   p(id: 'previous-link') {
     a 'Previous articles on Noteflakes', href: '/archive'
