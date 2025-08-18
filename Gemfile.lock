@@ -1,17 +1,3 @@
-PATH
-  remote: ../syntropy
-  specs:
-    syntropy (0.11)
-      extralite (= 2.13)
-      json (= 2.13.2)
-      listen (= 3.9.0)
-      logger (= 1.7.0)
-      p2 (= 2.8)
-      papercraft (= 1.4)
-      qeweney (= 0.21)
-      tp2 (= 0.14.1)
-      uringmachine (= 0.16)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,6 +68,16 @@ GEM
     rouge (4.5.2)
     sirop (0.9)
       prism (~> 1.4.0)
+    syntropy (0.11)
+      extralite (= 2.13)
+      json (= 2.13.2)
+      listen (= 3.9.0)
+      logger (= 1.7.0)
+      p2 (= 2.8)
+      papercraft (= 1.4)
+      qeweney (= 0.21)
+      tp2 (= 0.14.1)
+      uringmachine (= 0.16)
     tp2 (0.14.1)
       qeweney (~> 0.21)
       rack (~> 3.1.15)
@@ -103,7 +99,7 @@ DEPENDENCIES
   nokogiri (~> 1.18.8)
   p2 (= 2.8)
   papercraft (= 1.4)
-  syntropy (= 0.11)!
+  syntropy (= 0.11)
 
 BUNDLED WITH
    2.6.9

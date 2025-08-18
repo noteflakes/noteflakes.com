@@ -1,6 +1,6 @@
-export(template do |**props|
-  html5 do
-    head do
+export(template { |**props|
+  html5 {
+    head {
       title(props[:title] ? "Noteflakes - #{props[:title]}" : 'Noteflakes')
       meta charset: 'utf-8'
       meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
@@ -8,31 +8,31 @@ export(template do |**props|
       link rel: 'icon', type: 'image/png', href: '/assets/nf-icon-black.png'
       link rel: 'stylesheet', type: 'text/css', href: '/assets/style.css'
       link rel: 'alternate', type: 'application/rss+xml', href: '/feeds/rss'
-    end
-    body do
-      header do
-        h1 do
-          a(href: '/') do
+    }
+    body {
+      header {
+        h1 {
+          a(href: '/') {
             img src: '/assets/nf-icon-black.png'
             span 'noteflakes'
-          end
-        end
-        ul do
+          }
+        }
+        ul {
           li { a 'archive', href: '/archive' }
           li { a 'about', href: '/about' }
           li { a 'RSS feed', href: '/feeds/rss' }
           li { a 'code', href: 'https://github.com/noteflakes', target: '_blank' }
-        end
-      end
+        }
+      }
       render_yield(**props)
-      footer do
+      footer {
         hr
-        p do
+        p {
           span 'Copyright © 2025 Noteflakes. This site runs on '
           a 'Syntropy', href: 'https://github.com/noteflakes/syntropy'
           span '.'
-        end
-      end
-    end
-  end
-end)
+        }
+      }
+    }
+  }
+})

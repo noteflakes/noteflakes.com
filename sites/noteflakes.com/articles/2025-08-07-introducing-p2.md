@@ -156,10 +156,6 @@ template = -> {
   h1 'foo'
   raise 'bar'
 }
-puts '*' * 40
-puts template.compiled_code
-
-
 template.render #=> throws an exception...
 ```
 

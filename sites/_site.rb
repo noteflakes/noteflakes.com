@@ -4,8 +4,8 @@ require_relative '_lib/analytics'
 
 app = route_by_host(
   # '192.168.0.100:1234' => 'r2025.noteflakes.com',
-  'localhost:1234' => 'tolkora.net',
-  'localhost' => 'tolkora.net',
+  'localhost:1234' => 'noteflakes.com',
+  # 'localhost' => 'tolkora.net',
 )
 
 export analytics.wrap(app)
