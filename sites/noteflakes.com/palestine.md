@@ -24,7 +24,7 @@ a crime against humanity.
 
 It is a crime against humanity to [starve helpless people](https://www.972mag.com/gaza-humanitarian-aid-israeli-impunity/).
 
-It is a crime against humanity to |shoot at innocent people desparate for scraps
+It is a crime against humanity to [shoot at innocent people desparate for scraps
 of food](https://www.972mag.com/hunger-games-israel-gaza-food-aid/).
 
 It is a crime against humanity to [drive people off their
@@ -70,9 +70,9 @@ jungle", "a light unto the nations"), while hiding away its real, disfigured
 portrait in the attic [so no one will
 see](https://www.972mag.com/israel-hamas-journalists-smear-gaza/).
 
-Zionism is not only destroying Palestinians, it is also destroying Judaism
-itself. A non-political religion, the religion of people who lived in the
-margins of society, who had no political power, who often fell victims to
+Zionism is not only destroying the Palestinian people, it is also destroying
+Judaism itself. A non-political religion, the religion of people who lived in
+the margins of society, who had no political power, who often fell victims to
 persecution, discrimination and violence, the religion of the descendants of
 slaves, has become a vehicle for a racist colonialist project, and has been
 consumed by it.
