@@ -317,13 +317,10 @@ footer {
 }
 
 blockquote {
-  font-style: italic;
-}
-
-article blockquote {
-  border-left: 2px solid #666;
+  border-left: 4px solid #ccc;
   padding-left: 1em;
-  margin-bottom: 1.5em;
+  font-style: italic;
+  margin-bottom: 2em;
 }
 
 blockquote code {

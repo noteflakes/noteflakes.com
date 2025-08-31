@@ -54,14 +54,14 @@ population, with a few besieged enclaves for those who remain.
 > not a racist. - [Bezalel Smotrich](https://en.wikipedia.org/wiki/Bezalel_Smotrich)
 
 In its delusional, immoral project of ethnic cleansing and destruction of any
-non-Jewish political and cultural identity in Israel/Palestine, the Zionist
-regime is committing crimes of war and crimes against humanity.
+non-Jewish presence in Israel/Palestine, the Zionist regime is committing crimes
+of war and crimes against humanity.
 
 This **war against humanity** not only causes suffering and destruction to
-Palestinians, it also corrupts and destroys the souls of Israelians, who
-willingly and blindly obey the instructions of the regime. How can a
-soldier who shot an innocent child in the head come back home and with the
-same hand caress his own child's head?
+Palestinians, it also corrupts the souls of the people in Israel, who willingly
+and blindly obey the instructions of the regime. How can a soldier who shot an
+innocent child in the head come back home and with the same hand caress his own
+child's head?
 
 Just like in [The Picture of Dorian
 Grey](https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray), Israel sees
@@ -74,17 +74,17 @@ Zionism is not only destroying the Palestinian people, it is also destroying
 Judaism itself. A non-political religion, the religion of people who lived in
 the margins of society, who had no political power, who often fell victims to
 persecution, discrimination and violence, the religion of the descendants of
-slaves, has become a vehicle for a racist colonialist project, and has been
-consumed by it.
+slaves and of prophets, has become a vehicle for a racist colonialist project,
+and has been consumed by it.
 
 Though I no longer live there, I still have family in Israel and I still follow
 the news from there. In my visits over the years, I have seen my country of
 birth change rapidly: nature subjugated and imprisoned under concrete, hills
-disfigured, villages erased, walls and guard towers erected, and the Israeli
-people - the descendants of slaves and prisoners - become a "master race",
-oblivious to the moral cost of maintaining an apartheid state, indifferent to
-the suffering of millions at the hands of "the most moral army in the world",
-believing in military might as the answer to any political problem.
+disfigured, trees uprooted, villages erased, walls and guard towers erected, and
+the Israeli people - the descendants of slaves and prisoners - become a "master
+race", oblivious to the moral cost of maintaining an apartheid state,
+indifferent to the suffering of millions at the hands of "the most moral army in
+the world", believing in military might as the answer to any political problem.
 
 Indeed, what does remain of Judaism, what does remain of Israel, except for the
 racism and the war and the military and the endless violence?
