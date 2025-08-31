@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-export :call
+export self
 
 require 'uri'
 require 'nokogiri'
@@ -76,7 +76,7 @@ def article_list
   now = Time.now
   doc.css('item').map { |i|
     item_to_article(i)
-  }.select { |a| 
+  }.select { |a|
     now - a[:stamp] < MAX_ARTICLE_AGE
   }
 rescue
@@ -88,7 +88,7 @@ def item_to_article(item)
   {
     title: item.css('title').first.content,
     uri: uri,
-    archive_uri: archive_uri(uri), 
+    archive_uri: archive_uri(uri),
     stamp: Time.parse(item.css('pubDate').first.content),
     author: item.css('author').first&.content,
     category: item.css('category').first&.content

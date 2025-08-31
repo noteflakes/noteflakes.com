@@ -27,7 +27,7 @@ async function removeParticipant(activityId, participantName) {
 
 async function renderParticipantsSection(section) {
   const participants = await getParticipants(section.id);
-  
+
   const span = document.createElement('span');
   span.innerText = 'Participants:'
   section.innerHTML = '';

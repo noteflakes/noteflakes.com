@@ -37,11 +37,11 @@ export template {
           Voici un programme provisoire pour la semaine de la réunion.
           Plusieures choses pourront se passer en même temps, et on laisse la
           place à l'inspiration du moment pour ceux qui sont présents.
-          
+
           En plus des activités indiquées ci-dessous, il y aura sans doute la
           vie quotidienne commune, et sur tout la cuisine et les repas, qui sont
           aussi une façon de se rencontrer.
-          
+
           Si vous voulez proposer une activité, merci de nous contacter, pour
           qu'on puisse mettre les détails ici.
 
@@ -161,11 +161,11 @@ export template {
               Le jour de vendredi est sans doute la culmination de la semaine.
               La fête commencera à 17h avec un apéro festif, suivi par un
               concert préparé par les musiciens (professionels ou amateurs).
-              
+
               Après le concert, on vous propose un diner festif à libre service
               dans le jardin, ou on pourra se régaler des fruits des ateliers
               cuisine.
-              
+
               Pour servir le diner on prevoit la construction de deux stands
               séparés pour la bouffe, plus un stand pour les boissons. On aura
               besoin des quelques bénévoles pour aider aux stands pendant la
