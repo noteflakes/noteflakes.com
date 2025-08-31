@@ -12,7 +12,7 @@ in order to make it fast. How fast?
 Here are the results of benchmarking Papercraft against ERB:
 
 ```bash
-sharon@nf1:~/repo/papercraft$ ruby --yjit examples/perf.rb 
+sharon@nf1:~/repo/papercraft$ ruby --yjit examples/perf.rb
 Warming up --------------------------------------
           papercraft    10.187k i/100ms
                  erb    14.435k i/100ms
@@ -28,7 +28,7 @@ Comparison:
 And here are the results of benchmarking P2 against ERB, with the same template:
 
 ```bash
-sharon@nf1:~/repo/p2$ ruby --yjit examples/perf.rb 
+sharon@nf1:~/repo/p2$ ruby --yjit examples/perf.rb
 Warming up --------------------------------------
                   p2    27.859k i/100ms
                  erb    14.935k i/100ms

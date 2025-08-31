@@ -74,7 +74,7 @@ end
 
 In the above example we create a pipe, and then we spin up a separate fiber that will splice from the file to the pipe, while the current fiber splices from the pipe to the socket. This technique can be used for files of arbitrary size (even GBs), without loading the file content into Ruby strings and putting pressure on the Ruby garbage collector. On top of this, we do this concurrently and with automatic backpressure (i.e. our socket will not get inondated with MBs of data.)
 
-While the `splice` system call is only available on Linux, the libev backend includes fake implementations of `Backend#splice` and `Backend#splice_to_eof` done with plain `read` and `write` calls.  
+While the `splice` system call is only available on Linux, the libev backend includes fake implementations of `Backend#splice` and `Backend#splice_to_eof` done with plain `read` and `write` calls.
 
 In addition to the above new methods, Polyphony 0.57 also introduces the `Backend#splice_chunks` method, which can be used for splicing chunks to some arbitrary destination IO instance, interespersed with writing plain Ruby strings to it. The use case arose while working on the [Tipi web server](https://github.com/digital-fabric/tipi), and trying to optimize serving static files on the web without loading the file content in Ruby strings. The Tipi HTTP/1.1 adapter tries whenver possible to use chunked encoding. In HTTP/1.1 for each chunk there should be a header including the chunk size, followed by the chunk itself, and finally a `\r\n` delimiter. In order to abstract away the creation of a pipe (for use with splicing) and the looping etc, I introduced the following method:
 
@@ -103,12 +103,12 @@ def respond_from_io(request, io, headers, chunk_size = 2**14)
     @conn,
     # prefix: HTTP headers
     formatted_headers,
-    # postfix: empty chunk denotes end of response 
-    "0\r\n\r\n", 
+    # postfix: empty chunk denotes end of response
+    "0\r\n\r\n",
     # dynamic chunk prefix with the chunk length
     ->(len) { "#{len.to_s(16)}\r\n" },
-    # chunk delimiter 
-    "\r\n", 
+    # chunk delimiter
+    "\r\n",
     chunk_size
   )
 end
@@ -168,7 +168,7 @@ The following operation specifications are currently supported:
 
 When running web servers in production, I'd like not only to maximize the server's throughput (expressed in requests per second), but also minimize latency. And when we talk about latency we also need to talk about percentiles. One of the things that can really hurt those 99th percentile latency numbers in Ruby web servers is the fact that the Ruby runtime needs to perform garbage collection from time to time, and normally this garbage collection event is both slow (costing tens of milliseconds or even more), and can come at any time, including while processing an incoming request.
 
-In order to prevent garbage collection from happening while your server is busy preparing a response, a technique called out-of-band GC, or out-of-band processing, consists of disabling the garbage collector, and manually running a GC cycle when the server is otherwise idle (i.e. not busy serving requests.) 
+In order to prevent garbage collection from happening while your server is busy preparing a response, a technique called out-of-band GC, or out-of-band processing, consists of disabling the garbage collector, and manually running a GC cycle when the server is otherwise idle (i.e. not busy serving requests.)
 
 Polyphony 0.58 introduces new APIs that allow you to perform garbage collection or run any code only when the process is otherwise idle (i.e. when no fibers are scheduled.) Here are the new APIs:
 

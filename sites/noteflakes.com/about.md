@@ -1,5 +1,5 @@
 ---
-title: "Noteflakes: about"
+title: 'About'
 layout: default
 ---
 

@@ -231,7 +231,7 @@ end
 supervise(@controller, restart: :always)
 ```
 
-### Bug fixes and other changes 
+### Bug fixes and other changes
 
 Here's a list of other, smaller changes and fixes in Polyphony:
 

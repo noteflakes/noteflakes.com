@@ -466,7 +466,7 @@ export_default Papercraft.html { |**props|
           a(href: '/') {
             img src: '/assets/nf-icon-black.png'
             span 'noteflakes'
-          } 
+          }
         }
         ul {
           li 'by Sharon Rosner', class: 'byline'
@@ -522,7 +522,7 @@ export_default Papercraft.xml(mime_type: 'text/xml; charset=utf-8') { |resource:
       language 'en-us'
       pubDate Time.now.httpdate
       emit '<atom:link href="https://noteflakes.com/feeds/rss" rel="self" type="application/rss+xml" />'
-      
+
       article_entries = resource.page_list('/articles').reverse
 
       article_entries.each { |e|
@@ -532,7 +532,7 @@ export_default Papercraft.xml(mime_type: 'text/xml; charset=utf-8') { |resource:
           guid "https://noteflakes.com#{e[:url]}"
           pubDate e[:date].to_time.httpdate
           description e[:html_content]
-        }  
+        }
       }
     }
   }

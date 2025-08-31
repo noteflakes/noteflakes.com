@@ -343,7 +343,7 @@ characters. The program expressed includes a set of steps, each one reading
 consecutive characters from the IO instance:
 
 ```ruby
-# for each part of the line we can express the valid range of lengths, 
+# for each part of the line we can express the valid range of lengths,
 REQUEST_LINE_RULES = [
   [:read, { delimiter: ' ', length: 1..40, invalid: ["\r", "\n"], consume_delimiter: true }],
   [:consume_whitespace],
@@ -366,7 +366,7 @@ def parse_http1_headers
     ':path' => request_path,
     ':protocol' => protocol
   }
-  
+
   while true
     (key, value) = @conn.parse(HEADER_RULES)
     return headers if !key
@@ -408,7 +408,7 @@ on Linux. The idea is the same: we express (I/O) operations using data
 structures, then offload the execution to an lower-level optimized layer - in
 io_uring's case it's the kernel, in Ruby's case it's a C-extension.
 
-It seems to me that 
+It seems to me that
 
 This is definitely an avenue I intend on further exploring, and I invite other
 Ruby developers to join me in this exploration. While we wait for all those

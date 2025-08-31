@@ -1,11 +1,18 @@
-require_relative '_lib/analytics'
+# require_relative '_lib/analytics'
 
-@env[:analytics] = analytics = Analytics.new(@machine, File.join(__dir__, '_data/analytics.db'), @env)
+# @env[:analytics] = analytics = Analytics.new(@machine, File.join(__dir__, '_data/analytics.db'), @env)
 
-app = route_by_host(
+app = Syntropy.route_by_host(@env,
   # '192.168.0.100:1234' => 'r2025.noteflakes.com',
   'localhost:1234' => 'noteflakes.com',
   # 'localhost' => 'tolkora.net',
 )
+export app
 
-export analytics.wrap(app)
+@machine.spin do
+  @machine.periodically(10) {
+    @env[:logger]&.info(message: "headers_map.size => #{TP2::HTTP1Connection.headers_map.size}")
+  }
+end
+
+# export analytics.wrap(app)

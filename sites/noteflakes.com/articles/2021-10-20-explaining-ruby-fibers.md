@@ -155,7 +155,7 @@ f = Fiber.new do |msg|
 end
 
 3.times { |i| f.transfer(:increment) } # count = 3
-f.transfer(:reset)                     # count = 0 
+f.transfer(:reset)                     # count = 0
 3.times { |i| f.transfer(:increment) } # count = 3
 ```
 
@@ -284,7 +284,7 @@ end
 @time_printer = Fiber.new do
   loop do
     puts "Time: #{Time.now}"
-    
+
     wait_for_events if queued_events.empty?
     queued_events.each { |e| e.fiber.transfer }
   end

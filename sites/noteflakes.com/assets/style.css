@@ -14,18 +14,19 @@ body {
   font: normal 14px monospace;
 }
 
-body {
+container {
+  display: block;
   position: relative;
   width: 100%;
   max-width: 800px;
-  margin: 2em auto 0;
+  margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
 }
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
-  body {
+  container {
     width: 85%;
     padding: 0;
   }
@@ -33,7 +34,7 @@ body {
 
 /* For devices larger than 550px */
 @media (min-width: 550px) {
-  body {
+  container {
     width: 80%;
   }
 }
@@ -162,7 +163,7 @@ pre code {
 
 hr {
   display: block;
-  margin: 8em 0;
+  margin: 6em 0;
   border-width: 0;
   text-align: center;
 }
@@ -611,6 +612,56 @@ div.highlight {
   color: #666666;
 } /* Literal.Number.Integer.Long */
 
-body {
+landing {
   display: block;
-} /* Prevent FUOC */
+  high, low { display: block; }
+  h1 {
+    font-size: 2.4em;
+    text-align: center;
+    margin: 0;
+  }
+  h2 {
+    font-size: 1.6em;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+  }
+  low {
+    margin-top: 1.5em;
+  }
+}
+
+@media (min-width: 400px) {
+  landing {
+    margin: 0 3em;
+    /* padding: 0; */
+
+    h1 {
+      font-size: 3.2em;
+      text-align: center;
+      margin: 0;
+    }
+    h2 {
+      font-size: 2em;
+    }
+    low {
+      font-size: 1.2em;
+    }
+  }
+}
+
+watermelon {
+  display: block;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #eee;
+
+  a {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    red   { height: 1.6em; background-color: red }
+    black { height: 1.6em; background-color: black }
+    white { height: 1.6em; background-color: white }
+    green { height: 1.6em; background-color: green }
+  }
+}

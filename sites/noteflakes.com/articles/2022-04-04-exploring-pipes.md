@@ -367,13 +367,13 @@ def backend_double_splice_to_eof(src, dest)
     if ctx_dest&.completed?
       ctx_dest.release
       break if ctx_dest.result == 0
-        
+
       total += ctx_dest.result
       ctx_dest = prep_splice_op_ctx(r, dest)
     end
     submit_deferred_sqes
   end
-  
+
   total
 ensure
   r.close
@@ -546,7 +546,7 @@ def chunked_transfer(src, dest)
   while true
     len = IO.splice(src, pipe, MAX_CHUNK)
     break if len == 0
-    
+
     dest << "#{len}\r\n"
     IO.splice(pipe, dest, len)
     dest << "\r\n"

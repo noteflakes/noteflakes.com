@@ -27,7 +27,7 @@ passage from the Linux `sigreturn` [manpage](https://www.man7.org/linux/man-page
 > CPU), it creates a new frame on the user-space stack where it saves various
 > pieces of process context (processor status word, registers, signal mask, and
 > signal stack settings).
-> 
+>
 > The kernel also arranges that, during the transition back to user mode, the
 > signal handler is called, and that, upon return from the handler, control
 > passes to a piece of user-space code commonly called the "signal trampoline".

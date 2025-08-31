@@ -102,7 +102,7 @@ def handle_client_connection(socket)
   loop do
     headers = parser.parse_headers # returns nil when socket is closed
     break unless headers
-    
+
     body = parser.read_body
     handle_request(headers, body)
   end
@@ -216,7 +216,7 @@ item_processor.await
 
 When the `item_processor` fiber is terminated, the ensure block guarantees that
 the socket used for sending items is closed before the call to
-`item_processor.await` returns. 
+`item_processor.await` returns.
 
 ## More ways to stop a fiber
 
@@ -285,7 +285,7 @@ but it also further embraces loops by providing a bunch of loop APIs, including:
 
   ```ruby
   require 'msgpack'
-  
+
   unpacker = MessagePack::Unpacker.new
   # #feed_loop takes a receiver and the method to call on each chunk of data
   connection.feed_loop(unpacker, :feed_each) { |msg| process(msg) }
