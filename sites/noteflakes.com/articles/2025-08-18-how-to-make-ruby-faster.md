@@ -3,6 +3,10 @@ title: "How I Made Ruby Faster than Ruby"
 layout: article
 ---
 
+> **Note**: P2 is now folded back into
+> [Papercraft](https://github.com/digital-fabric/papercraft). The P2 repository
+> will eventually be archived.
+
 If you're a Ruby programmer, you most probably will be familiar ERB templates
 and the distinctive syntax where you mix normal HTML with snippets of Ruby for
 embedding dynamic values in HTML.

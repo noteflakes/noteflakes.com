@@ -3,6 +3,10 @@ title: P2 - a Functional HTML Templating Engine for Ruby
 layout: article
 ---
 
+> **Note**: P2 is now folded back into
+> [Papercraft](https://github.com/digital-fabric/papercraft). The P2 repository
+> will eventually be archived.
+
 I've just released [P2](https://github.com/digital-fabric/p2), a new HTML
 templating engine for Ruby. P2 builds on the work I did in
 [Papercraft](/articles/2022-02-04-papercraft), but takes things quite a bit
