@@ -8,7 +8,6 @@ This repository contains the source code for:
 ### Tools used
 
 - [Syntropy](https://github.com/noteflakes/syntropy)
-- [P2](https://github.com/digital-fabric/p2)
 - [Papercraft](https://github.com/digital-fabric/papercraft)
 - [TP2](https://github.com/noteflakes/tp2)
 - [UringMachine](https://github.com/digital-fabric/uringmachine)

@@ -1,4 +1,4 @@
-export Papercraft.xml(mime_type: 'text/xml; charset=utf-8') { |**props|
+export template_xml { |**props|
   rss(version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom') {
     channel {
       title 'Noteflakes'

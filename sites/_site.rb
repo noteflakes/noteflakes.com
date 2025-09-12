@@ -9,10 +9,10 @@ app = Syntropy.route_by_host(@env,
 )
 export app
 
-@machine.spin do
-  @machine.periodically(10) {
-    @env[:logger]&.info(message: "headers_map.size => #{TP2::HTTP1Connection.headers_map.size}")
-  }
-end
+# @machine.spin do
+#   @machine.periodically(10) {
+#     @env[:logger]&.info(message: "headers_map.size => #{TP2::HTTP1Connection.headers_map.size}")
+#   }
+# end
 
 # export analytics.wrap(app)
