@@ -46,16 +46,16 @@ GEM
     rouge (4.5.2)
     sirop (0.9)
       prism (~> 1.4.0)
-    syntropy (0.18.1)
+    syntropy (0.19)
       extralite (= 2.13)
       json (= 2.13.2)
       listen (= 3.9.0)
       logger (= 1.7.0)
       papercraft (= 2.13)
       qeweney (= 0.22)
-      tp2 (= 0.16)
+      tp2 (= 0.18)
       uringmachine (= 0.18)
-    tp2 (0.16)
+    tp2 (0.18)
       qeweney (~> 0.22)
       rack (~> 3.1.15)
       uringmachine (~> 0.18)
@@ -67,7 +67,7 @@ PLATFORMS
 DEPENDENCIES
   httparty (~> 0.23.1)
   nokogiri (~> 1.18.8)
-  syntropy (= 0.18.1)
+  syntropy (= 0.19)
 
 BUNDLED WITH
    2.6.9
