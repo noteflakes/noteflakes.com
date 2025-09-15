@@ -3,9 +3,9 @@
 # @env[:analytics] = analytics = Analytics.new(@machine, File.join(__dir__, '_data/analytics.db'), @env)
 
 app = Syntropy.route_by_host(@env,
-  # '192.168.0.100:1234' => 'r2025.noteflakes.com',
-  'localhost:1234' => 'noteflakes.com',
-  # 'localhost' => 'tolkora.net',
+  'noteflakes.localhost:1234'       => 'noteflakes.com',
+  'papercraft-talk.localhost:1234'  => 'papercraft-minitalk.noteflakes.com',
+  'tolkora.localhost:1234'          => 'tolkora.net'
 )
 export app
 
