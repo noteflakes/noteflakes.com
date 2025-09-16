@@ -3,6 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
+  a('<<<', href: '04', class: 'prev')
   a('>>>', href: '06', class: 'next')
 
   div(class: 'centered') {
@@ -12,7 +13,7 @@ export layout.apply { |**props|
       ## Easy layouts
 
       ```ruby
-      layout = ->(**props) {
+      default_layout = ->(**props) {
         html5 {
           head {
             title(props[:title])
@@ -25,9 +26,14 @@ export layout.apply { |**props|
         }
       }
 
-      page = layout.apply(title: 'Foo') {
-        h1 'Bar'
+      article_layout = default_layout.apply { |**props|
+        article {
+          h1 props[:title]
+          markdown props[:md]
+        }
       }
+
+      article_layout.render(**article)
       ```
 
     Markdown

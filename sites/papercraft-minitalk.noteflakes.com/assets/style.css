@@ -33,6 +33,20 @@ container {
     height: 2em;
   }
 
+  a.prev, a.prev:visited {
+    position: fixed;
+    bottom: 2em;
+    left: 2em;
+    padding: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #ad5b5b;
+    color: #c2b5b5;
+    border: 2px solid #ccc;
+    border-radius: 0.5em;
+    opacity: 0;
+  }
+
   a.next, a.next:visited {
     position: fixed;
     bottom: 2em;

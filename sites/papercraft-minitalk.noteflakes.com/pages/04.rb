@@ -3,6 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
+  a('<<<', href: '02', class: 'prev')
   a('>>>', href: '05', class: 'next')
 
   div(class: 'centered') {
@@ -16,25 +17,27 @@ export layout.apply { |**props|
         ## Papercraft
       
         ```ruby
-        if show_books
-          ul {
-            books.each {
-              li {
-                a it.title, it.href
+        ->(show_books, books) {
+          if show_books
+            ul {
+              books.each {
+                li {
+                  a it.title,
+                    href: it.href
+                }
               }
             }
-          }
-        end
+          end
+        }
         ```
       MD
-
-
     }
     div {
       markdown <<~MD
         ## ERB/Erubi
         
         ```html
+        
         <% if @show_books %>
         <ul>
           <% @books.each do %>

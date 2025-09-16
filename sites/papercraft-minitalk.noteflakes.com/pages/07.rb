@@ -3,6 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
+  a('<<<', href: '06', class: 'prev')
   a('>>>', href: '08', class: 'next')
 
   div(class: 'centered') {

@@ -3,7 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
-  a('>>>', href: '10', class: 'next')
+  a('<<<', href: '09', class: 'prev')
 
   div(class: 'centered') {
     img class: 'logo', src: '/assets/papercraft.png'
@@ -21,6 +21,8 @@ export layout.apply { |**props|
 
     hr
     h2 'github.com/digital-fabric/papercraft'
+
+    p "(P.S. This presentation was made with Papercraft!)"
   }
   debug_template!
 }

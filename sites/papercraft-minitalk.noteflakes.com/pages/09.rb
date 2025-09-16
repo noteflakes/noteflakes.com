@@ -3,6 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
+  a('<<<', href: '08', class: 'prev')
   a('>>>', href: '10', class: 'next')
 
   div(class: 'centered') {
@@ -21,5 +22,7 @@ export layout.apply { |**props|
 
     hr
     h2 'github.com/digital-fabric/papercraft'
+
+    p "(P.S. This presentation was made with Papercraft!)"
   }
 }

@@ -63,11 +63,11 @@ and blindly obey the instructions of the regime. How can a soldier who shot an
 innocent child in the head come back home and with the same hand caress his own
 child's head?
 
-Just like in [The Picture of Dorian
-Grey](https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray), Israel sees
-itself as a beacon of liberalism, of morality and of justice ("a villa in the
-jungle", "a light unto the nations"), while hiding away its real, disfigured
-portrait in the attic [so no one will
+In a similar fashion to Oscar Wilde's [The Picture of Dorian
+Grey](https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray), Israel imagines
+itself as an immaculate nation, a beacon of liberalism, of morality and of
+justice ("a villa in the jungle", "a light unto the nations"), while hiding away
+its real, disfigured portrait in the attic [so no one will
 see](https://www.972mag.com/israel-hamas-journalists-smear-gaza/).
 
 Zionism is not only destroying the Palestinian people, it is also destroying

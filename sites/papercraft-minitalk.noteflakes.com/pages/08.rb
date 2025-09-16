@@ -3,6 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
+  a('<<<', href: '07', class: 'prev')
   a('>>>', href: '09', class: 'next')
 
   div(class: 'centered') {
@@ -17,7 +18,7 @@ export layout.apply { |**props|
       ->(name) {
         div {
           h1 {
-            a "Hello, \#{name}!", href: '/foo'
+            a "Hello, \#{name}!", href: '/welcome'
           }
         }
       }
@@ -27,7 +28,7 @@ export layout.apply { |**props|
 
       ```ruby
       ->(__buffer__, name) {
-        __buffer__.<<("<div><h1><a href=\"/foo\">").
+        __buffer__.<<("<div><h1><a href=\\\"/welcome\\\">").
                   .<<(ERB::Escape.html_escape(
                     ("Hello, \#{name}!")
                   ))

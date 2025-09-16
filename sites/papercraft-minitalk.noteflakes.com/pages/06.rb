@@ -3,6 +3,7 @@
 layout = import '_layout/default'
 
 export layout.apply { |**props|
+  a('<<<', href: '05', class: 'prev')
   a('>>>', href: '07', class: 'next')
 
   div(class: 'centered') {
@@ -26,12 +27,14 @@ export layout.apply { |**props|
       }
 
       -> {
-        Table(
-          ['Title', 'Location'],
-          [ ['RailsWorld', 'Amsterdam'],
-            ['Friendly.rb', 'Bucarest'],
-            ['Euruko', 'Viana do Castelo'] ]
-        )
+        div {
+          Table(
+              ['Title',       'Location'],
+            [ ['RailsWorld',  'Amsterdam'],
+              ['Friendly.rb', 'Bucharest'],
+              ['Euruko',      'Viana do Castelo'] ]
+          )
+        }
       }
       ```
     Markdown

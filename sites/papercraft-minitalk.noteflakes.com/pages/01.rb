@@ -18,6 +18,7 @@ export layout.apply { |**props|
         h1 "Hello, Euruko!"
 
         h2 "My name is Sharon"
+
         a "aka noteflakes",
           href: "github.com/noteflakes"
         

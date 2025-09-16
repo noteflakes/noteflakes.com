@@ -17,11 +17,9 @@ export(template { |**props|
           document.body.addEventListener('keydown', (e) => {
             switch (e.key) {
               case 'ArrowRight':
-              case 'Enter':
-                document.querySelector('.next').click();
-                return;
+                return document.querySelector('.next')?.click();
               case 'ArrowLeft':
-                window.history.go(-1);
+                return document.querySelector('.prev')?.click();
             }
           }, true);
         JS
