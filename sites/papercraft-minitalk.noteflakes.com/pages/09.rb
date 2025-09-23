@@ -9,16 +9,16 @@ export layout.apply { |**props|
   div(class: 'centered') {
     img class: 'logo', src: '/assets/papercraft.png'
 
-    markdown <<~Markdown
+    markdown <<~MD
       ## Papercraft: Summary
       
       - Fun to write, easy to read
       - Stay in the zone: it's just Ruby!
       - Easy layouts and components
       - Builtin markdown support
-      - As fast as ERB/ERubi/Herb
-      - Coming soon: template debugging tools!
-    Markdown
+      - As fast as compiled ERB/ERubi/HERB
+      - Coming soon: template debugging tools in the browser!
+    MD
 
     hr
     h2 'github.com/digital-fabric/papercraft'

@@ -19,10 +19,10 @@ export layout.apply { |**props|
 
         h2 "My name is Sharon"
 
-        a "aka noteflakes",
-          href: "github.com/noteflakes"
-        
-      }.render
+        p {
+          a "aka noteflakes", href: "github.com/noteflakes"
+        }
+      }
       ```
 
     MD

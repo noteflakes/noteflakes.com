@@ -12,18 +12,16 @@ export(template { |**props|
       }
       auto_refresh_watch!
 
-      script {
-        raw <<~JS
-          document.body.addEventListener('keydown', (e) => {
-            switch (e.key) {
-              case 'ArrowRight':
-                return document.querySelector('.next')?.click();
-              case 'ArrowLeft':
-                return document.querySelector('.prev')?.click();
-            }
-          }, true);
-        JS
-      }
+      script <<~JS
+        document.body.addEventListener('keydown', (e) => {
+          switch (e.key) {
+            case 'ArrowRight':
+              return document.querySelector('.next')?.click();
+            case 'ArrowLeft':
+              return document.querySelector('.prev')?.click();
+          }
+        }, true);
+      JS
     }
   }
 })
