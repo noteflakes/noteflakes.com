@@ -27,11 +27,11 @@ export(template { |**props|
             }
           }
           ul {
-            li { a 'home', href: '/' }
-            li { a 'archive', href: '/archive' }
-            li { a 'about', href: '/about' }
-            li { a 'RSS feed', href: '/feeds/rss' }
-            li { a 'code', href: 'https://github.com/noteflakes', target: '_blank' }
+            li { a 'home',      href: '/' }
+            li { a 'archive',   href: '/archive' }
+            li { a 'about',     href: '/about' }
+            li { a 'RSS feed',  href: '/feeds/rss' }
+            li { a 'code',      href: 'https://github.com/noteflakes', target: '_blank' }
           }
         }
         render_children(**props)
