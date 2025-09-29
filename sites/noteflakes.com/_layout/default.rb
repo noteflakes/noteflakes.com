@@ -44,7 +44,7 @@ export(template { |**props|
           }
         }
       }
-      # auto_refresh_watch!
+      auto_refresh_watch!
     }
   }
 })

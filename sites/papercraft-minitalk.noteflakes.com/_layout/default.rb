@@ -16,9 +16,9 @@ export(template { |**props|
         document.body.addEventListener('keydown', (e) => {
           switch (e.key) {
             case 'ArrowRight':
-              return document.querySelector('.next')?.click();
+              return document.querySelector('.next').click();
             case 'ArrowLeft':
-              return document.querySelector('.prev')?.click();
+              return document.querySelector('.prev').click();
           }
         }, true);
       JS
