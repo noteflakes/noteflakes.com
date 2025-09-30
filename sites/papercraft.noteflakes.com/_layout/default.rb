@@ -1,33 +1,43 @@
 export template { |pages:, path:, entry:|
   html5 {
+    head {
+      title(entry ? "Papercraft - #{entry[:title]}" : 'Papercraft')
+      meta charset: 'utf-8'
+      meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
+      link rel: 'stylesheet', type: 'text/css', href: '/assets/style.css'
+    }
     body {
-      style <<~CSS
-        header {
-          display: block;
-          height: 3em;
-        }
-
-        container {
-          display: grid;
-          grid-template-columns: 12em 1fr;
-        }
-      CSS
       header {
-        
+        cols {
+          sidebar {
+            h2 "Papercraft"
+          }
+        }
       }
-      container {
-        sidebar {
-          pages.root[:children].each_value {
-            h2 it[:title]
-            it[:children].each_value { |c|
-              p {
-                a c[:title], href: c[:href]
+      main {
+        cols {
+          sidebar {
+            pages.root[:children].each_value {
+              h2 it[:title]
+              it[:children].each_value { |c|
+                p {
+                  a c[:title], href: c[:href]
+                }
               }
             }
           }
-        }
-        content {
-          markdown entry[:markdown]
+          article {
+            content {
+              h1 entry[:title]
+              raw entry[:html]
+            }
+            headings {
+              h2 'On this page'
+              entry[:headings].each { |(title, id)|
+                p { a title, href: "\##{id}" } 
+              }
+            }
+          }
         }
       }
     }

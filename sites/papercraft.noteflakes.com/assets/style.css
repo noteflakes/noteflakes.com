@@ -1,0 +1,105 @@
+* {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #222;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", monospace;
+  font-style: normal;
+  font-size: 16px;
+}
+
+cols {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 20em 1fr;
+
+  sidebar {
+    display: block;
+    margin-left: 2em;
+    margin-right: 4em;
+  }
+
+  content {
+    display: block;
+    margin-right: 4em;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.33em;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+header {
+  display: block;
+  height: 4em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  cols {
+    margin-top: 1em;
+  }
+  border-bottom: 1px solid #ccc;
+}
+
+main {
+  margin-top: 5em;
+  display: block;
+
+  sidebar {
+    margin-top: 1em;
+    
+    h2 {
+      &:not(:first-child) {
+        border-top: 1px solid #ddd;
+      }
+      padding-top: 0.5em;
+      font-size: 1.1em;
+    }
+
+    p {
+        margin-bottom: 0.5em;
+    }
+  }
+
+  article {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 10em;
+
+    headings {
+      margin-top: 2em;
+      h2 {
+        font-size: 1em;
+      }
+    }
+  }
+}

@@ -15,8 +15,17 @@ arguments, making the data flow easy to follow and understand. Papercraft also
 lets developers create derivative templates using full or partial parameter
 application.
 
-## Using Ruby for generating HTML
+## Why Papercraft?
 
-Why should you write your HTML templates in Ruby?
+Why should you write your HTML templates in Ruby? All of us know how to generate
+HTML with ERB, and ERB is pretty cool! But with Papercraft, you don't need to do
+the constant mental switching between HTML syntax and Ruby syntax. As you'll see
+there's also no need to put each template in a separate file. You can organize
+them however you want. Papercraft also makes it very easy to compose templates:
+creating layouts, partials and components is almost trivial!
 
-TODO: insert text from lightning talk.
+Papercraft is designed for developer happiness, but it does not compromise on
+rendering performance. In fact, you 
+
+does not skimp on 
+rendering performance, in fact it is just as fast as compiled ERB or ERubi.

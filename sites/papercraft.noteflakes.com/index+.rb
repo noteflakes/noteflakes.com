@@ -15,7 +15,7 @@ class Collection
   end
 
   def [](path)
-    @map[path]
+    @map[path].tap { it[:headings] ||= get_entry_headings(it) }
   end
 
   SEARCH_SQL = <<~SQL
@@ -62,7 +62,8 @@ class Collection
         name:   name,
         title:  atts[:title] || entry_title(name),
         href:   href,
-        markdown: markdown
+        markdown: markdown,
+        html:   Papercraft.markdown(markdown)
       }
     else
       nil
@@ -84,9 +85,11 @@ class Collection
   def entry_title(name)
     name
       .gsub(/^\d+\-/, '')
+      .gsub(/\.md$/, '')
       .split('-').map {
         it.gsub(/^\w/) { |c| c.upcase }
-      }.join(' ')
+      }
+      .join(' ')
   end
 
   def entry_href(fn)
@@ -157,9 +160,34 @@ class Collection
   end
 
   def fn_mtime(fn)
-    puts '*' * 40
-    p fn
     @machine.statx(UM::AT_FDCWD, fn, 0, UM::STATX_ALL)[:mtime].to_i
+  end
+
+  # Returns an array containing headings for the given document entry. Each
+  # heading entry is an array containing the heading text and the heading id.
+  def get_entry_headings(entry)
+    # TODO: replace with Papercraft.markdown_doc(...) (when entry is first loaded)
+    doc = Kramdown::Document.new(entry[:markdown])
+    html_converter = Kramdown::Converter::Html.send(:new, doc.root, doc.options)
+    
+    kramdown_collect(doc.root, []) do |element, arr|
+      if element.type == :header && element.options[:level] == 2
+        title = element.options[:raw_text]
+        arr << [title, html_converter.generate_id(title)]
+      end
+    end
+  end
+
+  # Visits each element in the given element subtree, yielding the given element
+  # and all of its children, returning the given object.
+  #
+  # @param ptr [Kramdown::Element] element pointer
+  # @param object [any] collector object
+  # @return [any] collector object
+  def kramdown_collect(ptr, object, &block)
+    block.(ptr, object)
+    ptr.children&.each { kramdown_collect(it, object, &block) }
+    object
   end
 end
 
