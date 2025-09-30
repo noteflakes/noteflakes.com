@@ -15,7 +15,7 @@ class Collection
   end
 
   def [](path)
-    @map[path].tap { it[:headings] ||= get_entry_headings(it) }
+    @map[path].tap { it[:headings] ||= get_entry_headings(it) if it }
   end
 
   SEARCH_SQL = <<~SQL
@@ -116,7 +116,17 @@ class Collection
   end
 
   def compute_file_map
-    {}.tap { |map| each_file_entry { map[it[:href]] = it } }
+    map = {}
+    prev = nil
+    each_file_entry {
+      if prev
+        it[:prev] = prev
+        prev[:next] = it
+      end
+      map[it[:href]] = it
+      prev = it
+    }
+    map
   end
 
   def setup_search_db

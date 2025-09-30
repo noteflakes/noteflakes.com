@@ -30,6 +30,24 @@ export template { |pages:, path:, entry:|
             content {
               h1 entry[:title]
               raw entry[:html]
+              nav {
+                if entry[:prev]
+                  a(href: entry[:prev][:href]) {
+                    p "Previous page"
+                    h2 entry[:prev][:title]
+                  }
+                else
+                  span
+                end
+                if entry[:next]
+                  a(href: entry[:next][:href]) {
+                    p "Next page"
+                    h2 entry[:next][:title]
+                  }
+                else
+                  span
+                end
+              }
             }
             headings {
               h2 'On this page'
