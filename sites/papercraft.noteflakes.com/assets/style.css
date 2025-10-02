@@ -57,10 +57,14 @@ p {
   margin-bottom: 1em;
 }
 
+strong {
+  font-weight: bold;
+}
+
 header {
   display: block;
-  height: 4em;
-  position: fixed;
+  height: 3em;
+  /* position: fixed; */
   top: 0;
   left: 0;
   right: 0;
@@ -68,11 +72,45 @@ header {
     margin-top: 1em;
   }
   border-bottom: 1px solid #ccc;
+
+  #sidebar-menu-button {
+    display: none;
+  }
+
+  sidebar {
+    a {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      text-decoration: none;
+      img {
+        height: 2em;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  top {
+    max-width: 900px;
+    margin-right: 4em;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    links {
+      img {
+        height: 1.7em;
+        align-self: end;
+      }
+    }
+  }
 }
 
 main {
-  margin-top: 5em;
+  margin-top: 1em;
   display: block;
+
+  #sidebar-toggle {
+    display: none;
+  }
 
   sidebar {
     margin-top: 1em;
@@ -91,9 +129,8 @@ main {
   }
 
   article {
+    display: block;
     max-width: 900px;
-    display: grid;
-    grid-template-columns: 1fr 10em;
 
     headings {
       margin-top: 2em;
@@ -103,6 +140,8 @@ main {
     }
 
     content {
+      margin-bottom: 3em;
+
       nav {
         margin-top: 2em;
         border-top: 1px solid #ccc;
@@ -137,6 +176,85 @@ main {
   }
 }
 
+@media (max-width: 768px) {
+  header {
+    height: auto;
+
+    cols {
+      grid-template-columns: 1fr auto;
+      margin: 1em 1em 0.5em 1em;
+      }
+    sidebar {
+      margin: 0;
+      h2 {
+        margin: 0;
+      }
+    }
+    top {
+      display: block;
+      margin: 0;
+
+      h3 {
+        display: none;
+      }
+
+      links {
+        /* width: 8em; */
+      }
+
+      #sidebar-menu-button {
+        margin-left: 1em;
+        display: inline-block;
+        cursor: pointer;
+
+        img { display: inline }
+      }
+    }
+  }
+
+  main {
+    margin-top: 0;
+    position: relative;
+
+    cols {
+      display: block;
+      sidebar {
+        display: none;
+      }
+    }
+
+    &:has(#sidebar-toggle:checked) {
+      cols {
+        sidebar {
+          display: block;
+          position: absolute;
+          margin: 0;
+          padding: 1em;
+          border-right: 1px solid #ccc;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1000;
+          overflow-y: scroll;
+          background-color: #f8fcff;
+
+          * {
+            background-color: inherit;
+          }
+        }
+      }
+    }
+
+    article {
+      margin-inline: 1em;
+      padding-top: 1em;
+
+      content {
+        margin-inline: 0;
+      }
+    }
+  }
+}
 
 
 /* code snippet styling */

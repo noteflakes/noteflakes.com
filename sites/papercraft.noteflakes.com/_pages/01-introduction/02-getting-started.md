@@ -29,11 +29,11 @@ it:
 
 require 'papercraft'
 
-hello = ->(name) {
+Hello = ->(name) {
   h1 "Hello from #{name}!"
 }
 
-puts hello.render('Papercraft')
+puts Hello.render('Papercraft')
 ```
 
 Then run the test code and you should see the following output:

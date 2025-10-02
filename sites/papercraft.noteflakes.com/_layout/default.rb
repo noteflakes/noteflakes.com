@@ -10,11 +10,26 @@ export template { |pages:, path:, entry:|
       header {
         cols {
           sidebar {
-            h2 "Papercraft"
+            a(href: '/') {
+              img src: '/assets/papercraft.png'
+              h2 "Papercraft"
+            }
+          }
+          top {
+            h3 "Functional Templating for Ruby"
+            links {
+              a(href: "https://github.com/digital-fabric/papercraft", target: "_blank") {
+                img src: "/assets/github.png", title: "GitHub"
+              }
+              label(id: "sidebar-menu-button", for: "sidebar-toggle") {
+                img src: "/assets/more.png"
+              }
+            }
           }
         }
       }
       main {
+        input id: "sidebar-toggle", name: "sidebar-toggle", type: "checkbox"
         cols {
           sidebar {
             pages.root[:children].each_value {
@@ -49,12 +64,12 @@ export template { |pages:, path:, entry:|
                 end
               }
             }
-            headings {
-              h2 'On this page'
-              entry[:headings].each { |(title, id)|
-                p { a title, href: "\##{id}" } 
-              }
-            }
+            # headings {
+            #   h2 'On this page'
+            #   entry[:headings].each { |(title, id)|
+            #     p { a title, href: "\##{id}" } 
+            #   }
+            # }
           }
         }
       }
