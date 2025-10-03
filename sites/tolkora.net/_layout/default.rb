@@ -1,5 +1,5 @@
 export template { |**props|
-  html5 {
+  html {
     head {
       title(props[:title] ? "טול קורה - #{props[:title]}" : "טול קורה")
       meta charset: 'utf-8'

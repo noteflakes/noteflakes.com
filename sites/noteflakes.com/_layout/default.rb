@@ -1,5 +1,5 @@
 export(template { |**props|
-  html5 {
+  html {
     head {
       title(props[:title] ? "Noteflakes - #{props[:title]}" : 'Noteflakes')
       meta charset: 'utf-8'

@@ -32,7 +32,7 @@ end
 
 def index_template
   H {
-    html5 {
+    html {
       head {
         title 'Samedi Culture'
         meta charset: 'utf-8'

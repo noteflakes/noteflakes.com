@@ -5,7 +5,7 @@ export self
 require 'rubyoshka'
 
 @layout = H {
-  html5 {
+  html {
     head {
       title 'Tipi - a modern web server for Ruby'
       meta charset: 'utf-8'

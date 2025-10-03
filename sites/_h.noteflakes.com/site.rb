@@ -38,7 +38,7 @@ end
 
 def index_template
   H {
-    html5 {
+    html {
       head {
         title 'הארץ בלי עניינים'
         meta charset: 'utf-8'

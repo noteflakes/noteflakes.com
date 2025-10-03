@@ -12,7 +12,7 @@ activity = ->(id, time, title, content) {
 }
 
 export template {
-  html5 {
+  html {
     head {
       title 'La Réunion 2025'
       meta charset: 'utf-8'

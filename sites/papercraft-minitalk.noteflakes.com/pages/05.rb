@@ -14,7 +14,7 @@ export layout.apply { |**props|
 
       ```ruby
       default_layout = ->(**props) {
-        html5 {
+        html {
           head {
             title(props[:title])
           }
