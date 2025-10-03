@@ -226,7 +226,7 @@ main {
       margin-top: 6em;
       text-align: center;
 
-      span.logo {
+      logo {
         display: block;
 
         img {

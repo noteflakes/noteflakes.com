@@ -5,7 +5,7 @@ export Layout.apply {
   main {
     single {
       hero {
-        span(class: "logo") {
+        logo {
           img src: "/assets/papercraft.png"
         }
         h1 {
