@@ -5,17 +5,22 @@ require 'json'
 class Collection
   attr_reader :root
 
-  def initialize(machine, env, dir)
+  def initialize(machine, env, dir, mount_path)
+    puts '*' * 40
+    p env.keys
+    p env[:ref]
+    puts
     @machine = machine
     @env = env
     @dir = dir
+    @mount_path = mount_path
     @root = read_collection
     @map = compute_file_map
     setup_search_db
   end
 
-  def [](path)
-    @map[path].tap { it[:headings] ||= get_entry_headings(it) if it }
+  def [](href)
+    @map[href].tap { it[:headings] ||= get_entry_headings(it) if it }
   end
 
   SEARCH_SQL = <<~SQL
@@ -26,7 +31,7 @@ class Collection
     @db_conn.query(SEARCH_SQL, term, term)
   end
 
-  def default_path
+  def default_href
     first_file_entry[:href]
   end
 
@@ -55,15 +60,14 @@ class Collection
     when '.md'
       name = File.basename(fn)
       atts, markdown = Syntropy.parse_markdown_file(fn, @env)
-      href = entry_href(fn)
       {
-        kind:   :markdown,
-        path:   fn,
-        name:   name,
-        title:  atts[:title] || entry_title(name),
-        href:   href,
+        kind:     :markdown,
+        path:     fn,
+        name:     name,
+        title:    atts[:title] || entry_title(name),
+        href:     entry_href(fn),
         markdown: markdown,
-        html:   Papercraft.markdown(markdown)
+        html:     Papercraft.markdown(markdown)
       }
     else
       nil
@@ -94,7 +98,8 @@ class Collection
 
   def entry_href(fn)
     ext = File.extname(fn)
-    fn.match(/^#{Regexp.escape(@dir)}(.+)#{Regexp.escape(ext)}$/)[1]
+    rel_href = fn.match(/^#{Regexp.escape(@dir)}(.+)#{Regexp.escape(ext)}$/)[1]
+    File.join(@mount_path, rel_href)
   end
 
   def visit_entries(ptr, &block)
@@ -201,30 +206,5 @@ class Collection
   end
 end
 
-
-
-
-Layout = import '_layout/default'
-Pages = Collection.new(@machine, @env, File.join(__dir__, '_pages'))
-
-export ->(req) {
-  path = req.path
-  path = path.gsub(/^#{Regexp.escape(@ref)}/, '') if @ref != '/'
-  
-  case path
-  when '/'
-    return req.redirect(Pages.default_path)
-  when '/search'
-    results = Pages.search(req.query[:s])
-    return req.respond(JSON.dump(results), 'Content-Type' => Qeweney::MimeTypes[:json])
-  end
-
-  entry = Pages[path]
-  if entry
-    html = Layout.render(pages: Pages, path:, entry:)
-    req.respond(html, 'Content-Type' => Qeweney::MimeTypes[:html])
-  else
-    # Pages[:entry_map].inspect
-    req.respond(path)
-  end
-}
+Pages = Collection.new(@machine, @env, File.join(__dir__, '_pages'), '/docs')
+export Pages

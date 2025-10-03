@@ -1,5 +1,5 @@
 ---
-title: Working with Templates
+title: Working with Layouts
 ---
 
 Layouts are central to efficiently generating HTML in web apps. Papercraft makes
