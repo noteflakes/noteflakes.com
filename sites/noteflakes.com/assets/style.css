@@ -3,7 +3,7 @@
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
-  line-height: 1.5em;
+  line-height: 1.35em;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
@@ -11,7 +11,9 @@
 }
 
 body {
-  font: normal 14px monospace;
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
+  font-size: 16px;
+  font-weight: normal;
 }
 
 container {
@@ -106,10 +108,6 @@ li code {
   color: rgb(66, 146, 41);
 }
 
-article * {
-  line-height: 1.8em;
-}
-
 .rtl {
   direction: rtl;
 }
@@ -136,7 +134,9 @@ div.previously {
 
 pre,
 code {
-  font-family: monospace;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-size: 0.9em;
+  line-height: 1.25em;
 }
 
 pre {

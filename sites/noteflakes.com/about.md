@@ -19,17 +19,26 @@ of expertise:
 - Storage, retrieval and analysis of time series data (for industrial and B2B
   applications).
 
-I am the author of multiple [open-source libraries and
-applications](https://github.com/noteflakes), mostly around the Ruby programming
-language, but I also dabble in C, C++, Go, Lua, PHP and Scheme. In my open
-source work I've been building a set of tools called collectively [Digital
-Fabric](https://github.com/digital-fabric), aimed at liberating developers and
-contributing to a more democratic, decentralized web.
-
 I build tailor-made solutions for my clients, based on my many years of
 experience in integrating process-control systems with internet platforms in a
 secure and robust manner. Please feel free to contact me, I'd love to hear about
 your project.
+
+I have created a web platform for operating and monitoring infrastructure
+facilities for [RealiteQ](https://realiteq.com/), providing secure, web enabled
+SCADA and telemetry services for thousands of facilities in dozens of countries
+around the world.
+
+## Open-Source Software
+
+I am the author of multiple [open-source libraries and
+applications](https://github.com/noteflakes), mostly around the Ruby programming
+language, but I also dabble in C, C++, Go, Lua, PHP and Scheme. I am the
+original author of the popular [Sequel](https://github.com/jeremyevans/sequel)
+database toolkit for Ruby.
+
+If you like my open-source work, please consider [sponsoring
+me](https://github.com/sponsors/noteflakes).
 
 When not in front of a computer screen I garden, build stuff, make food and hang
 out with family and friends.
@@ -40,7 +49,7 @@ This website was made and is run using my own tools:
 
 - [Syntropy](https://github.com/noteflakes/syntropy) - a (WIP) framework
   for creating Ruby web apps
-- [Papercraft](https://github.com/digital-fabric/papercraft) - a fast functional
+- [Papercraft](https://papercraft.noteflakes.com/) - a fast functional
   HTML templating engine for Ruby
 - [TP2](https://github.com/noteflakes/tp2) - a modern web server for Ruby
 - [UringMachine](https://github.com/digital-fabric/uringmachine) - a lean mean

@@ -11,9 +11,9 @@
 }
 
 body {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", monospace;
-  font-style: normal;
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif; 
   font-size: 16px;
+  font-style: normal;
 }
 
 cols {
@@ -425,15 +425,16 @@ main {
 
 /* code snippet styling */
 
+
+pre,
+code {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; 
+  font-size: 0.95em;
+}
+
 div.highlight {
   margin-bottom: 1em;
   padding: 1em;
-
-  pre,
-  code {
-    font-family: monospace;
-    font-size: 0.95em;
-  }
 
   pre {
     padding: 0;

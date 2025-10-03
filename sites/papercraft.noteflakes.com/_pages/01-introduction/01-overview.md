@@ -22,7 +22,7 @@ HTML with ERB, and ERB is pretty cool! But with Papercraft, you don't need to do
 the constant mental switching between HTML syntax and Ruby syntax. As you'll see
 there's also no need to put each template in a separate file. You can organize
 your templates however you want. Papercraft also makes it very easy to compose
-templates: creating layouts, partials and components is trivial:
+templates. Creating layouts, partials and components is trivial:
 
 ```ruby
 -> {
