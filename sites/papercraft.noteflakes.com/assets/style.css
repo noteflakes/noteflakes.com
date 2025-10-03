@@ -63,6 +63,11 @@ p {
   margin-bottom: 1em;
 }
 
+ul {
+  margin-bottom: 1em;
+  padding-left: 1.25rem;
+}
+
 strong {
   font-weight: bold;
 }
@@ -169,6 +174,16 @@ main {
 
     content {
       margin-bottom: 3em;
+
+      a {
+        font-weight: bold;
+        text-decoration: none;
+        color: #158;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 
       nav {
         margin-top: 2em;
