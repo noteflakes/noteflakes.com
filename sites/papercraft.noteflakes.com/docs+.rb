@@ -9,7 +9,5 @@ export ->(req) {
     req.respond(html, 'Content-Type' => Qeweney::MimeTypes[:html])
   else
     raise Syntropy::Error.not_found
-    # Pages[:entry_map].inspect
-    # req.respond(path)
   end
 }
