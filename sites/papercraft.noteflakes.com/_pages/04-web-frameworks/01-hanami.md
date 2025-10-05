@@ -1,29 +1,10 @@
 ---
-title: "Hanami on Papercraft"
-layout: article
+title: Hanami
 ---
 
-Lately I've been really excited about Papercraft and the possibilities it brings
-to developing web apps with Ruby. Frankly, the more I use it, the more I see how
-simple and joyful it can be to write beautiful HTML templates in plain Ruby.
+The [hanami-papercraft](https://github.com/digital-fabric/hanami-papercraft) gem provides support for using Papercraft templates in Hanami apps. To use it, follow these steps:
 
-Now that the [Papercraft website](https://papercraft.noteflakes.com/) is up, I'd
-like to concentrate on making it easier for everyone to use Papercraft in their
-apps, whatever their web framework. So this is exactly what I set out to do this
-weekend. First on my list: [Hanami](https://hanamirb.org/), an established Ruby
-web framework with a substantial following.
-
-Since I never used Hanami, I decided to follow the [Getting Started
-guide](https://guides.hanamirb.org/v2.3/introduction/getting-started/) and then
-started to peek under the hood to see how I could replace the ERB templates with
-Papercraft ones.
-
-After a few hours and a quite a bit of fiddling, I had a working proof of
-concept. I then proceeded to extract the code into a new gem I'm releasing today called [hanami-papercraft](https://github.com/digital-fabric/hanami-papercraft).
-
-To use it, do the following:
-
-## 1. Add hanami-papercraft
+## 1. Add hanami-papercraft to Your App
 
 In your `Gemfile`, add the following line:
 
@@ -120,4 +101,3 @@ module Bookshelf
 end
 ```
 
-That's it for now. There's probably a lot of stuff that won't work. If you run into any problems, please let me know. I'll gladly accept contributions in the form of bug reports or PR's. Just head on over to the [hanami-papercraft](https://github.com/digital-fabric/hanami-papercraft) repo...
