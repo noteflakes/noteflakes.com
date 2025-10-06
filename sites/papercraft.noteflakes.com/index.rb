@@ -28,7 +28,7 @@ export Layout.apply {
       }
       hr
       features {
-        a(href: "/docs/01-introduction/01-overview") {
+      a(href: "/docs/01-introduction/01-overview") {
           markdown <<~MD
             #### Easy to write & read
             
@@ -46,15 +46,6 @@ export Layout.apply {
           MD
         }
 
-        a(href: "/docs/05-papercraft-internals/01-how-papercraft-works") {
-          markdown <<~MD
-            #### Fast Rendering
-            
-            Enjoy best-in-class performance using Papercraft's optimizing
-            compiler.
-          MD
-        }
-
         a(href: "/docs/02-basic-usage/01-writing-templates") {
           markdown <<~MD
             #### Functional Approach
@@ -64,12 +55,21 @@ export Layout.apply {
           MD
         }
 
-        a(href: "/docs/02-basic-usage/04-builtin_methods") {
+        a(href: "/docs/05-papercraft-internals/01-how-papercraft-works") {
           markdown <<~MD
-            #### Markdown Rendering
+            #### Fast Rendering
             
-            Take advantage of Papercraft's built-in support for Mardown to
-            generate rich text.
+            Enjoy best-in-class performance using Papercraft's optimizing
+            compiler.
+          MD
+        }
+
+        a(href: "/docs/04-web-frameworks/01-hanami") {
+          markdown <<~MD
+            #### Web Framework Integration
+            
+            Use Papercraft with your favorite web framework: Hanami, Roda, and
+            coming soon: Rails.
           MD
         }
 

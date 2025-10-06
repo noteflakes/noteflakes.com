@@ -258,6 +258,7 @@ main {
         display: flex;
         column-gap: 2em;
         justify-content: center;
+        font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif; 
         
         a {
           display: inline-block;
@@ -293,12 +294,14 @@ main {
       margin: 0 auto 3em;
       column-gap: 2em;
       row-gap: 2em;
+      font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif; 
       
       a {
         display: inline-block;
         background-color: #bef;
         padding: 1em;
-        border-radius: 6px;
+        border: 2px solid #278;
+        border-radius: 12px;
         width: 11em;
         flex-shrink: 0;
 
