@@ -61,3 +61,5 @@ sites/_data
 *.db
 *.db-shm
 *.db-wal
+
+proxy/data

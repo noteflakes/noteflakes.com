@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gem.coop/
   specs:
     bigdecimal (3.2.2)
     csv (3.3.5)
@@ -25,12 +25,12 @@ GEM
       bigdecimal (~> 3.1)
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
-    papercraft (2.16)
+    papercraft (2.19)
       kramdown (~> 2.5.1)
       kramdown-parser-gfm (~> 1.1.0)
-      rouge (~> 4.5.1)
-      sirop (~> 0.9)
-    prism (1.4.0)
+      rouge (~> 4.6.1)
+      sirop (~> 1.0)
+    prism (1.5.1)
     qeweney (0.23)
       escape_utils (= 1.3.0)
     racc (1.8.1)
@@ -39,15 +39,15 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rexml (3.4.2)
-    rouge (4.5.2)
-    sirop (0.9)
-      prism (~> 1.4.0)
-    syntropy (0.23)
+    rouge (4.6.1)
+    sirop (1.0)
+      prism (~> 1.5.1)
+    syntropy (0.24)
       extralite (= 2.13)
       json (= 2.13.2)
       listen (= 3.9.0)
       logger (= 1.7.0)
-      papercraft (= 2.16)
+      papercraft (= 2.19)
       qeweney (= 0.23)
       tp2 (= 0.19)
       uringmachine (= 0.18)
@@ -63,7 +63,7 @@ PLATFORMS
 DEPENDENCIES
   httparty (~> 0.23.1)
   nokogiri (~> 1.18.8)
-  syntropy (= 0.23)
+  syntropy (= 0.24)
 
 BUNDLED WITH
    2.6.9
