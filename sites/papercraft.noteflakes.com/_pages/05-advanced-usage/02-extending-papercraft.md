@@ -27,4 +27,3 @@ Papercraft.extension(
   }
 }
 ```
-

@@ -2,6 +2,17 @@
 title: Built-in Methods
 ---
 
+## `link_stylesheet` - Add Stylesheet Link
+
+This is a convenience method for adding a stylesheet link:
+
+```ruby
+-> {
+  link_stylesheet "/assets/print.css", media: "print"
+}.render
+#=> "<link rel=\"stylesheet\" href=\"/assets/print.css\" media=\"print\">"
+```
+
 ## `markdown` - Render Markdown
 
 Papercraft includes builtin support for rendering markdown documents or

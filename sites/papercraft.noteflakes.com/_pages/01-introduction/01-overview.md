@@ -33,6 +33,11 @@ templates. Creating layouts, partials and components is trivial:
 #=> "<div><h1>Hello, world!</h1></div>"
 ```
 
+Another important aspect of Papercraft is that it always produces *valid
+HTML*. With automatic HTML escaping, there's zero risk of cross-site scripting
+(XSS) attacks due to HTML/Javascript injection. There's also zero risk of
+misformatted or missing closing tags, or incorrectly formatted attributes.
+
 Papercraft is designed for developer happiness, but it does not compromise on
 rendering performance. In fact, Papercraft offers best-in-class performance,
 equal to the performance of compiled ERB/ERubi/Herb templates!
