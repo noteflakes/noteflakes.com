@@ -2,6 +2,24 @@
 title: CHANGELOG
 ---
 
+# 2.23 2025-10-12
+
+- Update ERB to version 5.1.1
+
+# 2.22 2025-10-08
+
+- Use `prepend` instead of `include` to extend the `Proc` class
+
+# 2.21 2025-10-08
+
+- Fix `Proc#apply` parameter handling
+- Put Proc extensions in separate module, included into Proc
+
+# 2.20 2025-10-08
+
+- Raise error on void element with child nodes or inner text
+- Fix compilation of empty template
+
 # 2.19 2025-10-08
 
 - Use gem.coop in Gemfile
