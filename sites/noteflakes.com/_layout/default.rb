@@ -1,8 +1,14 @@
-export(template { |**props|
-  html {
+export(template { |page_title: nil, page_description: nil, **props|
+  page_title ||= props[:title] ? "#{props[:title]} - Noteflakes" : 'Noteflakes'
+  page_description ||= page_title
+  Kernel.puts "*" * 40
+  Kernel.p(page_title:, page_description:)
+
+  html(lang: 'en') {
     head {
-      title(props[:title] ? "Noteflakes - #{props[:title]}" : 'Noteflakes')
+      title page_title
       meta charset: 'utf-8'
+      meta name: 'description', content: page_description.gsub(/\s+/, ' ').strip
       meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
       link rel: 'icon', type: 'image/png', href: '/assets/nf-icon-black.png'
       link rel: 'stylesheet', type: 'text/css', href: '/assets/style.css'
@@ -22,7 +28,7 @@ export(template { |**props|
         header {
           h1 {
             a(href: '/') {
-              img src: '/assets/nf-icon-black.png'
+              img src: '/assets/nf-icon-black.png', alt: "Noteflakes icon"
               span 'noteflakes'
             }
           }

@@ -48,7 +48,12 @@ LastArticle = -> {
   }
 }
 
-export layout.apply(title: '') { |**props|
+desc = <<~EOF
+  Noteflakes is an independent software company building 
+  custom solutions for web-enabled process control apps.
+EOF
+
+export layout.apply(page_description: desc) { |**props|
   Landing()
   LastArticle()
 }

@@ -1,5 +1,6 @@
 ---
 title: 'On Palestine'
+page_title: 'On Palestine - Noteflakes'
 layout: default
 ---
 
