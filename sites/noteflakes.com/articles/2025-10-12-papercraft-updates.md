@@ -22,7 +22,7 @@ access those lines of code. It took a bit of digging, but finally I've [found it
 As a result, you can now define ad-hoc Papercraft templates right in your IRB
 session:
 
-```ruby
+```
 sharon@nf1:~$ irb -rpapercraft
 irb(main):001> ->{ h1 "Hello, IRB!" }.render
 => "<h1>Hello, IRB!</h1>"
