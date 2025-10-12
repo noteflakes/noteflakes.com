@@ -3,7 +3,7 @@ title: "Papercraft update: IRB Support, Bug Fixes, More Speed"
 layout: article
 ---
 
-This last week I was away on a little trip to Paris to attend a
+This week I was away on a little trip to Paris to attend a
 [Paris.rb](https://paris-rb.org/) meetup and meet some friends, so I was less
 productive, but still got some stuff done, and still managed to do some work on
 [Papercraft](https://papercraft.noteflakes.com/). Here's what's changed:
