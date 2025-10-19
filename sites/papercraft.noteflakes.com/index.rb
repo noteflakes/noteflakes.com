@@ -15,9 +15,9 @@ export Layout.apply {
         snippet {
           markdown <<~MD
             ```ruby
-            -> {
+            Papercraft.html {
               h1 "Hello from Papercraft!"
-            }.render
+            }
             ```
           MD
         }

@@ -33,7 +33,7 @@ Hello = ->(name) {
   h1 "Hello from #{name}!"
 }
 
-puts Hello.render('Papercraft')
+puts Papercraft.html(Hello, 'Papercraft')
 ```
 
 Then run the test code and you should see the following output:

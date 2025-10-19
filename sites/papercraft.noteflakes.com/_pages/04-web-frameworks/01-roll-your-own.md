@@ -28,16 +28,19 @@ eventually refactor your code:
 ```ruby
 # instead of this:
 def greet
-  -> {
+  Papercraft.html {
     h1 "Hello, #{@name}!"
-  }.render
+  }
 end
 
 # do this:
 def greet
-  ->(name) {
-    h1 "Hello, #{name}!"
-  }.render(@name)
+  Papercraft.html(
+    ->(name) {
+      h1 "Hello, #{name}!"
+    },
+    @name
+  )
 end
 ```
 
@@ -52,9 +55,11 @@ def template
 end
 
 # do this:
+TEMPLATE = ->(ctx:) {
+  h1 ctx.title
+}
+
 def template
-  ->(ctx:) {
-    h1 ctx.title
-  }.apply(ctx: self)
+  Papercraft.apply(TEMPLATE, ctx: self)
 end
 ```

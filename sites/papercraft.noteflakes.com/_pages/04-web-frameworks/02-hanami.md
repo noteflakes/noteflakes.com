@@ -2,7 +2,9 @@
 title: Hanami on Papercraft
 ---
 
-The [hanami-papercraft](https://github.com/digital-fabric/hanami-papercraft) gem provides support for using Papercraft templates in Hanami apps. To use it, follow these steps:
+The [hanami-papercraft](https://github.com/digital-fabric/hanami-papercraft) gem
+provides support for using Papercraft templates in Hanami apps. To use it,
+follow these steps:
 
 ## 1. Add hanami-papercraft to Your App
 

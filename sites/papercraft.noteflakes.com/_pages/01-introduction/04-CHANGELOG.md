@@ -2,6 +2,22 @@
 title: CHANGELOG
 ---
 
+# 3.0.0 2025-10-19
+
+- Improve implementation of `Papercraft.apply`
+- Add support for rendering self-closing XML tags
+- Streamline Papercraft API
+- Add support for `Papercraft.render { ... }`
+- Prefix internal Proc extensions with `__papercraft_`
+- Change API to use `Papercraft.html` instead of `Proc#render`. Same for
+  `apple`, `render_xml` etc.
+
+# 2.24 2025-10-14
+
+- Update gem links
+- Simplify `render_cache`, caller must provide cache key
+- Reduce surface area of Proc extensions
+
 # 2.23 2025-10-12
 
 - Update ERB to version 5.1.1

@@ -64,7 +64,7 @@ To render the template, first load it using the `#template` method, and then run
 ```ruby
 route do |r|
   r.get "hello" do
-    template("hello").render
+    Papercraft.html(template, "hello")
   end
 
   ...
@@ -82,7 +82,7 @@ If the template takes arguments, you can pass them through the `#render` call:
 # in your app
 route do |r|
   r.get "greet", String do |name|
-    template("greet").render(name)
+    Papercraft.html(template("greet"), name)
   end
   ...
 end

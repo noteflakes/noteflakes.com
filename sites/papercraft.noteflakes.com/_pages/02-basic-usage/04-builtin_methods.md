@@ -7,9 +7,9 @@ title: Built-in Methods
 This is a convenience method for adding a stylesheet link:
 
 ```ruby
--> {
+Papercraft.html {
   link_stylesheet "/assets/print.css", media: "print"
-}.render
+}
 #=> "<link rel=\"stylesheet\" href=\"/assets/print.css\" media=\"print\">"
 ```
 
@@ -19,13 +19,13 @@ Papercraft includes builtin support for rendering markdown documents or
 snippets. To render markdown in a template, use the `markdown` method:
 
 ```ruby
--> {
+Papercraft.html {
   div {
     markdown <<~MD
       # Hello, world!
     MD
   }
-}.render
+}
 #=> "<div><h1>Hello, world!</h1></div>"
 ```
 
@@ -35,9 +35,9 @@ If you want to include a piece of raw HTML in your templates, use the `raw`
 method call:
 
 ```ruby
--> {
+Papercraft.html {
   div { raw "<p>Hi</p>" }
-}.render
+}
 #=> "<div><p>Hi</p></div>"
 ```
 
@@ -49,9 +49,9 @@ method is similar to normal tag method calls, expect it takes an additional tag
 name parameter as its first argument:
 
 ```ruby
--> {
+Papercraft.html {
   tag "p", "Hi", id: "hi"
-}.render
+}
 #=> "<p id=\"hi\">Hi</p>"
 ```
 
@@ -60,12 +60,12 @@ name parameter as its first argument:
 The `text` method is used for emitting inline escaped text:
 
 ```ruby
--> {
+Papercraft.html {
   p {
     text "foo"
     br
     text "bar"
   }
-}.render
+}
 #=> "<p>foo<br>bar</p>"
 ```

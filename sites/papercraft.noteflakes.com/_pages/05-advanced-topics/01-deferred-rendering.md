@@ -29,7 +29,7 @@ SpecialButton = ->(id:, text:, **props) {
   button(text, id:)
 }
 
-Layout.render { |**props|
+Papercraft.html(Layout) { |**props|
   div {
     SpecialButton(id: 'button1', text: 'Click here', **props)
   }

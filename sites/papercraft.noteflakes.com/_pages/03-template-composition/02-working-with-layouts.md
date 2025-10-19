@@ -24,11 +24,11 @@ DefaultLayout = ->(**props) {
 }
 ```
 
-To use the above layout template, we call `DefaultLayout.render` with a block
-containing the page content:
+To use the above layout template, we call `Papercraft.html(DefaultLayout)` with
+a block containing the page content:
 
 ```ruby
-DefaultLayout.render {
+Papercraft.html(DefaultLayout) {
   h1 "My title"
   article {
     p "My article"
@@ -50,14 +50,15 @@ example, you'll want to take the default template and add additional markup
 inside the body for displaying articles:
 
 ```ruby
-ArticleLayout = DefaultLayout.apply { |**props|
+ArticleLayout = Papercraft.apply(DefaultLayout) { |**props|
   article {
     h1 props[:title]
     markdown props[:content]
   }
 }
 
-ArticleLayout.render(
+Papercraft.html(
+  ArticleLayout,
   title: "My title",
   content: "My article content"
 )

@@ -27,12 +27,12 @@ can then use this component by making calls to `Greet()` inside our main
 template:
 
 ```ruby
--> {
+Papercraft.html {
   div {
     Greet("foo")
     Greet("bar")
   }
-}.render
+}
 #=> "<div><h1>Hello, foo!</h1><h1>Hello, bar!</h1></div>"
 ```
 
@@ -49,7 +49,7 @@ DivGreet = ->(greet, name) {
   }
 }
 
-DivGreet.render(Greet, "world")
+Papercraft.html(DivGreet, Greet, "world")
 #=> "<div><h1>Hello, world!</h1></div>"
 ```
 
@@ -65,7 +65,7 @@ DivWrapper = ->(*args) {
   }
 }
 
-DivWrapper.render(&Greet)
+Papercraft.html(DivWrapper, &Greet)
 ```
 
 ## Organizing Component Templates
@@ -97,7 +97,7 @@ module WebComponents
   }
 end
 
-WebComponents::Card.render("My card") {
+Papercraft.html(WebComponents::Card, "My card") {
   WebComponents::Table(cols, rows)
-}.render
+}
 ```

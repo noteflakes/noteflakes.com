@@ -15,28 +15,28 @@ arguments, making the data flow easy to follow and understand. Papercraft also
 lets developers create derivative templates using full or partial parameter
 application.
 
+```ruby
+Papercraft.html {
+  div {
+    h1 "Hello, world!"
+  }
+}
+#=> "<div><h1>Hello, world!</h1></div>"
+```
+
 ## Why Papercraft?
 
 Why should you write your HTML templates in Ruby? All of us know how to generate
 HTML with ERB, and ERB is pretty cool! But with Papercraft, you don't need to do
-the constant mental switching between HTML syntax and Ruby syntax. As you'll see
-there's also no need to put each template in a separate file. You can organize
-your templates however you want. Papercraft also makes it very easy to compose
-templates. Creating layouts, partials and components is trivial:
+the constant mental switching between HTML syntax and Ruby syntax. There's also
+no need to put each template in a separate file. You can organize your templates
+however you want. Papercraft also makes it very easy to compose templates.
+Creating layouts, partials and components is trivial.
 
-```ruby
--> {
-  div {
-    h1 "Hello, world!"
-  }
-}.render
-#=> "<div><h1>Hello, world!</h1></div>"
-```
-
-Another important aspect of Papercraft is that it always produces *valid
-HTML*. With automatic HTML escaping, there's zero risk of cross-site scripting
-(XSS) attacks due to HTML/Javascript injection. There's also zero risk of
-misformatted or missing closing tags, or incorrectly formatted attributes.
+Another important aspect of Papercraft is that it always produces *valid HTML*.
+With automatic HTML escaping, there's zero risk of cross-site scripting (XSS)
+attacks due to HTML/Javascript injection. There's also zero risk of misformatted
+or missing closing tags, or incorrectly formatted attributes.
 
 Papercraft is designed for developer happiness, but it does not compromise on
 rendering performance. In fact, Papercraft offers best-in-class performance,

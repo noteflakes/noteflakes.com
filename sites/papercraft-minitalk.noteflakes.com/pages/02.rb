@@ -24,7 +24,7 @@ export layout.apply { |**props|
       template = -> {
         div { Greeter('Euruko') }
       }
-      template.render
+      Papercraft.html(template)
       #=> "<div><h1>Hello, Euruko!</h1></div>"
       ```
 

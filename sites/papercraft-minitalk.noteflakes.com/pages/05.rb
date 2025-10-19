@@ -33,7 +33,7 @@ export layout.apply { |**props|
         }
       }
 
-      article_layout.render(**article)
+      Papercraft.html(article_layout, **article)
       ```
 
     Markdown

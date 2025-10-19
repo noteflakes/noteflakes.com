@@ -3,5 +3,5 @@ Template = -> {
 }
 
 export ->(req) {
-  req.respond(Template.render, 'Content-Type' => 'text/html')
+  req.respond(Papercraft.html(Template, 'Content-Type' => 'text/html')
 }

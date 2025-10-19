@@ -94,8 +94,10 @@ instead define them as arguments:
 ```ruby
 # instead of this:
 foo = "foo"
--> { h1 foo }.render
+template = -> { h1 foo }
+Papercraft.html(template)
 
 # do this:
-->(foo) { h1 foo }.render("foo")
+template = ->(foo) { h1 foo }
+Papercraft.html(template, "foo")
 ```
