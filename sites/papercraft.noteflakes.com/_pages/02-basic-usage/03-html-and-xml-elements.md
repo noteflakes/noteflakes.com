@@ -18,7 +18,7 @@ input(type: "text", name: "address", disabled: true)
 ```
 
 In the above examples, the method calls `p`, `a`, and `input` generate the
-corresponding HTML elements, and use the given parameters as the inner text and
+corresponding HTML elements, and use the given arguments as the inner text and
 the attributes of those elements. As with any normal Ruby method call, you can
 choose whether to use parentheses or to emit them.
 
@@ -91,7 +91,7 @@ p(data_foo: "bar")
 
 ## Using Dynamic Values in HTML Tags
 
-Using dynamic values in tags is easy and natural. Just pass them as parameters
+Using dynamic values in tags is easy and natural. Just pass them as arguments
 to your tag method calls:
 
 ```ruby

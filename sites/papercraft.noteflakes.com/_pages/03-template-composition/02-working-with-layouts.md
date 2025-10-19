@@ -38,7 +38,7 @@ Papercraft.html(DefaultLayout) {
 ```
 
 > The layout template takes keyword arguments (`**props`) and passes them to the
-> given block. This way, whatever parameters are passed to the layout, we pass
+> given block. This way, whatever arguments are passed to the layout, we pass
 > in turn to the inner template. It is useful to look at this practice as a
 > convention and to design your templates to always take keyword arguments.
 

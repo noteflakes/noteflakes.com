@@ -74,11 +74,11 @@ You can now start writing your view templates with Papercraft, e.g.:
 
 ```
 
-## Passing Template Parameters
+## Passing Template Arguments
 
 While theoretically you have access to the view class in your templates (through
 `self`), you should use explicit arguments in your templates, as shown in the
-examples above. The `PapercraftView` class always passes template parameters as
+examples above. The `PapercraftView` class always passes template arguments as
 keyword arguments to the layout and the view templates.
 
 In the view template above, the `books` keyword argument is defined because the

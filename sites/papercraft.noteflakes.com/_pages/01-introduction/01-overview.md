@@ -42,6 +42,6 @@ Papercraft is designed for developer happiness, but it does not compromise on
 rendering performance. In fact, Papercraft offers best-in-class performance,
 equal to the performance of compiled ERB/ERubi/Herb templates!
 
-With features such as explicit template arguments, automatic HTML escaping, and
-builtin support for rendering markdown, Papercraft provides a comprehensive
-solution to your HTML templating needs.
+With features such as explicit template arguments, automatic HTML escaping,
+support for rendering XML, and builtin support for rendering markdown,
+Papercraft provides a comprehensive solution to your templating needs.

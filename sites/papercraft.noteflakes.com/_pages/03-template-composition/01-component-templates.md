@@ -39,8 +39,9 @@ Papercraft.html {
 ## Components as Arguments
 
 You can also inject arbitrary components into another template (be it a whole
-page template or a component template) by passing them as parameters. You can
-render a component given as an argument by passing it to the `render` method. Any additional parameters are passed to the component:
+page template or a component template) by passing them as arguments. You can
+render a component given as an argument by passing it to the `render` method.
+Any additional arguments are passed to the component:
 
 ```ruby
 DivGreet = ->(greet, name) {

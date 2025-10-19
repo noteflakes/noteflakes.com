@@ -19,18 +19,18 @@ Papercraft.html {
 #=> "<h1>Hello</h1>"
 ```
 
-## Passing Parameters
+## Passing Arguments
 
-When a template takes one or more arguments, you should pass the corresponding
-parameters along with the template:
+When a template takes one or more arguments, they should be passed to
+`Papercraft.html` following the template reference:
 
 ```ruby
 Hello = ->(name) { h1 "Hello, #{name}!" }
 Papercraft.html(Hello, "world") #=> "<h1>Hello, world!</h1>"
 ```
 
-As with any normal Ruby method call, you can pass rest parameters and keyword
-parameters to `Papercraft.html`, and they will be passed to the template:
+As with any normal Ruby method call, you can pass rest arguments and keyword
+arguments to `Papercraft.html`, and they will be passed to the template:
 
 ```ruby
 Hello = ->(name) { h1 "Hello, #{name}!" }
@@ -63,7 +63,9 @@ Papercraft.html(DivWrapper) { h1 "Hello!" }
 
 ## Creating Derived Templates with Parameter Application
 
-One of the advantages of expressing templates as lambdas is that you can create derivative templates very easily by applying parameters to an existing template using the `#apply` method:
+One of the advantages of expressing templates as lambdas is that you can create
+derivative templates very easily by applying arguments to an existing template
+using the `#apply` method:
 
 ```ruby
 # original template:
