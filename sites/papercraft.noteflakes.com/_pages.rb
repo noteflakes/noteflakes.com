@@ -6,10 +6,6 @@ class Collection
   attr_reader :root
 
   def initialize(machine, env, dir, mount_path)
-    puts '*' * 40
-    p env.keys
-    p env[:ref]
-    puts
     @machine = machine
     @env = env
     @dir = dir

@@ -1,8 +1,6 @@
 export(template { |page_title: nil, page_description: nil, **props|
   page_title ||= props[:title] ? "#{props[:title]} - Noteflakes" : 'Noteflakes'
   page_description ||= page_title
-  Kernel.puts "*" * 40
-  Kernel.p(page_title:, page_description:)
 
   html(lang: 'en') {
     head {
