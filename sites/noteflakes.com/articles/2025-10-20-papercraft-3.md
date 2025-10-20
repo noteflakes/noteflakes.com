@@ -124,9 +124,9 @@ This problem is not unique to Papercraft. Any templating solution, be it
 to suffer from the same problem. ERB is especially
 [susceptible](https://github.com/rails/rails/issues/41452) to this.
 
-One of the ideas I've been exploring since the release of automatic template
-compilation in Papercraft 2.0, was automatic inlining of sub-templates. Consider
-the following example:
+One of the ideas I've been exploring since the introduction of automatic
+template compilation in Papercraft 2.0, was automatic inlining of sub-templates.
+Consider the following example:
 
 ```ruby
 Card = ->(title:, text:) {
