@@ -4,7 +4,13 @@ localhost {
 
 noteflakes.com {
   reverse_proxy noteflakescom-backend-1:1234
-  encode
+  encode {
+    match {
+      header Content-Type text/*
+      header Content-Type application/*
+    }
+    minimum_length 2048
+  }
 }
 
 r2025.noteflakes.com {
