@@ -4,6 +4,7 @@ localhost {
 
 noteflakes.com {
   reverse_proxy noteflakescom-backend-1:1234
+  encode
 }
 
 r2025.noteflakes.com {
