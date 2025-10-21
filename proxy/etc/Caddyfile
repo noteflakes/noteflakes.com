@@ -4,13 +4,7 @@ localhost {
 
 noteflakes.com {
   reverse_proxy noteflakescom-backend-1:1234
-  encode {
-    match {
-      header Content-Type text/*
-      header Content-Type application/*
-    }
-    minimum_length 2048
-  }
+  encode
 }
 
 r2025.noteflakes.com {
@@ -23,6 +17,7 @@ papercraft-minitalk.noteflakes.com {
 
 papercraft.noteflakes.com {
   reverse_proxy noteflakescom-backend-1:1234
+  encode
 }
 
 tolkora.net {
