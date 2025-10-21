@@ -1,5 +1,7 @@
-DefaultLayout = import '_layout/default'
-Pages = import '_pages'
+DefaultLayout = import '/_layout/default'
+Pages = import '../_pages'
+
+dev_mode = @env[:dev_mode]
 
 export DefaultLayout.apply { |entry:, pages:, href:, **props|
   header {
@@ -45,6 +47,11 @@ export DefaultLayout.apply { |entry:, pages:, href:, **props|
         content {
           h1 entry[:title]
           raw entry[:html]
+          if dev_mode
+            p {
+              a "Edit this file", href: "vscode://file/#{entry[:path]}"
+            }
+          end
           nav {
             if entry[:prev]
               a(href: entry[:prev][:href]) {

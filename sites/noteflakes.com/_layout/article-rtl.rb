@@ -1,4 +1,4 @@
-default = import '_layout/default'
+default = import './default'
 
 export default.apply { |title:, date:, **props|
   article(class: 'rtl') {

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-layout = import '/_layout/default'
+layout = import '../_layout/default'
 
 export layout.apply { |**props|
   a('>>>', href: '02', class: 'next')

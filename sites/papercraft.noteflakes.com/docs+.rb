@@ -1,5 +1,5 @@
-Layout = import '_layout/docs'
-Pages = import '_pages'
+Layout = import '/_layout/docs'
+Pages = import './_pages'
 
 export ->(req) {
   href = req.path

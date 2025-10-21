@@ -1,4 +1,4 @@
-layout = import '_layout/default'
+layout = import '/_layout/default'
 
 export layout.apply(title: 'archive') { |**props|
   article_entries = MODULE.page_list('/articles').reverse

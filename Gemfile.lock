@@ -3,6 +3,7 @@ GEM
   specs:
     bigdecimal (3.2.2)
     csv (3.3.5)
+    date (3.4.1)
     erb (5.1.1)
     escape_utils (1.3.0)
     extralite (2.13)
@@ -12,6 +13,11 @@ GEM
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
+    io-console (0.8.1)
+    irb (1.15.2)
+      pp (>= 0.6.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     json (2.13.2)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
@@ -22,17 +28,27 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
+    nokogiri (1.18.9)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
-    papercraft (3.0)
+    papercraft (3.0.1)
       erb (~> 5.1.1)
       kramdown (~> 2.5.1)
       kramdown-parser-gfm (~> 1.1.0)
       rouge (~> 4.6.1)
-      sirop (~> 1.0)
-    prism (1.5.1)
+      sirop (~> 1.0.1)
+    pp (0.6.3)
+      prettyprint
+    prettyprint (0.2.0)
+    prism (1.6.0)
+    psych (5.2.6)
+      date
+      stringio
     qeweney (0.24)
       escape_utils (= 1.3.0)
     racc (1.8.1)
@@ -40,16 +56,23 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
+    rdoc (6.15.0)
+      erb
+      psych (>= 4.0.0)
+      tsort
+    reline (0.6.2)
+      io-console (~> 0.5)
     rexml (3.4.2)
     rouge (4.6.1)
-    sirop (1.0)
-      prism (~> 1.5.1)
-    syntropy (0.25)
+    sirop (1.0.1)
+      prism (~> 1.6)
+    stringio (3.1.7)
+    syntropy (0.27.2)
       extralite (= 2.13)
       json (= 2.13.2)
       listen (= 3.9.0)
       logger (= 1.7.0)
-      papercraft (= 3.0)
+      papercraft (= 3.0.1)
       qeweney (= 0.24)
       tp2 (= 0.19)
       uringmachine (= 0.18)
@@ -57,6 +80,7 @@ GEM
       qeweney (~> 0.23)
       rack (~> 3.1.15)
       uringmachine (~> 0.18)
+    tsort (0.2.0)
     uringmachine (0.18)
 
 PLATFORMS
@@ -64,9 +88,10 @@ PLATFORMS
 
 DEPENDENCIES
   httparty (~> 0.23.1)
+  irb
   nokogiri (~> 1.18.8)
-  papercraft (= 3.0)
-  syntropy (= 0.25)
+  papercraft (= 3.0.1)
+  syntropy (= 0.27.2)
 
 BUNDLED WITH
    2.6.9

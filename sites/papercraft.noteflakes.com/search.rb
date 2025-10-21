@@ -1,4 +1,4 @@
-Pages = import '_pages'
+Pages = import './_pages'
 
 export ->(req) {
   results = Pages.search(req.query[:s])

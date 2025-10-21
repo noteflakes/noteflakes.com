@@ -1,5 +1,5 @@
-Pages = import '_pages'
-Layout = import '_layout/default'
+Pages = import './_pages'
+Layout = import '/_layout/default'
 
 export Layout.apply {
   main {

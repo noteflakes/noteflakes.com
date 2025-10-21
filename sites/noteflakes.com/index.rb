@@ -1,4 +1,4 @@
-layout = import './_layout/default'
+layout = import '/_layout/default'
 
 Landing = -> {
   landing {

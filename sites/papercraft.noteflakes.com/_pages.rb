@@ -2,6 +2,9 @@ require 'syntropy/connection_pool'
 require 'securerandom'
 require 'json'
 
+# invalidate on page change
+collection_module!
+
 class Collection
   attr_reader :root
 

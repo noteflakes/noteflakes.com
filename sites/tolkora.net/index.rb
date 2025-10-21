@@ -1,5 +1,5 @@
-layout = import '_layout/default'
-banner = import '_components/banner'
+layout = import '/_layout/default'
+banner = import '/_components/banner'
 
 export layout.apply(title: '') { |**props|
   render banner
