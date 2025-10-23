@@ -87,7 +87,7 @@ class Collection
 
   def entry_title(name)
     name
-      .gsub(/^\d+\-/, '')
+      .gsub(/^[\-\d]+\-/, '')
       .gsub(/\.md$/, '')
       .split('-').map {
         it.gsub(/^\w/) { |c| c.upcase }

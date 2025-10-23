@@ -2,6 +2,14 @@
 title: CHANGELOG
 ---
 
+# 3.0.2 2025-10-23
+
+- Fix compilation of ternary ops with HTML tags
+
+# 3.0.1 2025-10-21
+
+- Update Sirop, Prism dependencies
+
 # 3.0.0 2025-10-19
 
 - Improve implementation of `Papercraft.apply`

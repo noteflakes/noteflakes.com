@@ -2,5 +2,5 @@
 
 export ->(req) {
   # req.respond('blah')
-  req.redirect('/talks/2025-11/pages/01')
+  req.redirect('/talks/2025-11/pages/0-01')
 }

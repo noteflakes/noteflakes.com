@@ -31,6 +31,10 @@ We gladly accept contributions to Papercraft or to the Papercraft website.
 - [noteflakes.com](https://noteflakes.com){:target="_blank"}
 - [papercraft.noteflakes.com](https://papercraft.noteflakes.com)
 
+## Talks
+
+- Papercraft: embracing the functional style in Ruby [slides](/talks/2025-11)
+
 ## Articles
 
 - [P2 is the New Papercraft](https://noteflakes.com/articles/2025-09-12-p2-papercraft){:target="_blank"}
