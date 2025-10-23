@@ -1,3 +1,16 @@
+PATH
+  remote: ../syntropy
+  specs:
+    syntropy (0.27.3)
+      extralite (~> 2.13)
+      json (~> 2.15.1)
+      listen (~> 3.9.0)
+      logger (~> 1.7.0)
+      papercraft (~> 3.0.2)
+      qeweney (~> 0.24)
+      tp2 (~> 0.19)
+      uringmachine (~> 0.18)
+
 GEM
   remote: https://gem.coop/
   specs:
@@ -18,7 +31,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.13.2)
+    json (2.15.1)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
     kramdown-parser-gfm (1.1.0)
@@ -36,7 +49,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
-    papercraft (3.0.1)
+    papercraft (3.0.2)
       erb (~> 5.1.1)
       kramdown (~> 2.5.1)
       kramdown-parser-gfm (~> 1.1.0)
@@ -67,15 +80,6 @@ GEM
     sirop (1.0.1)
       prism (~> 1.6)
     stringio (3.1.7)
-    syntropy (0.27.2)
-      extralite (= 2.13)
-      json (= 2.13.2)
-      listen (= 3.9.0)
-      logger (= 1.7.0)
-      papercraft (= 3.0.1)
-      qeweney (= 0.24)
-      tp2 (= 0.19)
-      uringmachine (= 0.18)
     tp2 (0.19)
       qeweney (~> 0.23)
       rack (~> 3.1.15)
@@ -90,8 +94,8 @@ DEPENDENCIES
   httparty (~> 0.23.1)
   irb
   nokogiri (~> 1.18.8)
-  papercraft (= 3.0.1)
-  syntropy (= 0.27.2)
+  papercraft (~> 3.0.2)
+  syntropy (= 0.27.3)!
 
 BUNDLED WITH
    2.6.9
