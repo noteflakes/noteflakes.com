@@ -1,4 +1,5 @@
-export template { |p, n|
+export template { |p, c, n|
+  cur c
   nav {
     if p
       a('◀', href: p, class: 'prev')

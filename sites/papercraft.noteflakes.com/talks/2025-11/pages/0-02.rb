@@ -4,7 +4,7 @@ layout = import '../_layout/default'
 Nav = import '../_components/nav'
 
 export layout.apply { |**props|
-  Nav('0-01', '0-03')
+  Nav('0-01', '0-02', '0-03')
 
   cols(class: 'two-three') {
     div {

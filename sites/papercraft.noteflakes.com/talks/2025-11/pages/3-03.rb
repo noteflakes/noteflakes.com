@@ -1,20 +1,15 @@
 # frozen_string_literal: true
 
-layout = import '/_layout/default'
+layout = import '../_layout/default'
+Nav = import '../_components/nav'
 
 export layout.apply { |**props|
-  a('<<<', href: '02', class: 'prev')
-  a('>>>', href: '04', class: 'next')
+  Nav('3-02', '3-03', '3-04')
 
-  div(class: 'centered') {
-    img class: 'logo', src: '/assets/papercraft.png'
-
-    h2 'How does it compare?'
-  }
-  div(class: 'split') {
+  cols(class: 'one-one') {
     div {
       markdown <<~MD
-        ## Papercraft
+        ### Papercraft
       
         ```ruby
         ->(name) {
@@ -26,16 +21,16 @@ export layout.apply { |**props|
           }
         }
         ```
-        - Explicit `name` argument
-        - Generate HTML right in your Ruby code
         - Minimal syntax, easy to read and write
+        - Explicit `name` argument
+        - Always correct HTML generation: tag formatting, escaping, void elements, etc.
       MD
 
 
     }
     div {
       markdown <<~MD
-        ## ERB/Erubi
+        ### ERB
         
         ```html
         <div>

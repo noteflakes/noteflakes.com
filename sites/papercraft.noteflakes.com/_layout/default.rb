@@ -1,5 +1,5 @@
 export template { |page_title: nil, **props|
-  html {
+  html(lang: 'en') {
     head {
       title(page_title ? "Papercraft - #{page_title}" : 'Papercraft - Functional HTML Templating for Ruby')
       meta charset: 'utf-8'

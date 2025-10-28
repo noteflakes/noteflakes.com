@@ -4,7 +4,7 @@ layout = import '../_layout/default'
 Nav = import '../_components/nav'
 
 export layout.apply { |**props|
-  Nav(nil, '0-02')
+  Nav(nil, '0-01', '0-02')
 
   hero {
     h1 'Papercraft'
