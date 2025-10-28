@@ -1,5 +1,5 @@
 export(template { |**props|
-  html {
+  html(lang: 'en') {
     head {
       title 'Papercraft'
       meta charset: 'utf-8'
