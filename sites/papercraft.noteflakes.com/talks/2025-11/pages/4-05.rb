@@ -9,15 +9,29 @@ export layout.apply { |**props|
   cols(class: 'one') {
     div {
       markdown <<~MD
-        ### Prism - the new Ruby parser
+        ### Parsing the template source code
         
-        - Before Prism: multiple parsers: inconsistent parsing, different
-          runtimes, different Ruby versions, different AST classes, different
-          APIs...
-        - Prism: new parser used by CRuby, JRuby, TruffleRuby, WASM engines
-        - AST: Node types, named fields, location information
-        - C API, Ruby API
-        - Uses: static analysis, formatting, linting, **source code transformation**
+        - **Prism** is the new Ruby parser
+        - Source code in, AST out
+        - Use `Proc#source_location` to get location of Proc (filename + lineno)
+        - Parse file and find `LambdaNode` starting at correct line:
+
+        ```ruby
+        def proc_ast(proc)
+          fn, lineno = proc.source_location
+          pr = Prism.parse(get_source(fn), filepath: fn)
+          program = pr.value
+        
+          Finder.find(program, proc) do
+            on(:lambda) do |node|
+              found!(node) if node.location.start_line == lineno
+              super(node)
+            end
+          end
+        rescue Errno::ENOENT
+          raise Sirop::Error, "Could not get source for proc"
+        end
+        ```
       MD
     }
   }

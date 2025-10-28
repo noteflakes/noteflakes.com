@@ -24,25 +24,26 @@ export layout.apply { |**props|
         #### Source:
 
         ```ruby
-        -> {
+        ->(foo, bar) {
           div {
-            h1 'foo'
-            p 'bar'
+            h1 foo
+            p bar
           }
         }
+          
         ```    
       MD
     }
     div {
       markdown <<~MD
-        #### Compiled:
+        #### Ideally:
         
         ```ruby
-        ->(__buffer__) {
+        ->(__buffer__, foo, bar) {
           __buffer__ << '<div><h1>'
-          __buffer__ << 'foo'
+          __buffer__ << ERB::Escape.html_escape(foo)
           __buffer__ << '</h1><p>'
-          __buffer__ << 'bar'
+          __buffer__ << ERB::Escape.html_escape(bar)
           __buffer__ << '</p></div>'
         }
         ```

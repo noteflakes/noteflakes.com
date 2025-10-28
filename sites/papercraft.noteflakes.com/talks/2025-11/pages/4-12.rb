@@ -8,12 +8,12 @@ export layout.apply { |**props|
 
   cols(class: 'one') {
     markdown <<~MD
-      ### Lessons
+      ### Papercraft - future work
       
-      - Ruby is about developer happiness
-      - Because of its expressiveness
-      - DSLs are a big part of that
-      
+      - Inlining: optimize complex templates
+      - Improved exception handling
+      - Integration: Rails, other web frameworks?
+      - Template debugging tools in the browser!
     MD
   }
 }

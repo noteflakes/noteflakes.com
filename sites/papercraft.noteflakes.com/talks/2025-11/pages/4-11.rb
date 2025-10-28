@@ -8,6 +8,33 @@ export layout.apply { |**props|
 
   h3 'So how fast is it?'
 
+  cols(class: 'one-one') {
+    div {
+      markdown <<~MD
+        ```ruby
+        tmpl = ->(foo, bar) {
+          div {
+            h1 foo
+            h2 bar
+          }
+        }
+        ```
+      MD
+    }
+    div {
+      markdown <<~MD
+        ```erb
+
+        <div>
+          <h1><%= ERB::Escape.html_escape(foo) %></h1>
+          <p><%= ERB::Escape.html_escape(bar) %></p>
+        </div>
+
+        ```
+      MD
+    }
+  }
+
   cols(class: 'one') {
     div {
       markdown <<~MD
@@ -23,7 +50,10 @@ export layout.apply { |**props|
           papercraft:  5193233.9 i/s - 1.11x  slower
         ```
 
-        ### Finally - machine happiness! 🙂
+        ### From 3x slower to only 1.1x! 🙂
+        
+        - Performance difference has to do with some indirection + exception handling
+          in `Papercraft.html`.
       MD
     }
   }

@@ -52,15 +52,18 @@ export layout.apply { |**props|
 
         ```ruby
         # Compiled template code:
-        _erbout = +''; _erbout.<< "<div><h1>"
-        _erbout.<<(( 'foo' ).to_s); _erbout.<< "</h1><p>"
-        _erbout.<<(( 'bar' ).to_s); _erbout.<< "</p></div>"
+        _erbout = +''
+        _erbout.<< "<div><h1>"
+        _erbout.<<(( 'foo' ).to_s)
+        _erbout.<< "</h1><p>"
+        _erbout.<<(( 'bar' ).to_s)
+        _erbout.<< "</p></div>"
         _erbout
         ```
 
         - HTML Tags are coalesced
         - No method calls (for tags)
-        - `instance_eval` is really slow! (~2.65x slower than #call)
+        - `instance_eval` is slow! (~2.65x slower than `#call`)
       MD
     }
   }
