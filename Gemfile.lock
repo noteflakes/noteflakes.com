@@ -67,7 +67,7 @@ GEM
     sirop (1.0.1)
       prism (~> 1.6)
     stringio (3.1.7)
-    syntropy (0.27.5)
+    syntropy (0.27.6)
       extralite (~> 2.13)
       json (~> 2.15.1)
       listen (~> 3.9.0)
@@ -90,7 +90,7 @@ DEPENDENCIES
   httparty (~> 0.23.1)
   irb
   nokogiri (~> 1.18.8)
-  syntropy (= 0.27.5)
+  syntropy (= 0.27.6)
 
 BUNDLED WITH
    2.6.9
