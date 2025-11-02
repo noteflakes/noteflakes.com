@@ -12,7 +12,6 @@ export layout.apply { |**props|
     div {
       markdown <<~MD
         ```ruby
-        # ala Sequel
         DB[:users].query do
           select :id, :name, :email
           where country: 'France'
@@ -45,8 +44,8 @@ export layout.apply { |**props|
           end
 
           def query(&block)
-            b = Builder.new(@opts, &block)
-            builder = self.class.new(b.opts)
+            builder = Builder.new(@opts, &block)
+            self.class.new(builder.opts)
           end
         end
         ```

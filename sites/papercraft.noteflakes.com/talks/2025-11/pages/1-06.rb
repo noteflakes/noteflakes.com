@@ -4,24 +4,24 @@ layout = import '../_layout/default'
 Nav = import '../_components/nav'
 
 export layout.apply { |**props|
-  Nav('1-05', '1-06', '2-01')
+  Nav('1-05', '1-06', '1-07')
+
+  h3 'The Papercraft DSL - naive implementation'
 
   cols(class: 'one') {
     div {
       markdown <<~MD
-        ### Functional architecture
+        ```
+        ruby 3.5.0preview1 (2025-04-18 master d06ec25be4) +YJIT +PRISM [x86_64-linux]
+        ...
+        Calculating -------------------------------------
+                 ERB  6.902M (± 1.6%) i/s  (144.88 ns/i) - 35.076M in   5.083022s
+                 DSL  2.353M (± 1.3%) i/s  (424.94 ns/i) - 11.866M in   5.043127s
 
-        - Rethink the structure of our programs
-        - Can we apply **SOLID** priniciples?
-          - Single responsibility
-          - Extend using composition: small, reusable pieces
-          - Liskov substitution: uniform interface + composition
-          - Inversion of control / dependency injection with higher-order functions
-          - 
-        - Not necessarily limited to lambdas
-          - Class design adhering to **SOLID**
-        - Rack: example of functional interface
-        - Discipline: design each functionality separately
+        Comparison:
+                 ERB:  6902378.2 i/s
+                 DSL:  2353288.4 i/s - 2.93x  slower
+        ```
       MD
     }
   }

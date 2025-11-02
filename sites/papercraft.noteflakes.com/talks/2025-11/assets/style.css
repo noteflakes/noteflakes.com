@@ -98,6 +98,10 @@ table {
   margin-bottom: 1em;
 }
 
+.bigger {
+  font-size: 1.2em;
+}
+
 hero {
   h1 {
     font-size: 6em;

@@ -6,44 +6,37 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-03', '1-04', '1-05')
 
-  cols(class: 'one-one') {
+  cols(class: 'one') {
     div {
       markdown <<~MD
-        ### Functional
-        
+        ### Papercraft: Components
+
         ```ruby
-        Adder = -> (x, y) { x + y }
-        Adder.(3, 4) #=> 7
-        ```
-      
-        - less code, less boilerplate
-        - Single interface / single responsibility
-        - Code packaged in an expression
-        - Encapsulation: Closure
-        - Inheritance: Composition
-        - Dependency injection: Higher-order functions
-      MD
-    }
-
-    div {
-      markdown <<~MD
-        ### Object-oriented
-        
-        ```ruby
-        class Calculator
-          def initialize
-          end
-
-          def add(x, y)
-            x + y
-          end
-        end
-
-        calculator = Calculator.new
-        calculator.add(3, 4) #=> 7
+        Table = ->(cols, rows) {
+          table {
+            thead {
+              tr { cols.each { th it } }
+            }
+            tbody {
+              rows.each { |row|
+                tr { row.each { td it } }
+              }
+            }
+          }
+        }
+  
+        -> {
+          div {
+            Table(
+                ['Title',       'Location'],
+              [ ['RailsWorld',  'Amsterdam'],
+                ['Friendly.rb', 'Bucharest'],
+                ['Euruko',      'Viana do Castelo'] ]
+            )
+          }
+        }
         ```
       MD
     }
   }
-    
 }

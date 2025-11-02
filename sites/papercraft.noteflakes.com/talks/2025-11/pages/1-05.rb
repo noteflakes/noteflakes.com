@@ -6,30 +6,41 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-04', '1-05', '1-06')
 
+  h3 'The functional style'
+
   cols(class: 'one-one') {
     div {
       markdown <<~MD
-        ### Pure functions
-
-        - Same output for same input(s), and:
-        - No side-effects
-
-        - Can be safely used in any context
-        - How to do something useful with pure functions?
-        - Functional core / imperative shell
+        - A lambda is a package of code
+        - On the inside, it's the same as a method
+        - On the outside, it's just an expression, a value!
       MD
     }
-
     div {
       markdown <<~MD
-        ### Higher-order functions
-        
-        - Take a function as argument, or:
-        - Return a function
+        ```ruby
+        class Renderer
+          def render(template)
+            @buffer = +''
+            instance_eval(template)
+            @buffer
+          end
 
-        - Build abstractions
-        - Composition instead of inheritance
-        - Dependency injection
+          def div(&block)
+            @buffer << '<div>'
+            instance_eval(block)
+            @buffer << '</div>' 
+          end
+
+          def h1(inner_text)
+            @buffer << "<h1>\#{inner_text}</h1>"
+          end
+
+          def p(inner_text)
+            @buffer << "<p>\#{inner_text}</p>"
+          end
+        end
+        ```
       MD
     }
   }

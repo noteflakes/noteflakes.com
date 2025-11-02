@@ -6,34 +6,35 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-02', '1-03', '1-04')
 
-  cols(class: 'three-two') {
+  cols(class: 'one') {
     div {
       markdown <<~MD
-        ### Lambda calculus
-        
-        - **Alonzo Church** ~1936
-        - Function abstraction & application
-        - Variable binding & substitution
-        - No "data", just functions
-        - Turing complete
-
-        ```html
-        λx.λf.f x
-        ```
+        ### Papercraft: Layouts
 
         ```ruby
-        -> x { -> f { f.(x) } }
-          .(3).(->(x) { x + 1 }) #=> 4
+        default_layout = ->(**props) {
+          html(lang: 'en') {
+            head {
+              title(props[:title])
+            }
+            body {
+              container {
+                render_children(**props)
+              }
+            }
+          }
+        }
+
+        article_layout = Papercraft.apply(default_layout) { |**props|
+          article {
+            h1 props[:title]
+            markdown props[:md]
+          }
+        }
+
+        Papercraft.html(article_layout, **article)
         ```
       MD
     }
-
-    div {
-      h5 "Programming with nothing"
-      p "FizzBuzz algorithm implemented in lambda calculus (in Ruby)"
-
-      img(class: "qr-med", src: "../assets/qr-fizzbuzz.png")
-    }
   }
-    
 }
