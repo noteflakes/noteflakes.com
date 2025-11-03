@@ -9,9 +9,15 @@ parler de Papercraft et du style fonctionnel en Ruby.
 
 ## 0-02 Noteflakes (60s)
 
-D'abord, quelques mots sur moi: Je suis developpeur de logiciel indépendant. Ma boite s'appelle Noteflakes. Je travaille principalement dans le domaine de la télégestion et la surveillance de processus industriels, surtout dans l'infrastructure: distribution d'eau potable, stations de pompage, traitment des eaux usées, distribution de gaz naturel, etc. Quand on me demande ce que je fais, je dis que je suis plombier, je fais de la plomberie numérique.
+D'abord, quelques mots sur moi: Je suis developpeur de logiciel indépendant. Ma
+boite s'appelle Noteflakes. Je travaille principalement dans le domaine de la
+télégestion et la surveillance de processus industriels, surtout dans
+l'infrastructure: distribution d'eau potable, stations de pompage, traitment des
+eaux usées, distribution de gaz naturel, etc. Quand on me demande ce que je
+fais, je dis que je suis plombier, je fais de la plomberie numérique.
 
-J'ai pas mal d'expérience avec Ruby, mais pas que. Et je fais un peu de tout, backend, frontend, sysops, maintenance, sécurité, etc.
+J'ai pas mal d'expérience avec Ruby, mais pas que. Et je fais un peu de tout,
+backend, frontend, sysops, maintenance, sécurité, etc.
 
 ### 0-03 List of my OSS projects (60s)
 
@@ -21,9 +27,6 @@ pour mon boulot, mais aussi pour mon plaisir.
 
 Voilà qui je suis, et maintenant, avec votre permission, pour la partie
 technique je vais passer en anglais...
-
-(total 2:30)
---------------------------------------------------------------------------------
 
 ## 1-01 What is Papercraft? (90s)
 
@@ -40,9 +43,8 @@ to compose and reuse templates, as we shall see in a few moments.
 ## 1-02 Papercraft vs ERB (70s)
 
 So why Papercraft? Why not ERB? Well, personally I find ERB quite frustrating.
-It's not pleasant to write, it's certainly not easy to read, and it's easy to
-write invalid HTML, and you need to switch all the time between two kinds of
-syntax.
+It's not pleasant to write or to read, and it makes it easy to generate invalid
+HTML, and there's all this switching all the time between two kinds of syntax.
 
 With Papercraft, on the other hand, you stay in the zone. You just write Ruby,
 there's no boilerplate, there's also no state, it's just pure functions, and
@@ -54,9 +56,9 @@ your templates.
 Let's look at how layouts are done in Papercraft. We start with a default
 layout, which renders the html, head and body tags (with the page title), and
 then we call render_children, which tells Papercraft to render whatever block is
-passed to the template. To generate the HTML we call Papercraft.html, and we
-pass a block that will be rendered by the render_children method we put in the
-layout.
+passed to the template. To generate the HTML we call Papercraft.html with the
+default layout template, and we pass a block that will be rendered by the
+render_children method we put in the layout.
 
 There's also the possibility to create a derived layout using Papercraft.apply.
 What this does is it takes the given template, applies any arguments or block
@@ -183,13 +185,12 @@ This tree structure is then used for generating an optimized router function (or
 lambda) that parses the URL path and immediately returns the correct route from
 flat route maps, according to the underlying tree structure, without having to
 traverse the tree on each invocation. So you get optimized code that is custom
-generated for your specific use case.
-
----
+generated for your specific circumstances.
 
 We're all looking to improve the quality of our code, to make it easier to test,
 easier to maintain, easier to extend. And in that regard, the functional style
-has many advantages. Pure functions are especially revealing.
+has many advantages. Pure functions are especially revealing, because they
+demand a discipline that turns us into better programmers.
 
 Personally, now when I'm faced with a new problem, I'm always thinking, can this
 be solved with a functional approach, can this be expressed with pure functions?
@@ -205,12 +206,13 @@ expressed as pure functions, and second, the automatic compilation of those
 templates into an optimized form, such that you get not only developer happiness
 but also machine happiness.
 
-There are some future directions I'm currently exploring, such as inlining of
-components, template debugging tools, introspection, selective rendering etc.
+There are some future directions I'm currently exploring for Papercraft, such as
+inlining of components, template debugging tools, introspection, selective
+rendering etc.
 
 I'm also looking into creating a set of comprehensive tools for generating code
-at runtime, because I really believe this is the future of metaprogramming in
-Ruby.
+at runtime, and for manipulating ASTs, because I really believe this is the
+future of metaprogramming in Ruby.
 
-I hope you found this talk interesting, and thank you. (Are we going to take any
-questions?)
+I hope you found this talk interesting, and I thank you for listening. (Are we
+going to take any questions?)
