@@ -6,64 +6,67 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-06', '1-07', '1-08')
 
-  h3 'Why so slow?'
+  h3 'Converting Source code into AST'
 
   cols(class: 'one-one') {
     div {
       markdown <<~MD
-        #### DSL
+        ```
+        -> (foo, bar) {
 
-        ```ruby
-        def div(&block)
-          @buffer << '<div>'
-          instance_eval(block)
-          @buffer << '</div>' 
-        end
 
-        def h1(inner_text)
-          @buffer << "<h1>\#{inner_text}</h1>"
-        end
-
-        def p(inner_text)
-          @buffer << "<p>\#{inner_text}</p>"
-        end
-
-        @buffer = +''
-        instance_eval {
+          
+        
           div {
-            h1 'foo'
-            p 'bar'
+
+
+            
+          
+            
+          
+          
+            h1 foo
+
+
+
+
+
+
+            
+            p bar
           }
         }
-        @buffer
         ```
       MD
     }
     div {
       markdown <<~MD
-        #### ERB
-
-        ```html
-        <div>
-          <h1><%= 'foo' %></h1>
-          <p><%= 'bar' %></p>
-        </div>
         ```
+        @ LambdaNode (location: (7,4)-(12,9))
+        ├ parameters...
+        └ body:
+          @ StatementsNode (location: (8,10)-(11,11))
+          └ body: (length: 1)
+            └ @ CallNode (location: (8,10)-(11,11))
+              ├ receiver: ∅
+              ├ name: :div
+              └ block:
+                @ BlockNode (location: (8,14)-(11,11))
+                └ body:
+                  @ StatementsNode (location: (9,12)-(10,17))
+                  └ body: (length: 2)
+                    ├ @ CallNode (location: (9,12)-(9,18))
+                    │ ├ receiver: ∅
+                    │ ├ name: :h1
+                    │ └ arguments:
+                    │   @ ArgumentsNode (location: (9,15)-(9,18))
+                    │   └ arguments: (length: 1)
+                    │     └ @ LocalVariableReadNode (location: ...)
+                    │       └ name: :foo
+                    └ @ CallNode ...
 
-        ```ruby
-        # Compiled template code:
-        _erbout = +''
-        _erbout.<< "<div><h1>"
-        _erbout.<<(( 'foo' ).to_s)
-        _erbout.<< "</h1><p>"
-        _erbout.<<(( 'bar' ).to_s)
-        _erbout.<< "</p></div>"
-        _erbout
+
         ```
-
-        - HTML Tags are coalesced
-        - No method calls (for tags)
-        - `instance_eval` is slow! (~2.65x slower than `#call`)
       MD
     }
   }

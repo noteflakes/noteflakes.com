@@ -6,47 +6,29 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-07', '1-08', '1-09')
 
-  h3 "Papercraft vs. ERB"
-
   cols(class: 'one') {
-    div(class: 'bigger') {
-      markdown <<~MD
-        &nbsp;|**Developer**|**Machine**
-        ---|:---:|:---:
-        **ERB**|☹️|🙂
-        **Papercraft**|🙂|☹️
-      MD
-    }
-  }
-  cols(class: 'one-one') {
     div {
       markdown <<~MD
-        #### Source:
-
-        ```ruby
-        ->(foo, bar) {
-          div {
-            h1 foo
-            p bar
-          }
-        }
-          
-        ```    
-      MD
-    }
-    div {
-      markdown <<~MD
-        #### Ideally:
+        ### AST Mutation
+        
+        - Visitor pattern for traversing AST
+        - `Prism::MutationCompiler` used for mutating AST
         
         ```ruby
-        ->(__buffer__, foo, bar) {
-          __buffer__ << '<div><h1>'
-          __buffer__ << ERB::Escape.html_escape(foo)
-          __buffer__ << '</h1><p>'
-          __buffer__ << ERB::Escape.html_escape(bar)
-          __buffer__ << '</p></div>'
-        }
+        class TagTranslator < Prism::MutationCompiler
+          # simplified excerpt
+          def visit_call_node(node, dont_translate: false)
+            match_tag(node) || super(node)
+          end
+
+          def match_tag(node)
+            return if node.receiver
+          
+            Papercraft::TagNode.new(node)
+          end
+        end
         ```
       MD
     }
-  }}
+  }
+}

@@ -6,11 +6,10 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-03', '1-04', '1-05')
 
-  cols(class: 'one') {
+  h3 "Papercraft: Components"
+  cols(class: 'one-one') {
     div {
       markdown <<~MD
-        ### Papercraft: Components
-
         ```ruby
         Table = ->(cols, rows) {
           table {
@@ -24,11 +23,17 @@ export layout.apply { |**props|
             }
           }
         }
-  
+        ```
+      MD
+    }
+    div {
+      markdown <<~MD
+        ```ruby
         -> {
           div {
             Table(
                 ['Title',       'Location'],
+                
               [ ['RailsWorld',  'Amsterdam'],
                 ['Friendly.rb', 'Bucharest'],
                 ['Euruko',      'Viana do Castelo'] ]

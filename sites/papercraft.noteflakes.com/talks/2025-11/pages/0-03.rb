@@ -11,12 +11,14 @@ export layout.apply { |**props|
       markdown <<~MD
         ### My open-source gems
         
-        - Extralite: fast(er) SQLite adapter
-        - Papercraft: HTML templating
-        - Syntropy: web framework (WIP)
-        - UringMachine: io_uring for Ruby
-        - Sequel: SQL + ORM
-        - more...
+        I make my own tools:
+
+        - **Extralite**: A better SQLite adapter
+        - **Papercraft**: HTML templating
+        - **Syntropy**: web framework (WIP)
+        - **UringMachine**: io_uring for Ruby
+        - **Sequel**: SQL + ORM
+        - And more...
       MD
     }
     

@@ -6,11 +6,11 @@ Nav = import '../_components/nav'
 export layout.apply { |**props|
   Nav('1-02', '1-03', '1-04')
 
-  cols(class: 'one') {
+  h3 'Papercraft: Layouts'
+
+  cols(class: 'one-one') {
     div {
       markdown <<~MD
-        ### Papercraft: Layouts
-
         ```ruby
         default_layout = ->(**props) {
           html(lang: 'en') {
@@ -25,12 +25,22 @@ export layout.apply { |**props|
           }
         }
 
-        article_layout = Papercraft.apply(default_layout) { |**props|
-          article {
-            h1 props[:title]
-            markdown props[:md]
-          }
+        Papercraft.html(default_layout) {
+          h1 'foo'
         }
+        ```
+      MD
+    }
+    div {
+      markdown <<~MD
+        ```ruby
+        article_layout =
+          Papercraft.apply(default_layout) { |**a|
+            article {
+              h1 a[:title]
+              markdown a[:md]
+            }
+          }
 
         Papercraft.html(article_layout, **article)
         ```

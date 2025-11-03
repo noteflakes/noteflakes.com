@@ -15,6 +15,8 @@ export(template { |**props|
       script <<~JS
         document.body.addEventListener('keydown', (e) => {
           switch (e.key) {
+            case 'ArrowUp':
+              return document.querySelector('.first').click();
             case 'ArrowRight':
               return document.querySelector('.next').click();
             case 'ArrowLeft':

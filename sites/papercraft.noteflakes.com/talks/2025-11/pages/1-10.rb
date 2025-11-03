@@ -4,14 +4,14 @@ layout = import '../_layout/default'
 Nav = import '../_components/nav'
 
 export layout.apply { |**props|
-  Nav('1-05', '1-06', '1-07')
+  Nav('1-09', '1-10', '1-11')
 
-  h3 'The Papercraft DSL Implementation'
+  h3 'Everyone is happy!'
 
   cols(class: 'one-one') {
     div {
       markdown <<~MD
-        #### DSL:
+        #### Developer:
 
         ```ruby
         ->(foo, bar) {
@@ -27,7 +27,7 @@ export layout.apply { |**props|
     }
     div {
       markdown <<~MD
-        #### Compiled:
+        #### Machine:
         
         ```ruby
         ->(__buffer__, foo, bar) {
@@ -39,6 +39,16 @@ export layout.apply { |**props|
           __buffer__
         }
         ```
+      MD
+    }
+  }
+
+  cols(class: 'one') {
+    div {
+      markdown <<~MD
+        - Up to 10x faster than "naive" DSL implementation
+        - Compiled code similar to compiled ERB
+        - Similar performance as compiled ERB
       MD
     }
   }

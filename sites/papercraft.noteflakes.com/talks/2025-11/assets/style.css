@@ -19,7 +19,7 @@ body {
 
 container {
   display: block;
-  width: 800px;
+  width: 900px;
   margin: 6em auto;
   padding: 0 20px;
   box-sizing: border-box;
@@ -116,6 +116,10 @@ chapter {
   }
 }
 
+centered {
+  text-align: center;
+}
+
 cols {
   display: grid;
 
@@ -183,7 +187,7 @@ nav {
   right: 0.5em;
 
   display: grid;
-  grid-template-columns: 1em 1em;
+  grid-template-columns: auto auto auto;
   column-gap: 0.5em;
 
   font-size: 2em;

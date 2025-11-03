@@ -4,32 +4,38 @@ layout = import '../_layout/default'
 Nav = import '../_components/nav'
 
 export layout.apply { |**props|
-  Nav('1-05', '1-06', '1-07')
+  Nav('1-10', '1-11', '1-12')
 
-  h3 'The Papercraft DSL Implementation'
+  h3 'Code as data is the future of DSLs'
+
+  markdown <<~MD
+    - Runtime DSL compilation
+    - Performance optimization, introspection, transformation
+    - More 
+  MD
 
   cols(class: 'one-one') {
     div {
       markdown <<~MD
-        #### DSL:
-
         ```ruby
+        # Describe the end result
+        
         ->(foo, bar) {
           div {
             h1 foo
             p bar
           }
         }
-          
 
-        ```    
+        
+        ```
       MD
     }
     div {
       markdown <<~MD
-        #### Compiled:
-        
         ```ruby
+        # Describe the operations to be done
+        
         ->(__buffer__, foo, bar) {
           __buffer__ << '<div><h1>'
           __buffer__ << ERB::Escape.html_escape(foo)
@@ -42,4 +48,5 @@ export layout.apply { |**props|
       MD
     }
   }
+
 }

@@ -21,9 +21,11 @@ export layout.apply { |**props|
           }
         }
         ```
-        - Minimal syntax, easy to read and write
-        - Explicit `name` argument
-        - Always correct HTML generation: tag formatting, escaping, void elements, etc.
+        
+        - Always correct HTML formatting.
+        - Minimal syntax, easy to read and write.
+        - Explicit arguments.
+        - Organize your templates however you want.
       MD
 
 
@@ -43,10 +45,10 @@ export layout.apply { |**props|
 
         ```
 
-        - Implicit variables / ivars
-        - Keep templates in separate files
-        - Verbose, harder to read / write
-        - Better DX with new tools: Herb/ReactionView
+        - Error prone.
+        - Verbose, harder to read / write.
+        - Implicit variables / ivars.
+        - Keep templates in separate files.
       MD
     }
   }
