@@ -1,5 +1,5 @@
 ---
-title: Community
+title: Resources
 ---
 
 Papercraft welcomes all Ruby developers! Whether you are a novice or an expert
@@ -33,7 +33,8 @@ We gladly accept contributions to Papercraft or to the Papercraft website.
 
 ## Talks
 
-- Papercraft: embracing the functional style in Ruby [slides](/talks/2025-11)
+- [Papercraft lightning talk (Euruko 2025)](https://youtu.be/sgAysDO3mwU?si=QMFI4TsM_4gFW0lR&t=1800) / [slides](https://papercraft-minitalk.noteflakes.com)
+- Papercraft: embracing the functional style in Ruby / [slides](/talks/2025-11)
 
 ## Articles
 

@@ -25,6 +25,7 @@ export layout.apply { |**props|
           }
         }
 
+        ...
         Papercraft.html(default_layout) {
           h1 'foo'
         }
@@ -42,6 +43,7 @@ export layout.apply { |**props|
             }
           }
 
+        ...
         Papercraft.html(article_layout, **article)
         ```
       MD
