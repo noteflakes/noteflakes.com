@@ -156,8 +156,8 @@ of the things I'm currently working on for my clients:
 - Transitioning a substantial PostgreSQL database (~4.5TB of data) from RDS to
   EC2. This is done strictly for the sake of reducing costs. My client should
   see a reduction of about 1000USD/month.
-- Provisioning of a new web platform for industrial process control for a client
-  in India.
+- Provisioning of machines for the RealiteQ web platform to be used for
+  industrial facilities in India.
 - Exploring the integration of AI tools for analyzing the performance of
   equipment such as water pumps for water treatment facilities. I'm still quite
   sceptical about LLM's being the right approach for this. ML algorithms might
