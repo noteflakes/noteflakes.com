@@ -98,7 +98,8 @@ In this project, I'll work on three things:
   able to allow its use in any fiber-based Ruby application.
 - Bringing SSL/TLS capabilities to UringMachine, in order to allow building
   high-performance clients and servers using encrypted connections.
-- Bringing more io_uring features to UringMachine, such as `writev`, `splice`, `fsync`, `fadvise` etc.
+- Bringing more io_uring features to UringMachine, such as `writev`, `splice`,
+  `fsync`, `fadvise` etc.
 
 I'll also take the time to work on documentation, benchmarks, and
 correctness of the implementation.
