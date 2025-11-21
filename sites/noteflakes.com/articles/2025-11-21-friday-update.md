@@ -51,15 +51,16 @@ as I go, and lots of things are still unclear, but I'm taking it one step at a
 time, and when I hit a snag I just try to take the problem apart and try to
 understand what's going on. But now that I have moved from a rough sketch to
 something that works and has some tests, I intend to continue working on it by
-adding more and more tests and TDD'ing my wait to an implementation that is both
+adding more and more tests and TDD'ing my way to an implementation that is both
 complete (feature-wise) and robust.
 
 Here are some of the things I've learned while working on the fiber scheduler:
 
 - When you call `Kernel.puts`, the trailing newline character is actually
-  written separately, which can lead to unexpected output if for example you
-  have multiple fibers writing to STDOUT at the same time. To prevent this, Ruby
-  uses a mutex (per IO instance) to synchronize writes to the same IO.
+  written separately (i.e. with a separate `write` operation), which can lead to
+  unexpected output if for example you have multiple fibers writing to STDOUT at
+  the same time. To prevent this, Ruby seems to use a mutex (per IO instance) to
+  synchronize writes to the same IO.
 
 - There are inconsistencies in how different kinds of IO objects are handled,
   with regards to blocking/non-blocking operation
@@ -93,7 +94,8 @@ Here are some of the things I've learned while working on the fiber scheduler:
 - A phenomenon I've observed is that in some situations of multiple fibers doing
   I/O, some of those I/O operations would raise an `EINTR`, which should mean
   the I/O operation was interrupted because of a signal sent to the process.
-  Weird!
+  This is weird! I'm still not sure where this is coming from, certainly
+  something I'll ask Samuel about.
 
 - There's some interesting stuff going on when calling `IO#close`. Apparently
   there's a mutex involved, and I noticed two scheduler hooks are being called:
