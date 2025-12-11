@@ -8,7 +8,8 @@ RUN mkdir -p /usr/local/bundle
 # base image
 FROM ${BASE_IMAGE} AS base
 RUN apk add --update sqlite-dev openssl-dev tzdata bash curl zip git
-RUN apk add --update build-base
+RUN apk add build-base
+RUN apk add linux-headers
 RUN gem install bundler:2.6.9
 
 FROM base AS gems
