@@ -13,7 +13,7 @@ RUN gem install bundler:2.6.9
 
 FROM base AS gems
 COPY --from=gem-cache /usr/local/bundle /usr/local/bundle
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 RUN bundle install
 
 # Final backend image
