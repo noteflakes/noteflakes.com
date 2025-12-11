@@ -67,21 +67,21 @@ GEM
     sirop (1.0.1)
       prism (~> 1.6)
     stringio (3.1.7)
-    syntropy (0.27.7)
+    syntropy (0.27.10)
       extralite (~> 2.13)
       json (~> 2.15.1)
       listen (~> 3.9.0)
       logger (~> 1.7.0)
       papercraft (~> 3.1.0)
       qeweney (~> 0.24)
-      tp2 (~> 0.19.2)
-      uringmachine (~> 0.19.1)
-    tp2 (0.19.2)
+      tp2 (~> 0.19.3)
+      uringmachine (~> 0.22.0)
+    tp2 (0.19.3)
       qeweney (~> 0.23)
       rack (~> 3.1.15)
-      uringmachine (~> 0.19.1)
+      uringmachine (~> 0.22.0)
     tsort (0.2.0)
-    uringmachine (0.19.1)
+    uringmachine (0.22.0)
 
 PLATFORMS
   x86_64-linux
@@ -90,7 +90,7 @@ DEPENDENCIES
   httparty (~> 0.23.1)
   irb
   nokogiri (~> 1.18.8)
-  syntropy (= 0.27.7)
+  syntropy (= 0.27.10)
 
 BUNDLED WITH
    2.6.9
