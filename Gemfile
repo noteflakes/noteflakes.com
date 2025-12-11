@@ -2,5 +2,6 @@ source 'https://gem.coop'
 
 gem 'httparty',     '~>0.23.1'
 gem 'nokogiri',     '~>1.18.8'
-gem 'syntropy',     '0.27.10'
+gem 'syntropy',     '~>0.27.10'
+gem 'uringmachine', '~>0.22.1'
 gem 'irb'
