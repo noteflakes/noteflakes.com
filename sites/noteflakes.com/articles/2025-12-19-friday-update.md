@@ -291,20 +291,24 @@ from a socket:
 bgid = machine.setup_buffer_ring(1 << 16, 1024)
 
 # receive using the buffer ring:
-machine.recv_each(fd, bgid, 0) { |buffer| process_msg(buffer) }
+machine.recv_each(fd, bgid, flags) { |buffer| process_msg(buffer) }
 ```
 
 What's nice about this is that you can setup a single buffer ring and use it to
-receive on multiple sockets at once. You can also send messages with buffer
-rings but it seems to me that this has limited utility since you cannot use a
-single buffer ring to send on multiple sockets at once. That's why I did the
-work on vectorized write/send, which performs similarly to `send_bundle`, which
-uses buffer rings.
+receive on multiple sockets at once. The problem with the current implementation
+is that there's no way to know if the buffer ring is close to being exhausted,
+and thus you risk getting a `ENOBUFS` error.
 
-My plan is to provide an API to make the buffer management completely
-transparent, so you'll be able to setup a buffer pool, which will automatically
-manage buffer groups. It will also automatically  add and reuse buffers as
-needed. It will probably look something like this:
+Also, while you can also send messages with buffer rings (using the
+`UM#send_bundle` method), it seems to me that this has limited utility since you
+cannot use a single buffer ring to send on multiple sockets at once. That's why
+I did the work on vectorized write/send, which performs similarly to
+`UM#send_bundle`.
+
+So my plan is to provide an API to make the buffer management completely
+transparent, so you'll be able to setup a buffer pool (for reading/receiving
+only), which will automatically manage buffer groups. It will also automatically
+add and reuse buffers as needed. It will probably look something like this:
 
 ```ruby
 machine = UM.new
