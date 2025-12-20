@@ -329,7 +329,7 @@ In just five days, we'll all get a very nice Christmas gift - Ruby 4.0! If you
 want to get a sense of all the good stuff that's arriving, just take a look at
 the [activity](https://github.com/ruby/ruby/pulls) on the `ruby/ruby` repo.
 There's so many bug fixes and so many improvements on there, it's really
-mind-boggling.
+mind-boggling!
 
 What I intend to do next week, between spending time with the family and seeing
 friends, is to continue to explore the combination of threads and fibers, and to
