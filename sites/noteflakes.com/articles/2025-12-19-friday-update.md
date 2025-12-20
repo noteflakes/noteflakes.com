@@ -258,15 +258,15 @@ diminishing returns as we continue to increase the number of threads.
 
 ## The Sidecar Thread Scenario
 
-Another possibility that occured as I thought about combining threads and
+Another possibility that occured to me as I thought about combining threads and
 fibers, is a sidecar setup, where we have one thread that runs the fibers, and
 an auxiliary, or sidecar, thread that calls the kernel on behalf of the primary
 thread.
 
-In this setup, we have a single UringMachine instance running on a primary,
-handling the workload in multiple fibers, and it's basically CPU-bound. The
-UringMachine instance starts an auxiliary thread that runs in a loop, invoking
-the `io_uring_enter` system call repeatedly in order to submit new I/O
+In this setup, we have a single UringMachine instance running on a primary
+thread, handling the workload in multiple fibers, and it's basically CPU-bound.
+The UringMachine instance starts an auxiliary thread that runs in a loop,
+invoking the `io_uring_enter` system call repeatedly in order to submit new I/O
 operations, and processing completions as they arrive.
 
 It remains to be seen how this will perform, and hopefully I'll be able to
