@@ -60,8 +60,8 @@ UringMachine fiber scheduler. I noticed that when using an `IO` with buffered
 writes (which is the default in Ruby,) when the IO's write buffer is flushed,
 the fiber scheduler's `#io_write` hook would not get invoked. Instead, Ruby
 would invoke the `#blocking_operation_wait` hook, which run a blocking `write`
-system call on a worker thread. This, of course, is far from being satisfactory
-- io_uring lets us run file I/O asynchronously. So I submitted a
+system call on a worker thread. This, of course, is far from being satisfactory,
+as io_uring lets us run file I/O asynchronously. So I submitted a
 [fix](https://github.com/ruby/ruby/pull/15609) which has been already been
 merged into the Ruby 4.0 release.
 
