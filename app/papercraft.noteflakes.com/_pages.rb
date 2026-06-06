@@ -1,4 +1,3 @@
-require 'syntropy/connection_pool'
 require 'securerandom'
 require 'json'
 
@@ -58,7 +57,7 @@ class Collection
     case File.extname(fn)
     when '.md'
       name = File.basename(fn)
-      atts, markdown = Syntropy.parse_markdown_file(fn, @env)
+      atts, markdown = Syntropy::Markdown.parse(fn, @env)
       {
         kind:     :markdown,
         path:     fn,
@@ -76,7 +75,7 @@ class Collection
   def dir_entries(dir)
     Dir[File.join(dir, '*')].map { |fn|
       next if File.basename(fn) =~ /^_/
-        
+
       if File.directory?(fn)
         make_dir_entry(fn)
       else
@@ -135,7 +134,7 @@ class Collection
 
   def setup_search_db
     db_fn = File.join(@dir, '_search.db')
-    @db_conn = Syntropy::ConnectionPool.new(@machine, db_fn, 2)
+    @db_conn = Syntropy::Storage::ConnectionPool.new(@machine, db_fn, 2)
     validate_search_db_schema
     update_search_db_entries
   end
@@ -183,7 +182,7 @@ class Collection
     # TODO: replace with Papercraft.markdown_doc(...) (when entry is first loaded)
     doc = Kramdown::Document.new(entry[:markdown])
     html_converter = Kramdown::Converter::Html.send(:new, doc.root, doc.options)
-    
+
     kramdown_collect(doc.root, []) do |element, arr|
       if element.type == :header && element.options[:level] == 2
         title = element.options[:raw_text]

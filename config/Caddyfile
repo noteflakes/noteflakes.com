@@ -1,0 +1,10 @@
+localhost {
+  reverse_proxy app_server:1234
+  tls internal
+  encode
+}
+
+noteflakes.com, papercraft.noteflakes.com, papercraft-minitalk.noteflakes.com, tolkora.net {
+  reverse_proxy app_server:1234
+  encode
+}

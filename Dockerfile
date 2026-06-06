@@ -1,33 +1,25 @@
-ARG RUBY_VERSION=4.0-rc
-ARG BASE_IMAGE=ruby:${RUBY_VERSION}-alpine
-ARG CACHE_IMAGE=${BASE_IMAGE}
+FROM ruby:4.0-slim AS base
+WORKDIR /syntropy
+RUN apt-get update -qq && apt-get install -y \
+    curl \
+    build-essential \
+    libpq-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libyaml-dev \
+    pkg-config && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-FROM ${CACHE_IMAGE} AS gem-cache
-RUN mkdir -p /usr/local/bundle
-
-# base image
-FROM ${BASE_IMAGE} AS base
-RUN apk add --update sqlite-dev openssl-dev tzdata bash curl zip git
-RUN apk add build-base
-RUN apk add linux-headers
-RUN gem install bundler:2.6.9
-
-FROM base AS gems
-COPY --from=gem-cache /usr/local/bundle /usr/local/bundle
-COPY Gemfile ./
+ENV BUNDLE_PATH="/usr/local/bundle"
+COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-# Final backend image
-FROM base AS deploy
-
-RUN adduser -D app
-RUN chown app:app /home/app
-WORKDIR /home/app
-USER app
-
-RUN mkdir -p /tmp
-COPY --from=gems --chown=app:app /usr/local/bundle /usr/local/bundle
+RUN groupadd --system --gid 1000 syntropy && \
+    useradd syntropy --uid 1000 --gid 1000 --create-home --shell /bin/bash
+USER 1000:1000
 
 EXPOSE 1234
 
-CMD ["bundle", "exec", "syntropy", "sites"]
+# Start the main process
+# CMD ["bash"]
+CMD ["bundle", "exec", "syntropy", "serve"]
