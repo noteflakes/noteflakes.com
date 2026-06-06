@@ -333,8 +333,8 @@ mind-boggling!
 
 What I intend to do next week, between spending time with the family and seeing
 friends, is to continue to explore the combination of threads and fibers, and to
-start working on my idea for a fiber pool for automatically managing buffers for
-reading/receiving.
+start working on my idea for a buffer pool for automatically managing buffers
+for reading/receiving.
 
 Beyond that, beginning in January I plan to start working on OpenSSL integration
 in UringMachine. I already have some ideas on how to do this, but we'll discuss
