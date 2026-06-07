@@ -259,7 +259,7 @@ class UM::IO
       content_length = content_length.to_i
       return nil if content_length == 0
 
-      chunk = read(content_length.to_i)
+      chunk = read(content_length)
       return chunk
     end
     nil
