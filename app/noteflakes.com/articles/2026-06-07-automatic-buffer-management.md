@@ -203,6 +203,11 @@ the free list. That way, we minimize the number of allocations. Actually
 UringMachine also the same with the `um_op` struct that holds metadata about an
 I/O operation, and various other struct types.
 
+And of course, since we can use the same buffers for servicing any number of
+ongoing multishot read operations, that means that we no longer need to allocate
+(and later deallocate) buffer space for each file descriptor we wish to read
+from.
+
 ## Putting it all together
 
 What I like about this design is that it makes use of an avanced io_uring
