@@ -63,3 +63,5 @@ sites/_data
 *.db-wal
 
 proxy/data
+
+storage/caddy

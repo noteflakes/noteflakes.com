@@ -50,9 +50,9 @@ services:
     restart: never
 
   proxy:
+    image: caddy:2
     depends_on:
       - app_server
-    image: caddy:2-alpine
     restart: unless-stopped
     ports:
       - "80:80"
