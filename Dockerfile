@@ -11,7 +11,7 @@ RUN apt-get update -qq && apt-get install -y \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 ENV BUNDLE_PATH="/usr/local/bundle"
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 RUN bundle install
 
 RUN groupadd --system --gid 1000 syntropy && \
