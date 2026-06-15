@@ -131,7 +131,7 @@ managing I/O and concurrency.
 ## Syntropy - a New Web Framework for Ruby
 
 A third part of the new ecosystem is
-[Syntropy](https://github.com/noteflakes/syntropy), a new web framework I've
+[Syntropy](https://github.com/digital-fabric/syntropy), a new web framework I've
 been working on. It, too, is a continuation of the work I've been doing in
 [Impression](https://github.com/digital-fabric/impression).
 

@@ -47,7 +47,7 @@ out with family and friends.
 
 This website was made and is run using my own tools:
 
-- [Syntropy](https://github.com/noteflakes/syntropy) - a (WIP) framework
+- [Syntropy](https://github.com/digital-fabric/syntropy) - a (WIP) framework
   for creating Ruby web apps
 - [Papercraft](https://papercraft.noteflakes.com/) - a fast functional
   HTML templating engine for Ruby

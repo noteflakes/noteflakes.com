@@ -43,7 +43,7 @@ export(template { |page_title: nil, page_description: nil, **props|
           hr
           p {
             span 'Copyright © 2025 Noteflakes. This site runs on '
-            a 'Syntropy', href: 'https://github.com/noteflakes/syntropy'
+            a 'Syntropy', href: 'https://github.com/digital-fabric/syntropy'
             span '.'
           }
         }

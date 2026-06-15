@@ -7,7 +7,7 @@ This repository contains the source code for:
 
 ### Tools used
 
-- [Syntropy](https://github.com/noteflakes/syntropy)
+- [Syntropy](https://github.com/digital-fabric/syntropy)
 - [Papercraft](https://github.com/digital-fabric/papercraft)
 - [UringMachine](https://github.com/digital-fabric/uringmachine)
 
