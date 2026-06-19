@@ -1,4 +1,4 @@
-Q---
+---
 title: "Rethinking modularity in Ruby applications"
 layout: article
 ---
