@@ -82,8 +82,8 @@ files               URLs
     + [id]/
       + index.rb    /posts/[id]
       + edit.rb     /posts/[id]/edit
-      + index.rb    /posts
-      + new.rb      /posts/new
+    + index.rb      /posts
+    + new.rb        /posts/new
 ```
 
 The example above consists of both controller code (which maps to URLs) and
