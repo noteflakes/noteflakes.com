@@ -57,7 +57,7 @@ class Collection
     case File.extname(fn)
     when '.md'
       name = File.basename(fn)
-      atts, markdown = Syntropy::Markdown.parse(fn, @env)
+      atts, markdown = Syntropy::Markdown.parse_file(fn, @env)
       {
         kind:     :markdown,
         path:     fn,
