@@ -3,7 +3,7 @@
 ## 08/07/2026 Vol Lyon-Edinburgh
 
 Vol Easyjet U23250
-Booking reference KBW798P
+Booking references KBW798P, KBW79PH
 LYS 09:45AM - EDI 11:00AM
 
 
