@@ -1,27 +1,32 @@
+---
+title: 'Notre voyage'
+layout: default
+---
+
 # Our big trip to Scotland
 
 ## 08/07/2026 Vol Lyon-Edinburgh
 
-Vol Easyjet U23250
-Booking references KBW798P, KBW79PH
-LYS 09:45AM - EDI 11:00AM
+- Vol Easyjet U23250
+- Booking references KBW798P, KBW79PH
+- LYS 09:45AM - EDI 11:00AM
 
 
 
 ## 08/07/2026-10/07/2026 Frederick Douglass Rooms in the City
 
-Address: Gilmore Place, Edinburgh
-Phone: +447445238142
-Checkin from 15:00
-Checkout by 10:00AM
-Airport bus: SkyLink 100 to Fountain Park bus stop.
+- Address: Gilmore Place, Edinburgh
+- Phone: +447445238142
+- Checkin from 15:00
+- Checkout by 10:00AM
+- Airport bus: SkyLink 100 to Fountain Park bus stop.
 
 ## 10/07/2026-15/07/2026 Car Rental
 
-Booking number: 759813406
+- Booking number: 759813406
 
-Pickup 10/07 12:00PM: Arnold Clark, 1 Seafield Street, Edinburgh (+441315617779)
-Drop-off 15/07 12:00PM: Arnold Clark, 187 Burngreave Road, Sheffield (+441142721133)
+- Pickup 10/07 12:00PM: Arnold Clark, 1 Seafield Street, Edinburgh (+441315617779)
+- Drop-off 15/07 12:00PM: Arnold Clark, 187 Burngreave Road, Sheffield (+441142721133)
 
 ## 10/07/2026-12/07/2026 Morlea Bed & Breakfast
 
