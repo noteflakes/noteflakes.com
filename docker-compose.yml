@@ -33,7 +33,7 @@ services:
     volumes:
       - .:/syntropy
     stop_signal: SIGINT
-    restart: never
+    restart: no
 
   test:
     build: .
@@ -47,7 +47,7 @@ services:
     volumes:
       - .:/syntropy
     stop_signal: SIGINT
-    restart: never
+    restart: no
 
   proxy:
     image: caddy:2
