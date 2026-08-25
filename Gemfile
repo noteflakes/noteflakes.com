@@ -1,3 +1,3 @@
 source 'https://gem.coop'
 
-gem 'syntropy', '~> 0.40.0'
+gem 'syntropy', '~> 0.41.0'
