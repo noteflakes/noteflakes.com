@@ -364,7 +364,7 @@ interface is also an object, but it doesn't encapsulate data (though it may have
 some state), it encapsulates functionality. It *is* in fact, a container of
 methods.
 
-I've been using the interface pattern for quite a while. In
+I've been using this "interface pattern" for quite a while. In
 [UringMachine](https://github.com/digital-fabric/uringmachine) for example, I/O
 is performed using an interface, an instance of `UringMachine` or `UM` for
 short:
