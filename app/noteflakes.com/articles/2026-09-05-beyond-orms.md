@@ -423,15 +423,14 @@ end
 app.start(&make_posts_handler(@posts_store))
 ```
 
-One important consequence of using this kind of interface object, is that it
-encourages you to build your app in a more responsible way. For example, you
-might be tempted, unless you knew better, to read or manipulate posts somewhere
-in the bowels of a view template. Well, with this kind of design, you can't,
-unless the template code has gotten a hold of a `PostsStore` instance, which is
-a bad idea and should be *verboten*. Thus, you can make sure that any part of
-your code that doesn't hold a reference to a `PostsStore` interface can't touch
-the database. This also facilitates testing, since you can easily mock a
-`PostsStore` interface object.
+One important consequence of using interface objects, is that it encourages you
+to build your app in a more responsible way. For example, you might be tempted,
+unless you knew better, to read or manipulate posts somewhere in the bowels of a
+view template. Well, with this kind of design, you can't, unless the template
+code has gotten a hold of a `PostsStore` instance, which is a bad idea and
+should be *verboten*. Thus, you can make sure that any part of your code that
+doesn't hold a reference to a `PostsStore` interface can't touch the database,
+which should contribute substantially to you keeping more hairs on your head!
 
 ## Taking Advantage of Prepared Statements
 
