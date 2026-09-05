@@ -355,7 +355,7 @@ single table. Since its building blocks are SQL queries, you can access any
 number of tables, using *all* available SQL features, in order to read and
 manipulate the relevant data.
 
-## Passing interfaces around
+## Passing Interfaces Around
 
 One aspect of this design that merits further discussion is the idea of passing
 interfaces as parameters to method calls. In Ruby, we don't really talk about
