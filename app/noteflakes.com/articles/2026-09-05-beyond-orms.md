@@ -423,10 +423,6 @@ end
 app.start(&make_posts_handler(@posts_store))
 ```
 
-In fact, I recently read a blog post that demonstrates this technique, and shows
-[how it can be used in Go for building HTTP
-servers](https://blainsmith.com/articles/how-i-write-http-servers/).
-
 One important consequence of using this kind of interface object, is that it
 encourages you to build your app in a more responsible way. For example, you
 might be tempted, unless you knew better, to read or manipulate posts somewhere
