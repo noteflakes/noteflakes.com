@@ -385,12 +385,15 @@ In essence, all I/O operations are done through this interface, which means that
 you need to have a reference to the interface anywhere you do I/O. This design
 is not unique to UringMachine. Most notably, the Zig programming language now
 implements I/O as an interface, which is passed around as a parameter (this, in
-addition to an allocator interface). While this means that you need to pass the
-interface object around to different parts of your app, you can use various
-techniques to simplify working with the interface. One way is to use dependency
-injection. We saw an example of this above, where we inject a database instance
-into a `PostsStore` instance. The same can be applied to UringMachine, where we
-pass the machine instance to an object that abstracts an HTTP connection:
+addition to an allocator interface). Go is another example of ubiquitous usage
+of interfaces.
+
+While this means that you need to pass the interface object around to different
+parts of your app, you can use various techniques to simplify working with the
+interface. One way is to use dependency injection. We saw an example of this
+above, where we inject a database instance into a `PostsStore` instance. The
+same can be applied to UringMachine, where we pass the machine instance to an
+object that abstracts an HTTP connection:
 
 ```ruby
 class HTTPConnection
