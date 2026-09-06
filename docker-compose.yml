@@ -20,6 +20,8 @@ services:
       retries: 3
     networks:
       - proxy_network
+    environment:
+      - SYNTROPY_MODE=production
 
   console:
     build: .
