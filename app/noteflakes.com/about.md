@@ -43,7 +43,7 @@ me](https://github.com/sponsors/noteflakes).
 When not in front of a computer screen I garden, build stuff, make food and hang
 out with family and friends.
 
-<p class="clear">&nbsp;</p>
+## The Software Behind noteflakes.com
 
 This website was made and is run using my own tools:
 
@@ -51,7 +51,6 @@ This website was made and is run using my own tools:
   for creating Ruby web apps
 - [Papercraft](https://papercraft.noteflakes.com/) - a fast functional
   HTML templating engine for Ruby
-- [TP2](https://github.com/noteflakes/tp2) - a modern web server for Ruby
 - [UringMachine](https://github.com/digital-fabric/uringmachine) - a lean mean
   io_uring machine (for Ruby)
 
