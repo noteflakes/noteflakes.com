@@ -42,7 +42,7 @@ export(template { |page_title: nil, page_description: nil, **props|
         footer {
           hr
           p {
-            span 'Copyright © 2025 Noteflakes. This site runs on '
+            span 'Copyright © 2026 Noteflakes. This site runs on '
             a 'Syntropy', href: 'https://github.com/digital-fabric/syntropy'
             span '.'
           }
