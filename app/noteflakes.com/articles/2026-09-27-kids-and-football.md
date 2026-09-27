@@ -16,9 +16,9 @@ achieved their goal and became the proud owners of two new, shiney footballs.
 
 The only thing missing now was a football stadium. The local priest has kindly
 donated a piece of land belonging to the Orthodox church to the Jewish football
-enterprise, and the parents have improvised two goal frames from some pieces of
+enterprise, and the fathers improvised two goal frames from some pieces of
 lumber, but without nets. In order to inaugurate their new stadium, the families
-have invited the venerated Maccabi Câmpulung club to a friendly match. If they
+invited the venerated Maccabi Câmpulung club to a friendly match. If they
 didn't lose, so they were promised, they'd be able to join the Maccabi league of
 Bukovina!
 
@@ -30,7 +30,7 @@ side of the road, waiting impatiently. When the Maccabi Câmpulung players
 finally arrived, there was much rejoicing, and everybody precipitated to the new
 stadium, some by chariot, some by foot.
 
-The Moldovița players, who prepared for the occasion for weeks, have bravely
+The Moldovița players, who prepared for the occasion for weeks, bravely
 withstood the challenge, and the game was still at 0-0 at the 85th minute. My
 father, who was a wing back, tried to repel an incoming attack by a Câmpulung
 player, and had succeeded in kicking the ball away, but unfortunately he kicked
