@@ -254,7 +254,7 @@ It's just logic expressed in the purest way possible. The code that we're
 looking into here is charged with transforming an ERB template into a piece of
 Ruby source code containing an optimized renderer for the given template. The
 optimized source code is painstakingly put together from little bits and pieces,
-according to the structure of the template. If take the same HTML template from
+according to the structure of the template. If we take the same HTML template from
 the grubby example above, ERB/Herb would have generated the following code:
 
 ```ruby
@@ -270,7 +270,7 @@ _erbout
 Note the similarities: we're dealing with constructing a string, we're mostly
 doing just one type of action, and the action is repeated. This is what unrolled
 code is about: clarity, discipline, optimization, and grouping like actions
-together. Let's take a look at another codebase:
+together. Let's take a look at a different project:
 
 ```ruby
 def emit_wildcard_childless_root_code(buffer, root_path)
@@ -363,19 +363,19 @@ def wildcard_childless_root_code(root_path)
 end
 ```
 
-The `#quote` method returns the AST of the given block. The `#unquote` is used
-to inject arbitrary values into the code template. In this example, we
-conditionally inject a piece of Ruby code also expressed with a nested `quote`
+The `#quote` method returns the AST of the given block. The `#unquote` method is
+used to inject arbitrary values into the code template. In this example, we
+conditionally inject a piece of Ruby code expressed with a nested `#quote`
 block, that interpolates a regular expression. The final call to `#unquote`
 injects the value of root_path into the generated code.
 
 Notice the mechanics of quote/unquote: with `#quote`, obviously we're putting
 code inside quotes, and with `#unquote` we're jumping temporarily out of the
 quotes in order to perform some computation and inject the result into the
-quoted code. The expression passed to `unquote` is evaluated at *compile-time*.
-This allows us to conditionally include pieces of code in the template. And
-since unquote always returns an AST (or `:__nop__` for nothing), we can use it
-to compose ASTs together:
+quoted code, it's like string interpolation. The expression passed to `#unquote`
+is evaluated at *compile-time*. This allows us to conditionally include pieces
+of code in the template. And since `#unquote` always returns an AST (or
+`:__nop__` for nothing), we can use it to compose ASTs together:
 
 ```ruby
 def compile_html(ast)
@@ -384,9 +384,9 @@ def compile_html(ast)
     return :__nop__ if html_parts.empty?
     
     html = html_parts.join; html_parts.clear
-    quote(locals: [:__buffer__]) { __buffer__ << unquote(html) }
+    quote { __buffer__ << unquote(html) }
   }
-  quote(locals: [:__buffer__, *ast.parameters]) {
+  quote {
     unquote(
       mutate(ast) { |node, transform|
         if html_tag?(node)
@@ -409,7 +409,7 @@ we want to have the same optimized form of bunching together static strings and
 separating out the dynamic strings, we introduce some compile-time state (the
 `html_parts` buffer), and a `flusher` closure that generates the actual code
 that emits static strings to the buffer. This design lets us support recursion
-in `emit_html`, so we can do stuff like `div { p { a 'Home' } }`, since the
+in `#emit_html`, so we can do stuff like `div { p { a 'Home' } }`, since the
 state is passed as arguments.
 
 ## Some complementary tools
@@ -435,9 +435,9 @@ help work with Prism ASTs.)
 
 `#mutate` works by creating a copy of the AST, letting you replace any node on
 the tree with another. In this case, we're implementing a momoized version of a
-method by replacing the method body with a wrapped version of itself, where we
-inject the memo key and the original method body into the code. I think this
-example demonstrates the strength of this approach, it kinda feels magical!
+method by replacing the method body with a conditional assignment, into which
+we inject the memo key and the original method body. I think this example
+demonstrates the strength of this approach, it feels magical!
 
 Another way to work with `#mutate` is by passing it a block that returns either
 the original node, or a different node in case of a mutation:
@@ -474,9 +474,9 @@ def make_case_expr(entry)
     __.case unquote(entry[:name]) {
       quote {
         unquote entry[:options].map { |o|
-          quote { __.when unquote(o); add_option(unquote(o)) }
+          quote { __.when unquote(o) { add_option(unquote(o)) } }
         }
-        __.else; raise 'Invalid option'
+        __.else { raise 'Invalid option' }
       }
     }
   }
@@ -484,7 +484,7 @@ end
 ```
 
 This lets us construct `case` statements programmtically, and we can extend this
-principle to basically any keyword, like `rescue`:
+idea to basically any keyword, like `rescue`:
 
 ```ruby
 def make_fatal_lambda(body, *fatal_errors)
@@ -505,13 +505,14 @@ make_fatal_lambda(quote { 1 / 0 }, ZeroDivisionError).() #=> BOOM!
 
 I find that a functional approach to coding goes very well when working with
 ASTs. We treat ASTs as immutable objects, and if we need to change a node
-anywherer on the AST, we can use `#mutate` which creates a copy with the
-requisite changes. If we're generating complex code, as we do in Papercraft,
-Syntropy, or ERB, we can split the code generation logic into multiple methods,
-each of which prepares a distinct part of the code, and returns an AST. This
-allows us to create arbitrarily complex pieces of code by composing ASTs
-together. Let's take a real use case. Here's the template for an ActiveRecord
-migration, used by a generator. Yes, Rails uses ERB to generate code:
+anywhere on the AST, we can use `#mutate` which creates a copy with the
+requisite changes. If we're generating more complex code, as we do in
+Papercraft, Syntropy, or ERB, we can split the code generation logic into
+multiple methods, each of which prepares a distinct part of the code, and
+returns an AST. This allows us to create arbitrarily complex pieces of code by
+composing ASTs together. Let's take a real use case. Here's the template for an
+ActiveRecord migration, used by a Rails generator. Yes, Rails uses ERB to generate
+code:
 
 ```erb
 class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Migration.current_version %>]
@@ -594,7 +595,7 @@ quote do
 end
 ```
 
-Oh yes this is much better, as we can now see the shape of the generated code!
+Oh yes this is *much* better, as we can now see the shape of the generated code!
 One more example, fitting for the title of this article:
 
 ```ruby
@@ -622,7 +623,7 @@ unrolled_printer = eval(Sirop.to_source(ast))
 
 Here we use `#mutate` to change the body of a given block such that all
 references to the block argument will be replaced with an arbitrary value, such
-that the actual code of `unrolled_printer` would be:
+that the actual source code of `unrolled_printer` would be:
 
 ```ruby
 -> {
@@ -641,7 +642,7 @@ pretty well the [performance costs of
 Rails](https://static.lutke.dev/KTK6Vb/campfire-ruby-explainer/)' abstractions.
 With Rails, we choose developer happiness at the expense of machine happiness.
 But the results show that Ruby is actually pretty fast. OK, not as fast as Rust,
-but in many cases faster than Go!
+but in some cases faster than Go!
 
 And the code itself is interesting - a lot of unrolled code for sure, but
 generated by an LLM:
@@ -680,7 +681,7 @@ end
 
 Look at the style. The lines stretch to the right, and the code itself is
 dealing with tiny details, no abstractions here, just pure algorithms (and lots
-of branching!) The `dispatch` method is about 45 lines long, and could have been
+of branching!) The `#dispatch` method is about 45 lines long, and could have been
 easily refactored into a few separate methods that each does a single thing.
 
 An experienced programmer would probably have a blast refactoring this code,
@@ -811,19 +812,19 @@ end
 ```
 
 With this, we've converted each route group to a custom-made piece of code.
-Notice the frequent use of unquote - this allows us to change any references to
-the `r` iterator variable from attribute lookups into literal values! And we can
-do this safely because the routing configuration is immutable. The only place
-where we need to do a bit more work is in the return statement, where we need to
-also return a reference to the specific route. We do this by calling `routes[]`
-where the subscript is hard-coded using `#unquote`.
+Notice the frequent use of `#unquote` - this allows us to change all references
+to the `r` iterator variable into literal values! And we can do this safely
+because the routing configuration is immutable. The only place where we need to
+do a bit more work is in the `return` statement, where we need to also return a
+reference to the specific route. We do this by calling `routes[]` where the
+subscript is hard-coded using `#unquote`.
 
 ## Taking Metaprogramming to the Next Level
 
 Ruby is famous for its productivity and simplicity, and Ruby programmers have
 wholeheartedly embraced its metaprogramming facilities in the quest for
-*developer happiness*. Tools such as `eval`, `instance_eval`, and
-`define_method` let us create beautiful abstractions that make our code more
+*developer happiness*. Tools such as `#eval`, `#instance_eval`, and
+`#define_method` let us create beautiful abstractions that make our code more
 readable and arguably easier to maintain. All those Rails idioms, they're
 catchy, they make the intent clear, it's almost as if they've become part of the
 Ruby syntax!
