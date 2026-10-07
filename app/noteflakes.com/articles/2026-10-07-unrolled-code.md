@@ -416,7 +416,7 @@ state is passed as arguments.
 ## Some complementary tools
 
 Suppose we have this quote/unquote functionality ready to let us generate code
-progrmatically. We still need a few more tools to be able to create code.
+programmatically. We still need a few more tools to be able to create code.
 Consider the following:
 
 ```ruby
