@@ -5,7 +5,7 @@ layout: article
 
 The other day I was looking at a little project called
 [grubby](https://git.btxx.org/grubby/), a minimal static site generator for git
-repos, written in Ruby. The style is quite interesting: it feels solid and unapologetic:
+repos, written in Ruby. The style is quite interesting. It feels solid and unapologetic:
 
 ```ruby
 def fill_template(template, page_title, root_prefix)
