@@ -820,7 +820,7 @@ do a bit more work is in the `return` statement, where we need to also return a
 reference to the specific route. We do this by calling `routes[]` where the
 subscript is hard-coded using `#unquote`.
 
-## Taking Metaprogramming to the Next Level
+## Taking Ruby Metaprogramming to the Next Level
 
 Ruby is famous for its productivity and simplicity, and Ruby programmers have
 wholeheartedly embraced its metaprogramming facilities in the quest for
