@@ -107,9 +107,9 @@ header {
 }
 ```
 
-Everything is compressed down to a minimal syntax. What's interesting is that in
-the end, when you render this template, Papercraft will actually compile it into
-code that looks a lot like [grubby](https://git.btxx.org/grubby/):
+Everything is compressed down to a minimal syntax. But in the end, when you
+render this template, Papercraft will actually compile it into code that looks a
+lot like [grubby](https://git.btxx.org/grubby/):
 
 ```ruby
 __buffer__
@@ -151,8 +151,8 @@ for working with ERB templates. Here's an excerpt:
 ```
 
 The entire `Herb::Engine#initialize` method is about 65 LOC! And the individual
-lines themselves stretch to the right edge of your editor window. I ran `cloc`
-on the code and was really taken by surprise:
+lines themselves tend to stretch to the right edge of your editor window. I ran `cloc`
+on the code and was really taken aback:
 
 ```
 ~/playground/herb $ cloc --exclude-dir test --include-ext rb,rs,c,ts .
@@ -173,9 +173,9 @@ SUM:                           917          36795           8382         123317
 
 OK, so the Typescript stuff is probably not relevant to the present discussion,
 but still, 20KLOC of Ruby, and another 37KLOC of C/Rust extensions. For
-comparison, ActiveRecord is about 46KLOC (not including tests). The entire Rails
-codebase is about 120KLOC of Ruby (again, not including tests). Herb just became
-the default template renderer in Rails 8.2.
+comparison's sake, ActiveRecord is about 46KLOC (not including tests). The
+entire Rails codebase is about 120KLOC of Ruby (again, not including tests).
+Herb just became the default template renderer in Rails 8.2.
 
 Herb's template compiler code looks beautiful:
 
@@ -255,7 +255,7 @@ looking into here is charged with transforming an ERB template into a piece of
 Ruby source code containing an optimized renderer for the given template. The
 optimized source code is painstakingly put together from little bits and pieces,
 according to the structure of the template. If we take the same HTML template from
-the grubby example above, ERB/Herb would have generated the following code:
+the grubby example above, ERB/Herb would have emitted the following code:
 
 ```ruby
 # edited for formatting
@@ -320,9 +320,8 @@ The resulting router code would look something like the following:
 ```
 
 Like with ERB/Herb, the Syntropy code generates a complex piece of code by
-putting together strings containing parts of expressions. The
-`#emit_wildcard_childless_root_code` method could also have been written as
-follows:
+putting together strings containing little bits of Ruby source code. The above
+method could also have been written as follows:
 
 ```ruby
 def emit_wildcard_childless_root_code(buffer, root_path)
@@ -339,11 +338,11 @@ end
 This is much clearer, but still, the code for generating the conditional return
 in the middle there is a bit hairy. What if we had a DSL for generating Ruby
 code? In Elixir you can define macros that expand into code with a pair of tools
-called quote/unquote. In fact, a lot of Elixir's language features (even stuff
-like `if` and `case`) are implemented using macros. When a macro is used, the
-macro definition is expanded in place, it's like *parametric code*. This idea,
-like all good ideas, comes from Lisp, where there's no distinction between data
-and code. What if we had that in Ruby?
+called quote/unquote. In fact, a lot of Elixir's language features (even basic
+stuff like `if` and `case`) are implemented using macros. When a macro is used,
+the macro definition is expanded in place, it's like *parametric code*. This
+idea, like all good ideas, comes from Lisp, where there's no distinction between
+data and code. What if we had that in Ruby?
 
 ```ruby
 def wildcard_childless_root_code(root_path)
@@ -364,18 +363,18 @@ end
 ```
 
 The `#quote` method returns the AST of the given block. The `#unquote` method is
-used to inject arbitrary values into the code template. In this example, we
-conditionally inject a piece of Ruby code expressed with a nested `#quote`
-block, that interpolates a regular expression. The final call to `#unquote`
-injects the value of root_path into the generated code.
+used to inject arbitrary values, or nested ASTs into the quoted code. In this
+example, we conditionally inject a piece of Ruby code expressed with a nested
+`#quote` block, that interpolates a regular expression. The final call to
+`#unquote` injects the value of `root_path` as a literal into the generated code.
 
-Notice the mechanics of quote/unquote: with `#quote`, obviously we're putting
-code inside quotes, and with `#unquote` we're jumping temporarily out of the
-quotes in order to perform some computation and inject the result into the
-quoted code, it's like string interpolation. The expression passed to `#unquote`
-is evaluated at *compile-time*. This allows us to conditionally include pieces
-of code in the template. And since `#unquote` always returns an AST (or
-`:__nop__` for nothing), we can use it to compose ASTs together:
+Notice the mechanics of quote/unquote: with `#quote` we're putting code inside
+quotes (obviously), and with `#unquote` we're temporarily escaping out of the
+quotes in order to perform some computation and inject the result back into the
+quoted code, it's very much like string interpolation. The expression passed to
+`#unquote` is evaluated at *compile-time*. This allows us to conditionally
+include pieces of code in the template. And since `#unquote` always returns an
+AST (or `:__nop__` for nothing), we can use it to compose ASTs together:
 
 ```ruby
 def compile_html(ast)
@@ -387,17 +386,19 @@ def compile_html(ast)
     quote { __buffer__ << unquote(html) }
   }
   quote {
-    unquote(
-      mutate(ast) { |node, transform|
-        if html_tag?(node)
-          emit_html(node, transform, html_parts, flusher)
-        else
-          [flusher.(), *transform.(node)]
-        end
-      }
-    )
+    unquote(transform_template_ast(ast))
     unquote(flusher.())
     __buffer__
+  }
+end
+
+def transform_template_ast(ast)
+  mutate(ast) { |node, transform|
+    if html_tag?(node)
+      emit_html(node, transform, html_parts, flusher)
+    else
+      [flusher.(), *transform.(node)]
+    end
   }
 end
 ```
@@ -471,10 +472,10 @@ feel too inelegant:
 ```ruby
 def make_case_expr(entry)
   quote {
-    __.case unquote(entry[:name]) {
+    __.case(unquote(entry[:name])) {
       quote {
         unquote entry[:options].map { |o|
-          quote { __.when unquote(o) { add_option(unquote(o)) } }
+          quote { __.when(unquote(o)) { add_option(unquote(o)) } }
         }
         __.else { raise 'Invalid option' }
       }
