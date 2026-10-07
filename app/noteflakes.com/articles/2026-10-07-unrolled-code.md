@@ -605,6 +605,8 @@ def rewrite_block_param(ast, v) {
   mutate(ast) { |n, t|
     if n in Prism::LocalVariableReadNode(name: block_param_name)
       unquote(v)
+    else
+      n
     end
   }
 }
