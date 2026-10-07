@@ -38,8 +38,8 @@ replacing place-holders in the template with values, there's a
 with the header and footer HTML in `#write_page`.
 
 The header and footer are stored in separate files, but where are the templates
-for the actual page content? A bit further down, we find them. Here's the index
-page:
+for the actual page content? A bit further down, we find them. Here's an excerpt
+from the index page template:
 
 ```ruby
 ...
