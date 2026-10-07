@@ -113,9 +113,9 @@ lot like [grubby](https://git.btxx.org/grubby/):
 
 ```ruby
 __buffer__
-  .<<("<header><p><strong>").<<(ERB::Escape.html_escape((a)))
-  .<<("</strong></p><p>").<<(ERB::Escape.html_escape((b)))
-  .<<("</p><p><code>").<<(ERB::Escape.html_escape((c)))
+  .<<("<header><p><strong>").<<(ERB::Escape.html_escape((repo_name)))
+  .<<("</strong></p><p>").<<(ERB::Escape.html_escape((repo_description)))
+  .<<("</p><p><code>").<<(ERB::Escape.html_escape((clone_command)))
   .<<("</code></p></header>")
 ```
 
