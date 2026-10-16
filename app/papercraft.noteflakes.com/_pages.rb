@@ -134,7 +134,7 @@ class Collection
 
   def setup_search_db
     db_fn = File.join(@dir, '_search.db')
-    @db_conn = Syntropy::Storage::ConnectionPool.new(@machine, db_fn, 2)
+    @db_conn = Syntropy::ConnectionPool.new(@machine, db_fn, 2)
     validate_search_db_schema
     update_search_db_entries
   end
