@@ -1,6 +1,6 @@
 export(template { |page_title: nil, page_description: nil, **props|
   page_title ||= props[:title] ? "#{props[:title]} - Noteflakes" : 'Noteflakes'
-  page_description ||= page_title
+  page_description ||= props[:description] || page_title
 
   html(lang: 'en') {
     head {

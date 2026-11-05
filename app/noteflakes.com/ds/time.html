@@ -6,8 +6,16 @@
     </script>
   </head>
   <body>
-    <p data-init="@get('./time_stream')">
-      <span>Time:</span> <span data-text="$time"/>
-    </p>
+    <div data-init="@get('./time_stream')">
+      <p>
+        <span>Time:</span> <span data-text="$time"/>
+      </p>
+      <p>
+        <span>Load average:</span> <span data-text="$load_avg"/>
+      </p>
+      <p>
+        <span>Connections:</span> <span data-text="$connections"/>
+      </p>
+    </div>
   </body>
 </html>
