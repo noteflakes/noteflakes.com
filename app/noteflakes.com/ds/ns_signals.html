@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data-Star Test</title>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.4/bundles/datastar.js">
+    </script>
+  </head>
+  <body 
+    data-signals="{ _states: {} }"
+    data-on:datastar-fetch="Executive.fetchEvent(evt)"
+    data-init="Executive.states = $_states; Executive.start(); @get('./ds2_sse')"
+  >
+    <p>Foo: <span data-text="$_states['/foo']"/></p>
+    <p>Bar: <span data-text="$_states['/bar']"/></p>
+    <p>Time: <span data-text="$_states['/time']"/></p>
+    <script>
+      window.Executive = {
+        states: {},
+        
+        start: () => {
+          window.Executive.states['/foo'] = 42;
+          window.Executive.states['/bar'] = 43;
+        },
+
+        fetchEvent: (evt) => {
+          console.log(evt.detail);
+        }
+      };
+    </script>
+  </body>
+</html>
