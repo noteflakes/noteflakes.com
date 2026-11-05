@@ -6,7 +6,6 @@
   line-height: 1.5em;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
   color: #222;
 }
 
@@ -14,6 +13,7 @@ body {
   font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
   font-size: 16px;
   font-weight: normal;
+  background-color: #f8f8f8;
 }
 
 container {
@@ -662,4 +662,15 @@ watermelon {
     white { height: 1.6em; background-color: white }
     green { height: 1.6em; background-color: green }
   }
+}
+
+live {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  display: block;
+  border-radius: 8px;
+  background-color: #8cf;
+  margin: 2em 0;
+  padding: 1em;
+
+  * { backgroun-color: #8cf; }
 }
