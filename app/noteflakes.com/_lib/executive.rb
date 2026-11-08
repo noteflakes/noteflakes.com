@@ -10,16 +10,9 @@ export self
   @machine.periodically(1) {
     @info[:time] = Time.now.strftime("%Y-%m-%d %H:%M:%S")
     @info[:load_avg] = File.read('/proc/loadavg').split.first
+    @info[:connections] = Syntropy::HTTP::ServerConnection.count
   }
 }
-
-def inc_connections
-  @info[:connections] += 1
-end
-
-def dec_connections
-  @info[:connections] -= 1
-end
 
 def info
   @info
