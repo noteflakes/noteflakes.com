@@ -1,6 +1,6 @@
 ---
 title: "Introducing Project Steadfast"
-description: "Steadfast is an exploration of how far we can take metaprogramming in Ruby using new tools for manipulating Ruby ASTs"
+description: "Steadfast is an exploration of how far we can take metaprogramming in Ruby using new tools for manipulating Ruby ASTs."
 layout: article
 ---
 
