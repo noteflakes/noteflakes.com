@@ -118,8 +118,8 @@ converting each of the conditions into a piece of Ruby AST by calling `quote {
 unquote(c) === v }`.
 
 In my article [Unrolled Code](./2026-10-07-unrolled-code), I've explored how
-this technique and how it could be applied to many different problems. Which
-leads us to project Steadfast.
+this technique could be applied to many different problems. Which leads us to
+project Steadfast.
 
 ## Project Steadfast
 
