@@ -1,6 +1,6 @@
 layout = import '/_layout/default'
 
-export layout.apply(title: 'archive') { |articles:, **|
+export layout.apply(title: 'Archive') { |articles:, **|
   last_month = nil
 
   h1 'Previously, on noteflakes'

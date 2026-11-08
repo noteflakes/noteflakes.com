@@ -29,7 +29,7 @@ def access_shift(path)
     a.shift
     a.shift
     a.shift
-    a.shift    
+    a.shift
   }
 end
 
