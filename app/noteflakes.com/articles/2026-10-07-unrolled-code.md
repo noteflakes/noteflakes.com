@@ -459,7 +459,7 @@ What about keywords? What if, for example, we wanted to programmatically add a
 quote {
   case foo
     unquote(
-      bar ? quote { when :bar; p 'baz' }
+      bar && quote { when :bar; p 'baz' }
     )
   end
 }
