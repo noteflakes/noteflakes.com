@@ -22,4 +22,4 @@ EXPOSE 1234
 
 # Start the main process
 # CMD ["bash"]
-CMD ["bundle", "exec", "syntropy", "serve"]
+CMD ["bundle", "exec", "syntropy", "serve", "--hot-reload"]
