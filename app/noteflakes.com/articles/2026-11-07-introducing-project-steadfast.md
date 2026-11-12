@@ -4,7 +4,7 @@ description: "Steadfast is an exploration of how far we can take metaprogramming
 layout: article
 ---
 
-Recently I [wrote about an idea](./2026-10-07-unrolled-code) that's been
+Recently I [wrote about an idea](/articles/2026-10-07-unrolled-code) that's been
 floating around in my mind for a long time - the ability to do metaprogramming
 in Ruby by manipulating Ruby ASTs, similar to the macro capabilities of
 languages such as Lisp or Elixir. The use of `eval` (in its different
@@ -117,7 +117,7 @@ computation and inject the result back into the quoted code. In this case, we're
 converting each of the conditions into a piece of Ruby AST by calling `quote {
 unquote(c) === v }`.
 
-In my article [Unrolled Code](./2026-10-07-unrolled-code), I've explored how
+In my article [Unrolled Code](/articles/2026-10-07-unrolled-code), I've explored how
 this technique could be applied to many different problems. Which leads us to
 project Steadfast.
 
