@@ -1,6 +1,6 @@
 ---
 title: "Steadfast Update I - The Baseline"
-description: "..."
+description: "I'm a big believer in what Rich Hickey calls Hammock-driven development, a bit of tongue-in-cheek term for solving problems by spending a lot of time thinking about them. Rich talks about the importance of taking the time to think a problem through, instead of rushing to the computer to type out code, and he's right to note that a lot of the big problems with software are problems of misconception, which is really about thinking."
 layout: article
 ---
 

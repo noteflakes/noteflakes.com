@@ -1,5 +1,7 @@
 export(
   storage: {
-    path: ENV['DATABASE_PATH'] || 'storage/production.db'
+    noteflakes_com: {
+      path: ENV['DATABASE_PATH'] || 'noteflakes.com/storage/development.db'
+    }
   }
 )
