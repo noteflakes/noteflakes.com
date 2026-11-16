@@ -48,7 +48,7 @@ export(template { |page_title: nil, page_description: nil, **props|
           }
         }
       }
-      auto_refresh_watch!
+      auto_refresh!
     }
   }
 })
