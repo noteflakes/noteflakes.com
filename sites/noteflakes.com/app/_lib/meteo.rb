@@ -93,7 +93,22 @@ def query_forecast(latitude, longitude)
   headers, body = @http_client.get(url, 'Accept' => 'application/json', 'User-Agent' => 'curl/8.18.0')
   raise if headers[':status'] != 200
 
-  JSON.parse(body, symbolize_names: true)
+  json = JSON.parse(body, symbolize_names: true)
+
+  # daily = json[:daily]
+  # keys = daily.keys.reject { it == :time }
+  # daily_values = {}
+  # daily[:time].map { Time.parse(it) }.each_with_index do |d, i|
+  #   daily_values[d] = keys.inject({}) do |h, k|
+  #     h[k] = daily[k][i]
+  #     h
+  #   end
+  # end
+
+  {
+    current: json[:current],
+    daily: json[:daily]
+  }
 end
 
 def weather_code_info(wc, is_day)
@@ -248,3 +263,24 @@ WEATHER_CODE_INFO = {
     img_night: "http://openweathermap.org/img/wn/11n@2x.png"
   }
 }
+
+def wind_direction(angle)
+  case angle
+  when 0...23, 347..360
+    'N'
+  when 23...77
+    'NE'
+  when 78...113
+    'W'
+  when 113...167
+    'SE'
+  when 167...203
+    'S'
+  when 203...257
+    'SW'
+  when 257...293
+    'W'
+  when 293...347
+    'NW'
+  end
+end

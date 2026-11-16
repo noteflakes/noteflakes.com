@@ -688,4 +688,10 @@ live {
     display: flex;
     align-items: center;
   }
+
+  table {
+    font-size: 0.8em;
+    img { width: 50%; text-align: center }
+    th, td { text-align: left }
+  }
 }
