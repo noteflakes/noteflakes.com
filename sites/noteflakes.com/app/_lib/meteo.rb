@@ -17,7 +17,7 @@ end
 # @return [Array<Hash>] forecast
 def forecast(name, **)
   latitude, longitude = geolocate(name)
-  cache(@forecasts, name, 1800) { query_forecast(latitude, longitude) }
+  cache(@forecasts, name, 900) { query_forecast(latitude, longitude) }
 end
 
 def cache(hash, key, ttl)
@@ -95,17 +95,8 @@ def query_forecast(latitude, longitude)
 
   json = JSON.parse(body, symbolize_names: true)
 
-  # daily = json[:daily]
-  # keys = daily.keys.reject { it == :time }
-  # daily_values = {}
-  # daily[:time].map { Time.parse(it) }.each_with_index do |d, i|
-  #   daily_values[d] = keys.inject({}) do |h, k|
-  #     h[k] = daily[k][i]
-  #     h
-  #   end
-  # end
-
   {
+    stamp: Time.parse("#{json[:current][:time]} #{json[:timezone_abbreviation]}"),
     current: json[:current],
     daily: json[:daily]
   }
@@ -124,143 +115,143 @@ end
 WEATHER_CODE_INFO = {
   0  => {
     description: "Sunny",
-    img_day: "http://openweathermap.org/img/wn/01d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/01n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sunny.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-clear.svg"
   },
   1  => {
     description: "Mainly Sunny",
-    img_day: "http://openweathermap.org/img/wn/01d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/01n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sunny.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-clear.svg"
   },
   2  => {
     description: "Partly Cloudy",
-    img_day: "http://openweathermap.org/img/wn/02d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/02n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-cloudy.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-cloudy.svg"
   },
   3  => {
     description: "Cloudy",
-    img_day: "http://openweathermap.org/img/wn/03d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/03n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-cloudy.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-cloudy.svg"
   },
   45 => {
     description: "Foggy",
-    img_day: "http://openweathermap.org/img/wn/50d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/50n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-fog.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-fog.svg",
   },
   48 => {
     description: "Rime Fog",
-    img_day: "http://openweathermap.org/img/wn/50d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/50n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-fog.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-fog.svg",
   },
   51 => {
     description: "Light Drizzle",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sprinkle.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-sprinkle.svg",
   },
   53 => {
     description: "Drizzle",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sprinkle.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-sprinkle.svg",
   },
   55 => {
     description: "Heavy Drizzle",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sprinkle.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-sprinkle.svg",
   },
   56 => {
     description: "Light Freezing Drizzle",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sprinkle.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-sprinkle.svg",
   },
   57 => {
     description: "Freezing Drizzle",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-sprinkle.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-sprinkle.svg",
   },
   61 => {
     description: "Light Rain",
-    img_day: "http://openweathermap.org/img/wn/10d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/10n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-rain.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-rain.svg",
   },
   63 => {
     description: "Rain",
-    img_day: "http://openweathermap.org/img/wn/10d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/10n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-rain.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-rain.svg",
   },
   65 => {
     description: "Heavy Rain",
-    img_day: "http://openweathermap.org/img/wn/10d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/10n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-rain.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-rain.svg",
   },
   66 => {
     description: "Light Freezing Rain",
-    img_day: "http://openweathermap.org/img/wn/10d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/10n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   67 => {
     description: "Freezing Rain",
-    img_day: "http://openweathermap.org/img/wn/10d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/10n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   71 => {
     description: "Light Snow",
-    img_day: "http://openweathermap.org/img/wn/13d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/13n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   73 => {
     description: "Snow",
-    img_day: "http://openweathermap.org/img/wn/13d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/13n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   75 => {
     description: "Heavy Snow",
-    img_day: "http://openweathermap.org/img/wn/13d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/13n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   77 => {
     description: "Snow Grains",
-    img_day: "http://openweathermap.org/img/wn/13d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/13n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   80 => {
     description: "Light Showers",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-showers.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-showers.svg",
   },
   81 => {
     description: "Showers",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-showers.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-showers.svg",
   },
   82 => {
     description: "Heavy Showers",
-    img_day: "http://openweathermap.org/img/wn/09d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/09n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-showers.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-showers.svg",
   },
   85 => {
     description: "Light Snow Showers",
-    img_day: "http://openweathermap.org/img/wn/13d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/13n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   86 => {
     description: "Snow Showers",
-    img_day: "http://openweathermap.org/img/wn/13d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/13n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-snow.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-snow.svg",
   },
   95 => {
     description: "Thunderstorm",
-    img_day: "http://openweathermap.org/img/wn/11d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/11n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-thunderstorm.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-thunderstorm.svg",
   },
   96 => {
     description: "Light Thunderstorms With Hail",
-    img_day: "http://openweathermap.org/img/wn/11d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/11n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-hail.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-hail.svg",
   },
   99 => {
     description: "Thunderstorm With Hail",
-    img_day: "http://openweathermap.org/img/wn/11d@2x.png",
-    img_night: "http://openweathermap.org/img/wn/11n@2x.png"
+    img_day:    "https://open-meteo.com/images/weather-icons/wi-day-hail.svg",
+    img_night:  "https://open-meteo.com/images/weather-icons/wi-night-hail.svg",
   }
 }
 

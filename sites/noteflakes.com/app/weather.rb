@@ -1,20 +1,20 @@
 layout = import '/_layout/default'
 meteo = import '/_lib/meteo'
 
-template = layout.apply(title: 'Weather') { |current:, daily:, **|
+template = layout.apply(title: 'Weather') { |stamp:, current:, daily:, **|
   winfo = meteo.weather_code_info(current[:weather_code], current[:is_day])
 
-  h1 'Current weather in Martigny-le-Comte'
+  h1 "Current weather in Martigny-le-Comte (#{stamp.strftime('%d/%m %H:%M')})"
 
   div(class: 'weather') {
     if winfo
       h2 {
-        span winfo[:description]
         img src: winfo[:img_url]
+        span winfo[:description]
       }
     end
-    p "Temperature: #{current[:temperature_2m]} °C (feels like: #{current[:apparent_temperature]} °C)"
-    p "Humidity: #{current[:relative_humidity_2m]} %"
+    p "Temperature: #{current[:temperature_2m]}°C (feels like: #{current[:apparent_temperature]}°C)"
+    p "Humidity: #{current[:relative_humidity_2m]}%"
     p "Precipitation: #{current[:precipitation]} mm"
     dir = meteo.wind_direction(current[:wind_direction_10m])
     p "Wind: #{current[:wind_speed_10m]} km/h #{dir} (#{current[:wind_gusts_10m]} km/h)"
@@ -43,14 +43,14 @@ template = layout.apply(title: 'Weather') { |current:, daily:, **|
           daily[:temperature_2m_min].each_with_index { |v, i|
             min = v
             max = daily[:temperature_2m_max][i]
-            td "#{min}-#{max} °C"
+            td "#{min} - #{max}°C"
           }
         }
         tr {
           daily[:precipitation_sum].each_with_index { |v, i|
             sum = v
             prob = daily[:precipitation_probability_max][i]
-            td "#{prob} % (#{sum} mm)"
+            td "#{prob}% (#{sum} mm)"
           }
         }
         tr {
@@ -68,6 +68,5 @@ template = layout.apply(title: 'Weather') { |current:, daily:, **|
 
 export ->(req) {
   forecast = meteo.forecast('Martigny-le-Comte')
-  pp forecast[:daily]
   req.respond_html(template.render(**forecast))
 }
