@@ -35,7 +35,7 @@ template = layout.apply(title: 'Weather') { |stamp:, current:, daily:, **|
       tbody {
         tr {
           daily[:weather_code].each { |wc|
-            wi = meteo.weather_code_info(wc, true)
+            wi = meteo.weather_code_info(wc, nil)
             td { img src: wi[:img_url] }
           }
         }
