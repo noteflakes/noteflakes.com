@@ -24,6 +24,11 @@ export ->(req) {
   req.validate_http_method('get')
   req.auto_compress!
   req.respond_sse {
-    each_update { |html| req.send_ds_html_patch(html) }
+    each_update { |html|
+      req.send_ds_html_patch(html)
+
+      json = JSON.dump(connected_count: @subscribers.size)
+      req.send_event('datastar-patch-signals' => "signals #{json}")
+    }
   }
 }

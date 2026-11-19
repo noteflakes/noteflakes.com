@@ -24,6 +24,11 @@ layout = template { |board|
           [Original idea](https://example.andersmurphy.com/)
         MD
 
+        p {
+          span 'Connections: '
+          span(data_text: '$connected_count')
+        }
+        
         render board_template, board
       }
       auto_refresh!
