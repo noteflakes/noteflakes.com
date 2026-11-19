@@ -24,11 +24,15 @@ export ->(req) {
   req.validate_http_method('get')
   req.auto_compress!
   req.respond_sse {
+    last_connected_count = @subscribers.size
     each_update { |html|
       req.send_ds_html_patch(html)
 
-      json = JSON.dump(connected_count: @subscribers.size)
-      req.send_event('datastar-patch-signals' => "signals #{json}")
+      if @subscribers.size != last_connected_count
+        last_connected_count = @subscribers.size
+        json = JSON.dump(connected_count: last_connected_count)
+        req.send_event('datastar-patch-signals' => "signals #{json}")
+      end
     }
   }
 }
