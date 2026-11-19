@@ -30,8 +30,7 @@ export ->(req) {
 
       if @subscribers.size != last_connected_count
         last_connected_count = @subscribers.size
-        json = JSON.dump(connected_count: last_connected_count)
-        req.send_event('datastar-patch-signals' => "signals #{json}")
+        req.send_ds_signal_patch(connected_count: last_connected_count)
       end
     }
   }
