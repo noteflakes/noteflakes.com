@@ -60,8 +60,6 @@ def next_generation(board)
       new_board[idx] = live_neighbors.sample
     elsif !board[idx] && live_neighbors.size == 3
       new_board[idx] = live_neighbors.sample
-    else
-      # board[idx] = nil
     end
   end
   new_board
@@ -89,10 +87,6 @@ end
     @board = next_generation(@board)
     update_subscribers(@board)
   }
-rescue => e
-  p e
-  p e.backtrace
-  exit!
 end
 
 5.times { fill_cross(rand(SIZE * SIZE), 'blue') }
