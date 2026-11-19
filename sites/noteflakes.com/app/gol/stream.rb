@@ -27,6 +27,7 @@ export ->(req) {
   req.auto_compress!
   req.respond_sse {
     last_connected_count = @subscribers.size
+    req.send_ds_signal_patch(connected_count: last_connected_count)
     each_update { |html|
       req.send_ds_html_patch(html)
 
