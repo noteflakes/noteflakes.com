@@ -15,6 +15,8 @@ end
 
 @machine.spin {
   game.each_update { |board|
+    next if @subscribers.size == 0
+
     html = template.render(board)
     @subscribers.each { |m| @machine.push(m, html) }
   }
