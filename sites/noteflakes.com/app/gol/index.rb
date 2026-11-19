@@ -20,7 +20,7 @@ layout = template { |board|
           Made using [Syntropy](https://github.com/digital-fabric/syntropy) and
           [Datastar](https://data-star.dev/)
 
-          [Source](https://github.com/noteflakes/noteflakes.com/tree/main/sites/noteflakes.com/app) -
+          [Source](https://github.com/noteflakes/noteflakes.com/tree/main/sites/noteflakes.com/app/gol) -
           [Original idea](https://example.andersmurphy.com/)
         MD
 

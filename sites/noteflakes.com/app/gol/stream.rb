@@ -22,6 +22,7 @@ end
 
 export ->(req) {
   req.validate_http_method('get')
+  req.auto_compress!
   req.respond_sse {
     each_update { |html| req.send_ds_html_patch(html) }
   }
