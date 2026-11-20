@@ -13,7 +13,7 @@ layout = template { |board|
       script(type: 'module', src: "https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.4/bundles/datastar.js")
     }
     body(data_init: "@get('/gol/stream')") {
-      div(id: 'container', ) {
+      div(id: 'container') {
         markdown <<~MD
           # Multiplayer Game of Life
 
