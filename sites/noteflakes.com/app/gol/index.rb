@@ -28,7 +28,7 @@ layout = template { |board|
           span 'Connections: '
           span(data_text: '$connected_count')
         }
-        
+
         render board_template, board
       }
       auto_refresh!
@@ -36,11 +36,11 @@ layout = template { |board|
   }
 }
 
-colors = %w{black red blue green orange fuchsia purple}
+colors = %w[black red blue green orange fuchsia purple]
 
 export ->(req) {
-  req.session['game_color'] = colors.sample
   req.validate_http_method('get')
+  req.session['game_color'] = colors.sample
   board = game.board
   req.respond_html(layout.render(board))
 }
