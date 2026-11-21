@@ -1,19 +1,20 @@
 export self
 
-@info = {
-  connections: 0,
-  load_avg: 0,
-  time: nil
-}
+@updates = @machine.broadcaster
+def updates = @updates
 
-@machine.spin {
+def machine_stats
+  {
+    time:         Time.now.strftime("%Y-%m-%d %H:%M:%S"),
+    load_avg:     File.read('/proc/loadavg').split.first,
+    connections:  Syntropy::HTTP::ServerConnection.count
+  }
+end
+
+update_fiber = @machine.spin {
   @machine.periodically(1) {
-    @info[:time] = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    @info[:load_avg] = File.read('/proc/loadavg').split.first
-    @info[:connections] = Syntropy::HTTP::ServerConnection.count
+    stats = machine_stats rescue nil
+    @updates.broadcast(stats) if stats
   }
 }
-
-def info
-  @info
-end
+on_unload { @machine.terminate(update_fiber) }
