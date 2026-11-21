@@ -8,9 +8,8 @@ def size
   SIZE
 end
 
-def board
-  @board
-end
+def board = @board
+def board_updates = @board_updates
 
 def each_update(&block)
   mailbox = Fiber.current.mailbox
@@ -48,10 +47,6 @@ def setup_board
   board = [nil] * (SIZE * SIZE)
 end
 
-def update_subscribers(board)
-  @subscribers.each { |m| @machine.push(m, board) }
-end
-
 def next_generation(board)
   new_board = Array.new(SIZE * SIZE)
   IDX_RANGE.each do |idx|
@@ -80,13 +75,15 @@ def get_live_neighbors(board, idx)
   live
 end
 
-@subscribers = Set.new
+@board_updates = @machine.broadcaster
 @board = setup_board
-@machine.spin do
+
+update_fiber = @machine.spin {
   @machine.periodically(0.1) {
     @board = next_generation(@board)
-    update_subscribers(@board)
+    @board_updates.broadcast(@board)
   }
-end
+}
+on_unload { @machine.terminate(update_fiber) }
 
 5.times { fill_cross(rand(SIZE * SIZE), 'blue') }

@@ -1,39 +1,30 @@
 game = import '/gol/_game'
 template = import '/gol/_board'
 
-@subscribers = Set.new
-def each_update(&block)
-  mailbox = Fiber.current.mailbox
-  @subscribers << mailbox
-  loop do
-    html = @machine.shift(mailbox)
-    yield(html)
-  end
-ensure
-  @subscribers.delete(mailbox)
-end
-
-@machine.spin {
-  game.each_update { |board|
-    next if @subscribers.size == 0
+html_updates = @machine.broadcaster
+update_fiber = @machine.spin {
+  game.board_updates.each { |board|
+    next if html_updates.listener_count == 0
 
     html = template.render(board)
-    @subscribers.each { |m| @machine.push(m, html) }
+    html_updates.broadcast(html)
   }
 }
+on_unload { @machine.terminate(update_fiber) }
 
 export ->(req) {
   req.validate_http_method('get')
   req.auto_compress!
   req.respond_sse {
-    last_connected_count = @subscribers.size
+    last_connected_count = html_updates.listener_count
     req.send_ds_signal_patch(connected_count: last_connected_count)
-    each_update { |html|
+    html_updates.each { |html|
       req.send_ds_html_patch(html)
 
-      if @subscribers.size != last_connected_count
-        last_connected_count = @subscribers.size
-        req.send_ds_signal_patch(connected_count: last_connected_count)
+      connected_count = html_updates.listener_count
+      if connected_count != last_connected_count
+        last_connected_count = connected_count
+        req.send_ds_signal_patch(connected_count: connected_count)
       end
     }
   }
