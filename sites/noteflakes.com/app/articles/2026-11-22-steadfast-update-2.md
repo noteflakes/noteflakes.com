@@ -1,6 +1,6 @@
 ---
 title: "Steadfast Update II - Rewriting ASTs"
-description: ""
+description: "In the last Steadfast update I discussed the foundations of the project, its general API design, and my work on implementing the basic capacity of turning ASTs back to source code. In this update I'm discussing a new tool for rewriting Ruby ASTs."
 layout: article
 ---
 
