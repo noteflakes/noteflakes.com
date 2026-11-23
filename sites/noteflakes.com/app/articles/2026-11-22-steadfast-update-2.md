@@ -212,9 +212,12 @@ the top of the AST (that is, on the outside), with the preceding calls being
 expressed as the *receiver* of that method call, something like the following:
 
 ```ruby
->>(
-  receiver: >>(
-    receiver: >>(
+call(
+  name: :>>,
+  receiver: call(
+    name: :>>,
+    receiver: call(
+      name: :>>,
       receiver: 1,
       arguments: [add(2)]
     ),
